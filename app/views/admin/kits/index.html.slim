@@ -1,0 +1,23 @@
+#kits
+  /! top toolbar
+  .btn-toolbar
+    .btn-group
+      = link_to new_admin_kit_path, class: 'btn btn-primary' do
+        i.icon-file-text
+        span.l-padding-5 = t("breadcrumbs.admin.kits.new")
+  .widget-box.transparent
+    .widget-body
+      .widget-main
+        .table-header = t('breadcrumbs.admin.kits.index')
+        table#kits-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_kits_path}"
+          thead
+            tr
+              th = Resource.human_attribute_name :title
+              th = t('breadcrumbs.admin.articles.assign')
+              th = Resource.human_attribute_name :created_at
+              th = t('buttons.actions')
+            tr
+              th
+              th
+              th
+              th

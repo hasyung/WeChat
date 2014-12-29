@@ -1,0 +1,109 @@
+#album-images-list {
+  .widget-toolbar {
+    a.hide {
+      display: none;
+    }
+    a {
+      color: #FFF;
+      i.icon-plus {
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+  ul {
+    margin: 0 auto;
+    .resource-sort-highlight {
+      height: 100px;
+      background: #6379aa;
+    }
+    li.resource {
+      cursor: pointer;
+      border-bottom: 1px dotted #6379aa;
+      padding: 5px;
+      &:last-child {
+        border-bottom: none;
+      }
+      .resource-info {
+        margin-left: 10px;
+        width: 718px;
+        .title {
+          background: #6379aa;
+          color: #FFF;
+          padding-left: 10px;
+          font-size: 14px;
+          height: 30px;
+          line-height: 30px;
+          overflow: hidden;
+          a {
+            color: #FFF;
+            text-decoration: none;
+            padding-right: 5px;
+          }
+        }
+        .description {
+          margin-top: 5px;
+          max-height: 45px;
+          overflow: hidden;
+        }
+      }
+      .resource-cover {
+        img {
+          width: 80px;
+          height: 80px;
+        }
+        .action-shade {
+          width: 80px;
+          height: 80px;
+          background: rgba(0, 0, 0, 0.5);
+          position: absolute;
+          a {
+            top: 27px;
+            left: 30px;
+            color: #FFF;
+            position: absolute;
+            &:hover {
+              text-decoration: none;
+              color: #CCC;
+            }
+          }
+        }
+      }
+      .resource-sort {
+        display: none;
+        width: 40px;
+        height: 80px;
+        text-align: center;
+        i.icon-align-justify {
+          padding-top: 30px;
+          color: #b4c2cc;
+          font-size: 16px;
+        }
+      }
+      &.sort {
+        cursor: move;
+        .resource-info {
+          width: 668px;
+        }
+        .resource-sort {
+          display: block;
+        }
+      }
+      &.active {
+        background: rgba(99, 121, 170, 0.3);
+      }
+    }
+  }
+}
+
+.progress-striped {
+  width: 150px;
+}
+
+#admin-albums {
+  table.table {
+    td.actions {
+      width: 160px;
+    }
+  }
+}

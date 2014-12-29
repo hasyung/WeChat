@@ -1,0 +1,176 @@
+#admin-menus {
+  #modal {
+    form {
+      .control-group {
+        margin-bottom: 0;
+      }
+    }
+  }
+  #menu-list {
+    .widget-toolbar {
+      a.hide {
+        display: none;
+      }
+    }
+    ul {
+      margin-bottom: 0;
+    }
+    li.menu {
+      > .menu-inner {
+        cursor: pointer;
+        > [class*='span'] {
+          padding: 10px;
+          font-size: 14px;
+          &:last-child {
+            text-align: right;
+            padding-right: 15px;
+            a {
+              color: #FFF;
+              margin-right: 15px;
+              i.icon-plus {
+                position: relative;
+                top: 1px;
+              }
+              &:hover {
+                text-decoration: none;
+                color: #CCC;
+              }
+            }
+            i.icon-align-justify {
+              position: relative;
+              top: 2px;
+              color: #b4c2cc;
+            }
+          }
+        }
+        &.active {
+          background: #307ecc;
+          color: #FFF;
+        }
+        &.hover {
+          background: #68adde;
+          color: #FFF;
+        }
+        &.active.hover {
+          background: #307ecc;
+        }
+        &.sort {
+          cursor: move;
+          a {
+            display: none;
+          }
+          .icon-align-justify {
+            display: inline;
+          }
+        }
+      }
+    }
+    li.sub {
+      [class*='span'] {
+        &:first-child {
+          padding-left: 40px;
+        }
+      }
+    }
+    .menu-sort-highlight {
+      height: 36px;
+      background: #86b558;
+      border: 1px solid #629b58;
+      border-left-width: 0;
+      border-right-width: 0;
+      padding: 2px;
+    }
+  }
+  #menu-resources-list {
+    .widget-toolbar {
+      a.hide {
+        display: none;
+      }
+      a {
+        color: #FFF;
+        i.icon-plus {
+          position: relative;
+          top: 1px;
+        }
+      }
+    }
+    ul {
+      margin: 0 auto;
+      .resource-sort-highlight {
+        height: 100px;
+        background: #6379aa;
+      }
+      li.resource {
+        cursor: pointer;
+        border-bottom: 1px dotted #6379aa;
+        padding: 5px;
+        &:last-child {
+          border-bottom: none;
+        }
+        .resource-info {
+          margin-left: 10px;
+          width: 618px;
+          .title {
+            background: #6379aa;
+            color: #FFF;
+            padding-left: 10px;
+            font-size: 14px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+          }
+          .description {
+            margin-top: 5px;
+            max-height: 45px;
+            overflow: hidden;
+          }
+        }
+        .resource-cover {
+          img {
+            width: 80px;
+            height: 80px;
+          }
+          .action-shade {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            a {
+              top: 27px;
+              left: 30px;
+              color: #FFF;
+              position: absolute;
+              &:hover {
+                text-decoration: none;
+                color: #CCC;
+              }
+            }
+          }
+        }
+        .resource-sort {
+          display: none;
+          width: 40px;
+          height: 80px;
+          text-align: center;
+          i.icon-align-justify {
+            padding-top: 30px;
+            color: #b4c2cc;
+            font-size: 16px;
+          }
+        }
+        &.sort {
+          cursor: move;
+          .resource-info {
+            width: 568px;
+          }
+          .resource-sort {
+            display: block;
+          }
+        }
+        &.active {
+          background: rgba(99, 121, 170, 0.3);
+        }
+      }
+    }
+  }
+}

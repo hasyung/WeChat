@@ -1,0 +1,7 @@
+= simple_form_for @filter, url: admin_replies_path, method: :get do |f|
+  = f.input :number, input_html: { class: 'input-block-level' }, required: false
+  = f.input :name, input_html: { class: 'input-block-level' }, required: false
+  /! buttons
+  button.btn.btn-primary.r-margin-10 type="submit"
+    i.icon-filter.bigger-110
+    span = t("buttons.filter")

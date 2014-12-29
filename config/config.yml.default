@@ -1,0 +1,168 @@
+defaults: &defaults
+  # 基本配置
+  app_name: 'OneTrip Weixin'
+  app_name_locale: '壹旅游微信服务平台'
+  domain: '125.69.76.141'
+
+  map_key: 'baaaac304561811303175c820920071e'
+
+  weather_keyword:
+    key: '#'
+
+  watermark:
+    video_big: 'app/assets/images/watermark/video-big.png'
+    video_small: 'app/assets/images/watermark/video-small.png'
+    audio_big: 'app/assets/images/watermark/audio-big.png'
+    audio_small: 'app/assets/images/watermark/audio-small.png'
+    album_big: 'app/assets/images/watermark/album-big.png'
+    album_small: 'app/assets/images/watermark/album-small.png'
+    map_big: 'app/assets/images/watermark/map-big.png'
+    map_small: 'app/assets/images/watermark/map-small.png'
+
+  # 邮件配置
+  mailer:
+    address: 'smtp.gmail.com'
+    port: 587
+    authentication: :plain
+    domain: 'gmail.com'
+    user_name: 'xxxe@gmail.com'
+    password: 'xxx'
+
+  # 上传文件配置
+  upload_url: 'http://125.69.76.141'
+  upload_dir: 'resources'
+  # 上传扩展名
+  upload_image_extension: ['jpg', 'jpeg', 'gif', 'png', 'bmp']
+  upload_flash_extension: ['swf', 'flv']
+  upload_video_extension: ['mp4']
+  upload_audio_extension: ['mp3']
+  upload_media_extension: ['swf', 'flv', 'mp3', 'wav', 'wma', 'wmv', 'mid', 'avi', 'mpg', 'asf', 'rm', 'rmvb', 'mp4']
+  upload_file_extension: ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2']
+  # 上传大小
+  audio_upload_size: 20
+  image_upload_size: 5
+  video_upload_size: 100
+
+  # GPS 距离
+  distance: 20
+
+  page_size: 10
+
+  admin_user_roles: [
+    'admin',
+    'admin_user_manager',
+    'reply',
+    'reply_manager',
+    'menu',
+    'menu_manager',
+    'weather',
+    'weather_manager',
+    'guide',
+    'guide_manager',
+    'member',
+    'member_manager',
+    'message',
+    'message_manager',
+    'directory',
+    'directory_manager',
+    'audio',
+    'audio_manager',
+    'video',
+    'video_manager',
+    'article',
+    'article_manager',
+    'album',
+    'album_manager',
+    'map',
+    'map_manager',
+    'system_reply',
+    'merchant',
+    'merchant_manager',
+    'vote',
+    'vote_manager'
+  ]
+
+  we_chat:
+    limit_menus: 3
+    limit_sub_menus: 5
+    limit_resources: 10
+    limit_qr_code: 10
+    access_token_url: 'https://api.weixin.qq.com/cgi-bin/token'
+    qr_code_url: 'https://api.weixin.qq.com/cgi-bin/qrcode/create'
+    get_qr_code_url: 'https://mp.weixin.qq.com/cgi-bin/showqrcode'
+    member_info: 'https://api.weixin.qq.com/cgi-bin/user/info'
+    menus:
+      create: 'https://api.weixin.qq.com/cgi-bin/menu/create'
+      show: 'https://api.weixin.qq.com/cgi-bin/menu/get'
+      destroy: 'https://api.weixin.qq.com/cgi-bin/menu/delete'
+  enums:
+    action:
+      global: 0
+      search: 1
+      location: 2
+      weather: 3
+      guide: 4
+      album: 5
+    sex:
+      unknown: 0
+      male: 1
+      female: 2
+    menu_category:
+      text: 0
+      view: 1
+      resource: 2
+    reply_category:
+      text: 0
+      resource: 1
+    message_categroy:
+      event: 0
+      text: 1
+      image: 2
+      video: 3
+      location: 4
+      voice: 5
+      link: 6
+    album:
+      stamp: 0
+      gallery: 1
+    merchant:
+      ordinary: 0
+
+  system_messages:
+    subscribe: -1000
+    send_image: -100
+    send_video: -101
+    send_audio: -102
+    send_link:  -103
+    send_voice: -104
+    send_qrcode: -105
+    reply_not_found: -1
+    text_not_found: -2
+    search_not_found: -11
+    search_list: -12
+    location_not_found: -21
+    location_list: -22
+    weather_not_found: -31
+    weather_list: -32
+    weather: -33
+    guide_not_found: -41
+    guide_list: -42
+    guide: -43
+    album_not_found: -51
+    vote_success: -61
+    vote_exist: -62
+    album_not_found: -51
+    vote_success: -61
+    vote_exist: -62
+    vote_time_start: -63
+    vote_time_end: -64
+    vote_switch_off: -65
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

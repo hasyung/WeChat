@@ -1,0 +1,33 @@
+= simple_form_for [:admin, @admin_user] do |f|
+  .row-fluid
+    .span6
+      = f.input :email, input_html: { class: "input-block-level" }
+    .span6
+      = f.input :realname, input_html: { class: "input-block-level" }
+  .row-fluid
+    .span6
+      = f.input :password, input_html: { class: "input-block-level" }, \
+      required: %w(new create).include?(action_name) ? true : nil
+    .span6
+      = f.input :password_confirmation, input_html: { class: "input-block-level" }, \
+      required: %w(new create).include?(action_name) ? true : nil
+  .row-fluid
+    .span12
+      hr
+      = f.input :roles do
+        .row-fluid
+          - AdminUser.valid_roles.each do |role|
+            label.checkbox.inline.span2
+              = check_box_tag "admin_user[roles][#{role}]", role, @admin_user.roles.include?(role), \
+              { name: "admin_user[roles][]" }
+              span.lbl = t("activerecord.roles.admin_users.#{role}")
+          = hidden_field_tag "admin_user[roles][]", ""
+
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to admin_articles_path, class: :btn do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.back")

@@ -1,0 +1,32 @@
+= simple_form_for [:admin, @kit] do |f|
+  = hidden_field_tag 'kit[admin_user_id]', current_admin_user.id
+  .row-fluid
+    .span12
+      = f.input :title, input_html: { class: :span12 }
+  .row-fluid.b-margin-10
+    .span12
+      = f.input :cover do
+        = f.file_field :cover
+        = f.hidden_field :cover_cache
+      = image_tag @kit.cover.big.url, class: 'cover-big img-polaroid' if @kit.cover?
+      = image_tag @kit.cover.small.url, class: 'cover-small img-polaroid l-margin-20' if @kit.cover?
+  .row-fluid.b-margin-10
+    .span12
+      = f.simple_fields_for :kit_profile, @kit.new_record? ? @kit.build_kit_profile : @kit.kit_profile do |profile|
+        = profile.input :file, wrapper_html: { class: (@kit.errors.include?(:kit_profile) or @kit.errors.include?(:"kit_profile.file")) ? :error : nil } do
+          = profile.file_field :file
+          - if @kit.errors.include?(:kit_profile) or @kit.errors.include?(:"kit_profile.file")
+            span.help-inline = @kit.errors.get(:kit_profile).blank? ? @kit.errors.get(:"kit_profile.file").first : @kit.errors.get(:kit_profile).first
+      - if not @kit.new_record?
+        kit#example_kit_1.kit-js controls="controls" preload="none" poster="#{@kit.cover.url}"
+          source src="#{@kit.kit_profile.file.url}" type='kit/mp4'
+  .row-fluid.b-margin-10
+    = f.input :description, as: :text, input_html: { class: :span12, rows: 6 }
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to admin_kits_path, class: :btn do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.back")

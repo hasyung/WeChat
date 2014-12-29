@@ -1,0 +1,12 @@
+<% if params[:type].present? and %w(action).include?(params[:type]) %>
+  $('#menu-action .widget-main').html('<%= j render("action_form") %>')
+  com.onetrip.admin.common.initSelectpicker()
+  com.onetrip.admin.menu.menuToggleCategory()
+  com.onetrip.admin.menu.initResource()
+<% else %>
+  $("#modal").html('<%= j render("menu_form") %>').modal({
+    backdrop: 'static',
+    keyboard: false,
+    width: 400
+  })
+<% end %>

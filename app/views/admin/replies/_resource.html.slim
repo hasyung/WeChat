@@ -1,0 +1,12 @@
+li.resource.clearfix id='resource_#{resource.id}'
+  input type='hidden' name='reply[resource_ids][]' value='#{resource.id}'
+  .resource-cover.pull-left
+    .action-shade.hide
+      = link_to 'javascript:void()', remote: true, data: { toggle: :tooltip }, title: t('breadcrumbs.admin.resources.destroy') do
+        i.icon-trash.icon-2x
+    = image_tag resource.cover.small.url.to_s, class: 'img-rounded'
+  .resource-info.pull-left
+    .title = "[#{resource.type.constantize.model_name.human}] #{resource.title}"
+    .description = truncate resource.description, length: 60
+  .resource-sort.pull-right
+    i.icon-align-justify.icon-large

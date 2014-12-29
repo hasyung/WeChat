@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%= Vote.human_attribute_name :booth %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Vote.human_attribute_name :phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Vote.human_attribute_name :created_at %></Data></Cell>
+      </Row>
+    <% Vote.all.each do |vote| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= vote.booth %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= vote.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= I18n.l(vote.created_at, format: :long) %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

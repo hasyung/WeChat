@@ -1,0 +1,738 @@
+'zh-CN':
+  login:
+    title: '新方舟公众号管理平台欢迎你！'
+    email: '邮箱'
+    password: '密码'
+    captcha: '验证码'
+    remember_me: ' 记住我'
+    login: '登录'
+    forgot_password: '忘记密码'
+    disable: '请稍候...'
+
+  footer:
+    copyright: 'Copyright © 四川阿凡达有限公司 新方舟公众号管理平台 v0.1'
+
+  forgot:
+    title: 'Retrieve Password'
+    email: '邮箱'
+    send: '发送邮件'
+    login: '返回登录'
+    desc: '输入你注册时使用的邮箱。'
+    disable: '请稍候...'
+
+  reset:
+    title: 'Reset Password'
+    desc: '请填写你要修改的新密码。'
+    password: '新密码'
+    password_confirmation: '重复密码'
+    send: '修改密码'
+    disable: '请稍候...'
+
+  pagination:
+    first: "首页"
+    last: "尾页"
+    previous: "上一页"
+    next: "下一页"
+    truncate: "..."
+
+  titles:
+    alert: '警告'
+    heads_up: '小心'
+    link: '点击我查看'
+    affix: '帮助栏'
+    error: '出错啦'
+    tips: '小贴士'
+    info: '说明'
+    previews: '预览'
+    choose_account: '选择帐号'
+    article_group:
+      create: '创建图文'
+      edit: '编辑图文'
+    maps:
+      search: '查询位置...'
+
+  buttons:
+    setting: '设置'
+    logout: '退出'
+    actions: '操作'
+    back: '返回列表'
+    back_page: '返回'
+    edit: '修改'
+    show: '查看'
+    ok: '确定'
+    open_map: '打开地图'
+    submit: '提交保存'
+    destroy: '删除'
+    reset: '重置表单'
+    search: '搜索'
+    filter: '过滤'
+    tips: '小贴士'
+    close: '关闭'
+    start: '开始'
+    cancel: '取消'
+    re_upload: '重新上传'
+    upload_audio: '上传音频'
+    upload_news: '上传图文'
+    add_file: '添加文件'
+    add_vote_rule: '添加中奖规则'
+    save: '保 存'
+    review: '预览'
+    add: '添加'
+    select: '选择'
+    images: '图集'
+    assign_user: '分配用户'
+    qrcode_download: '查看二维码'
+    qrcode_cancel: '取消二维码'
+    qrcode_rebuild: '重建二维码'
+    articles:
+      new: '新增一条'
+
+  messages:
+    place_chose: '请选择'
+    audio_file_blank: '必须上传音频文件。'
+    confirm_destroy: '你确定删除吗？'
+    empty: '无'
+    map_touch: '(请使用缩放手势查看)'
+    audios:
+      file_type: '音频文件必须是以.mp3结尾的格式。'
+      title: '标题最长不能超过100个字符。'
+      description: '描述最长不能超过1000个字符。'
+    accounts:
+      name: '20个字符以内，只能是中文，字母和数字组成。'
+      en_name: '20个字符以内，只能是"-"，"_"，字母和数字组成。'
+      email: '必须是邮箱且唯一的。'
+      password: '最少6个字符。'
+      description: '1000字以内。'
+      user_info: '管理邮箱和密码是用来登录前台管理的，一个账户只能有一个管理用户。'
+      no_attribute: '暂无'
+    messages:
+      events:
+        unsubscribe: '取消了关注。'
+        subscribe: '关注了该帐号。'
+        click: '点击了 "%{menu_name}" 菜单。'
+        location: '发送 "%{lng}" , "%{lat}", 地理位置： %{label} 。'
+        voice: '发送了 "%{recognition}" 。'
+    menus:
+      tips: '你可以创建最多 %{menu_count} 个菜单，每个菜单下可以创建最多 %{sub_menu_count} 个子菜单。编辑中的菜单不会马上被用户看到，可以放心调试。'
+      empty_action: '你可以先添加或点击一个菜单，然后开始为其设置响应动作。'
+      empty: '你还没有添加任何菜单！'
+      parent_menu: '该菜单已经拥有了子菜单，不能再设置动作，如果之前设置了动作将失效。'
+      menu: '菜单名字不能多于8个汉字或字母！'
+      destroy: '删除该菜单将删除所有的子菜单'
+      sub: '子菜单名字不能多于10个汉字或字母！'
+      sub_destroy: '你确定要删除该菜单吗？'
+      root_menu: '该菜单不能设置动作。'
+      empty_resources: '你还没有选择任何资源，你可以点击右上角添加资源。'
+    votes:
+      tips: '投票规则是1个数字4+1个字母+2个数字的组合+1个空格符+11位的手机号码。(如：4G01#13541230147)'
+      menu: '请分别填写投票的开始时间与结束时间。'
+    replies:
+      empty_resources: '你还没有选择任何资源，你可以点击右上角添加资源。'
+      placeholder: '占位符表示返回的结果，如果不填写则不展示，你可以在你的文本内容中任意放置这个变量。'
+      resources: '你的资源必须控制在1~10个之间'
+      qrcode: '已生成二维码'
+    resources:
+      add: '点击表格行选择资源，最多只能选择 %{count} 篇资源。'
+    images:
+      empty_action: "你可以通过'上传图片'选项进行图片添加。"
+      empty_title: "图片还没有名称，请完善"
+    audios:
+      tip: '[点击磁带播放音频]'
+
+  errors:
+    messages:
+      wrong_size: "大小错误 (应该是 %{file_size})"
+      size_too_small: "最小不能小于 %{file_size}"
+      size_too_big: "最大不能大于 %{file_size}"
+      validate_server: "操作失败，服务器验证错误。"
+      server_error: "十分抱歉，服务错误，请联系管理员。"
+      unique_error: "该名称已经存在，请更换！"
+      carrierwave_processing_error: '处理错误'
+      carrierwave_integrity_error: '格式不是可上载的类型'
+      extension_white_list_error: '不可上载 %{extension} 档案，可以上载的档案类型为：%{allowed_types}'
+      rmagick_processing_error: '用 rmagick 处理影像档时发生错误，也许上载的不是影像档？原错误讯息：%{e}'
+      mime_types_processing_error: '处理档案 MIME::Types 时发生错误，也许上载的档案不是正确的 content-type ？原错误：%{e}'
+      mini_magick_processing_error: '使用 MiniMagick 处理影像时发生错误，也许上载的不是影像档？原错误：%{e}'
+      no_attribute: '暂无'
+      system_error: '出错啦！'
+      weixin:
+        request_argument: '参数错误'
+        request_invalid: '不是来自微信的访问'
+      fileupload:
+        accept_file_types: '文件类型错误。'
+        max_number_of_files: '超过最大上传数量。'
+        max_file_size: '文件太大了，上传限制为 %{count} 。'
+      audios:
+        create: '创建音频失败！'
+        update: '修改音频失败！'
+        destroy: '删除音频失败！'
+      kits:
+        create: '创建视频失败！'
+        update: '修改视频失败！'
+        destroy: '删除视频失败！'
+      accounts:
+        destroy: '删除帐号失败！'
+        empty: '您的微信帐号还没有开通，请联系管理员。'
+        shoose_empty: '请先选择右上角的帐号，在继续操作！'
+        not_found: '你的微信帐号异常，请联系管理员。'
+        incomplete: '帐号信息不完整。'
+      articles:
+        create: '创建文章失败！'
+        destroy: '删除文章失败！'
+        update: '更新文章失败！'
+      members:
+        destroy: '删除会员失败！'
+      albums:
+        create: '创建图集失败！'
+        update: '更新图集失败！'
+        destroy: '删除图集失败！'
+      merchants:
+        create: '创建商家失败！'
+        update: '更新商家失败！'
+        destroy: '删除商家失败！'
+      directory:
+        create: '创建目录失败！'
+        update: '更新目录失败！'
+        destroy: '删除目录失败！'
+        has_resources: '删除目录失败，该目录下还有资源！'
+      replies:
+        create: '创建回复失败！'
+        update: '更新回复失败！'
+        destroy: '删除回复失败！'
+        select_news: '请添加图文'
+        select_audio: '请添加音频'
+        qrcode_limit: '超过创建微信二维码的数量！'
+        qrcode: '生成二维码失败！'
+        cancel_qrcode: '取消二维码失败！'
+      menus:
+        limit_menu: '你超过了创建菜单的个数，只能小于 %{count} 个。'
+        limit_sub_menu: '你超过了创建子菜单的个数，只能小于 %{count} 个。'
+        destroy: '删除失败，请联系管理员。'
+        remote_create: '发布失败，错误代码： %{code}, 错误信息：%{message}。'
+        remote_destroy: '删除失败，错误代码： %{code}, 错误信息：%{message}。'
+      weathers:
+        destroy: '删除天气失败！'
+      guides:
+        destroy: '删除导游失败！'
+      resources:
+        empty_select: '你没有选中任何资源'
+        beyond_limit: '你最多只能添加 %{count} 个资源。'
+      admin_user:
+        current_password: '请输入当前用户的登陆密码！'
+        password_confirmation: '两次输入的新密码不一致!'
+      votes:
+        save: '保存投票信息失败！'
+        vote_time: '投票开始时间与投票结束时间格式有误！'
+      maps:
+        create: '创建地图失败！'
+        update: '修改地图失败！'
+        destroy: '删除地图失败！'
+      admin_users:
+        create: '创建用户失败！'
+        update: '修改用户失败！'
+        destroy: '删除用户失败！'
+
+  successes:
+    messages:
+      audios:
+        create: '创建音频成功！'
+        update: '修改音频成功！'
+        destroy: '删除音频成功！'
+      kits:
+        create: '创建视频成功！'
+        update: '修改视频成功！'
+        destroy: '删除视频成功！'
+      accounts:
+        create: '创建帐号成功！'
+        update: '修改帐号成功！'
+        destroy: '删除帐号成功！'
+        access_token: '生成成功'
+      articles:
+        count: '你最多只可以加入10条图文消息'
+        create: '创建图文成功！'
+        destroy: '删除图文成功！'
+        update: '更新文章成功！'
+      albums:
+        create: '创建图集成功！'
+        update: '更新图集成功！'
+        destroy: '删除图集成功！'
+      merchants:
+        create: '创建商家成功！'
+        update: '更新商家成功！'
+        destroy: '删除商家成功！'
+      members:
+        destroy: '删除会员成功！'
+      directory:
+        create: '创建目录成功！'
+        update: '更新目录成功！'
+        destroy: '删除目录成功！'
+      replies:
+        create: '创建回复成功！'
+        update: '更新回复成功！'
+        destroy: '删除回复成功！'
+        qrcode: '生成二维码成功！'
+        cancel_qrcode: '删除二维码成功！'
+      menus:
+        action: '设置菜单动作成功！'
+        remote_create: '菜单发布成功！'
+        remote_destroy: '菜单删除成功！'
+      weathers:
+        create: '创建天气成功！'
+        update: '更新天气成功！'
+        destroy: '删除天气成功！'
+      guides:
+        create: '创建导游成功！'
+        update: '更新导游成功！'
+        destroy: '删除导游成功！'
+      admin_user:
+        update: '更新资料成功！'
+      votes:
+        save: '保存投票信息成功！'
+      maps:
+        create: '创建地图成功！'
+        update: '修改地图成功！'
+        destroy: '删除地图成功！'
+      admin_users:
+        create: '创建用户成功！'
+        update: '修改用户成功！'
+        destroy: '删除用户成功！'
+
+  system_messages:
+    subscribe: '当用户订阅时自动回复'
+    send_image: '当用户发送图片时自动回复'
+    send_video: '当用户发送视频时自动回复'
+    send_link:  '当用户发送链接时自动回复'
+    send_voice: '当用户发送声音时自动回复'
+    send_qrcode: '当用户发送二维码无结果时自动回复'
+    reply_not_found: '当用户查询编码无结果时自动回复'
+    text_not_found: '当用户查询文本无结果时自动回复'
+    search_not_found: '当用户搜索没有结果时自动回复'
+    search_list: '当用户搜索为多个结果时自动回复'
+    # location_not_found: '当用户发送地理位置没有结果时自动回复'
+    # location_list: '当用户发送地理位置为多个结果时自动回复'
+    # weather_not_found: '当用户发送天气没有结果时自动回复'
+    # weather_list: '当用户发送天气为多个结果时自动回复'
+    # weather: '当用户发送天气为一个结果时自动回复'
+    # guide_not_found: '当用户发送导游没有结果时自动回复'
+    # guide_list: '当用户发送导游为多个结果时自动回复'
+    # guide: '当用户发送导游为一个结果时自动回复'
+    # album_not_found: '当用户发送图集没有结果时自动回复'
+    # merchants_not_found: '当用户发送商家没有结果时自动回复'
+    # vote_success: '当用户发送投票成功时自动回复'
+    # vote_exist: '当用户重复发送投票时自动回复'
+    # vote_time_start: '投票时间未开始'
+    # vote_time_end: '投票时间已结束'
+    # vote_switch_off: '投票功能未开启'
+
+  activerecord:
+    models:
+      user: '用户'
+      admin_user: "用户"
+      account: '微信帐号'
+      article_group: '图文'
+      article: '文章'
+      article_profile: '文章附件'
+      audio: '音频'
+      audio_profile: '音频附件'
+      kit: '视频'
+      kit_profile: '视频附件'
+      reply: '回复'
+      album: '图集'
+      album_profile: '图集附件'
+      merchant: '商家'
+      merchant_profile: '商家附件'
+      directory: '目录'
+      weather: '天气'
+      guide: '导游'
+      map: '地图'
+      map_profile: '地图附件'
+      audit: "日志"
+      resource: "资源"
+      reply_resource: "回复资源"
+      menu: '菜单'
+    attributes:
+      admin_user:
+        realname: '昵称'
+        email: '邮箱'
+        avatar: '头像'
+        password: '密码'
+        current_password: '当前密码'
+        password_confirmation: '确认密码'
+        reset_password_token: '密钥'
+        created_at: '创建时间'
+        last_sign_in_at: '最后时间'
+        last_sign_in_ip: '最后IP'
+        current_sign_in_at: '当前时间'
+        current_sign_in_ip: '当前IP'
+        sign_in_count: '登录数'
+        roles: '角色'
+      message:
+        msg_type: '消息类型'
+        body: '内容'
+        created_at: '创建时间'
+      member:
+        open_id: '微信用户'
+        nickname: '微信用户'
+        alias: '别名'
+        city: '城市'
+        language: '使用语言'
+        sex: '性别'
+        subscribe: '订阅'
+        action: '当前状态'
+      account:
+        user_id: '所属用户'
+        name: '名称'
+        alias: '微信号'
+        token: 'token'
+        app_id: 'APP ID'
+        app_secret: 'APP Secret'
+        access_token: '访问密钥'
+        expires_in: '密钥过期时间'
+        directories_count: '目录数'
+        audios_count: '音频数'
+        articles_count: '文章数'
+        albums_count: '图集数'
+        kits_count: '急救包数'
+        menus_count: '菜单数'
+        messages_count: '消息数'
+        identifier: '标识符'
+        description: '介绍'
+        avatar: '头像'
+        qr_code: '二维码'
+        domain: '域名'
+        ip: 'IP'
+        created_at: '创建时间'
+        api: '访问API'
+        members_count: '关注数'
+        replies_count: '回复数'
+        email: '管理邮箱'
+        password: '管理密码'
+        password_confirmation: '重复密码'
+        vote_switch_cd: '投票'
+        lottery_one: '中奖规则1'
+        lottery_two: '中奖规则2'
+        lottery_three: '中奖规则3'
+        vote_time_start: '投票开始时间'
+        vote_time_end: '投票结束时间'
+      reply:
+        number: '唯一编号'
+        name: '名字'
+        title: '标题'
+        area: '区域'
+        tag_list: '关键字'
+        area_id: '所属区域'
+        reply_type: '类型'
+        body: '文本内容'
+        audio_title: '音频标题'
+        audio_file: '音频文件'
+        created_at: '创建时间'
+        category_cd: '回复类型'
+        category: '回复类型'
+        audio: '音频'
+        text: '文本'
+        news: '图文'
+        lat: '纬度'
+        lng: '经度'
+        admin_user: '用户'
+        qrcode: '二维码'
+      resource:
+        title: '标题'
+        description: '描述'
+        created_at: '创建时间'
+        updated_at: '修改时间'
+        account: '所属帐号'
+        account_id: '所属帐号'
+        directory: '所属目录'
+        directory_id: '目录'
+        cover: '封面'
+        type: '类型'
+        admin_user: '所属用户'
+      vote:
+        booth: '展台'
+        phone: '手机'
+        created_at: '创建时间'
+      album:
+        image: '图片'
+      merchant:
+        image: '图片'
+      image:
+        title: '标题'
+      merchant_image:
+        title: '标题'
+      audio_profile:
+        file: '音频文件'
+      kit_profile:
+        file: '视频文件'
+      article_profile:
+        body: '正文'
+        url: 'URL地址'
+      album_profile:
+        type_cd: '类型'
+      merchant_profile:
+        type_cd: '类型'
+        body: '正文'
+        url: 'URL地址'
+      map_profile:
+        file: '地图文件'
+      directory:
+        name: '名称'
+        account_id: '所属帐号'
+        created_at: '创建时间'
+        account: '所属帐号'
+      menu:
+        category_cd: '菜单类型'
+        category: '菜单类型'
+        action_cd: '用户状态'
+        action: '用户状态'
+        text: '文字内容'
+        url: 'URL连接地址'
+        audio_title: '音频标题'
+        audio_file: '音频文件'
+      weather:
+        account: "公众帐号"
+        name: "名称"
+        body: "内容"
+        weather_at: '天气时间'
+        cityid: "城市ID"
+        w1: "开始天气现象代码"
+        w2: "结束天气现象代码"
+        wt: "天气现象"
+        weather_id: "天气ID"
+        city: "城市名称"
+        t1: "白天温度"
+        strdate: "天气时间"
+        wind: "风向"
+        resourcecode: "景区编码"
+        t2: "夜间温度"
+        fh: "预报时次"
+        tag_list: "标记"
+        keyword: "关键码"
+        tt: "温度"
+      guide:
+        account: "公众帐号"
+        name: "姓名"
+        qualificationscardno: "编号"
+        body: "内容"
+        created_at: '创建时间'
+        company: "公司"
+        typename: "级别"
+        regionname: "地区"
+        language: "语言"
+        gender: "性别"
+        areacode: "地区编号"
+        rn: "序号"
+        idno: "ID序号"
+        memo: "备注"
+        guideidcard: "导游ID编号"
+        guide_id: "导游ID"
+        identification: "身份号"
+        guidelevel: "导游等级"
+        guideimage: "导游照片"
+        created_at: '创建时间'
+      audit:
+        user_id: "用户名"
+        auditable_type: "类型"
+        auditable_id: "ID"
+        action: "操作"
+        version: "版本"
+        audited_changes: "修改内容"
+        created_at: '创建时间'
+      reply_resource:
+        reply_id: "回复ID"
+        resource_id: "资源ID"
+        order: "排序"
+
+    roles:
+      admin_users:
+        admin: '超级管理员'
+        admin_user_manager: '用户管理员'
+        reply: '回复录入员'
+        reply_manager: '回复管理员'
+        menu: '菜单录入员'
+        menu_manager: '菜单管理员'
+        weather: '天气录入员'
+        weather_manager: '天气管理员'
+        guide: '导游录入员'
+        guide_manager: '导游管理员'
+        member: '会员录入员'
+        member_manager: '会员管理员'
+        message: '消息录入员'
+        message_manager: '消息管理员'
+        directory: '目录录入员'
+        directory_manager: '目录管理员'
+        audio: '音频录入员'
+        audio_manager: '音频管理员'
+        kit: '视频录入员'
+        kit_manager: '视频管理员'
+        article: '文章录入员'
+        article_manager: '文章管理员'
+        album: '图集录入员'
+        album_manager: '图集管理员'
+        map: '地图录入员'
+        map_manager: '地图管理员'
+        system_reply: '系统回复录入员'
+        merchant: '商家录入员'
+        merchant_manager: '商家管理员'
+        vote: '投票查看'
+        vote_manager: '投票管理员'
+
+    enums:
+      account:
+        vote_switches:
+          vote_on: '开启'
+          vote_off: '关闭'
+      menu:
+        categories:
+          text: '文本'
+          view: '外部URL'
+          resource: '资源'
+        actions:
+          global: '全局状态'
+          search: '搜索状态'
+          location: 'GPS状态'
+          weather: '天气状态'
+          guide: '导游状态'
+          album: '图集状态'
+      message:
+        categories:
+          text: '文本'
+          link: '链接'
+          image: '图片'
+          audio: '音频'
+          location: '地理位置'
+          event: '事件'
+          voice: '声音'
+      reply:
+        categories:
+          text: '文本'
+          news: '图文'
+          resource: '资源'
+      album_profile:
+        types:
+          stamp: '精彩图记'
+          gallery: '老郝画廊'
+      merchant_profile:
+        types:
+          ordinary: '普通'
+
+      member:
+        sexes:
+          unknown: '未知'
+          male: '男'
+          female: '女'
+        actions:
+          global: '全局状态'
+          search: '搜索状态'
+          location: 'GPS状态'
+          weather: '天气状态'
+          guide: '导游状态'
+          album: '图集状态'
+      guide:
+        gender_1: '男'
+        gender_2: '女'
+      audit:
+        actions:
+          create: "创建"
+          update: "更新"
+          destroy: "删除"
+          login: "登录"
+          logout: "登出"
+  views:
+    pagination:
+      first: '首页'
+      last: '末页'
+      previous: '上一页'
+      next: '下一页'
+      truncate: '...'
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "没有任何数据"
+          one: "共 <b>1</b> 条数据"
+          other: "共 <b>%{count}</b> 条数据"
+      more_pages:
+        display_entries: "显示数据 <b>%{first}&nbsp;-&nbsp;%{last}</b> 共 <b>%{total}</b> 条"
+  resources:
+    updatetime: '更新时间'
+    checkimage: '点击查看原图'
+    audio-desc: '壹旅游伴你游'
+  albums:
+    list: '精美图记'
+    pictrue: '老郝画廊'
+    merchant: '商家'
+  merchants:
+    ordinary: '普通'
+  links:
+    confirm: '您确定要删除吗？'
+  app:
+    guides: '武侯祠语音导游'
+    list: '精彩图记'
+  unauthorized:
+    admin_user_read: '你没有权限查看用户列表'
+    admin_user_create: '你没有权限创建用户'
+    admin_user_update: '你没有权限编辑用户'
+    admin_user_destroy: '你没有权限删除用户'
+    admin_user_setting: '你没有权限修改用户信息'
+    member_read: '你没有权限查看会员列表'
+    member_destroy: '你没有权限删除会员'
+    account_update: '你没有权限修改帐号'
+    message_read: '你没有权限查看消息'
+    system_reply_read: '你没有权限查看系统回复'
+    reply_read: '你没有权限查看回复'
+    reply_create: '你没有权限创建回复'
+    reply_update: '你没有权限编辑回复'
+    reply_destroy: '你没有权限删除回复'
+    reply_assign: '你没有权限为回复分配用户'
+    reply_create_qrcode: '你没有权限创建二维码'
+    reply_cancel_qrcode: '你没有权限取消二维码'
+    directory_read: '你没有权限查看目录'
+    directory_create: '你没有权限创建目录'
+    directory_update: '你没有权限编辑目录'
+    directory_destroy: '你没有权限删除目录'
+    weather_read: '你没有权限查看天气'
+    weather_create: '你没有权限创建天气'
+    weather_update: '你没有权限编辑天气'
+    weather_destroy: '你没有权限删除天气'
+    guide_read: '你没有权限查看导游'
+    guide_create: '你没有权限创建导游'
+    guide_update: '你没有权限编辑导游'
+    guide_destroy: '你没有权限删除导游'
+    audio_read: '你没有权限查看音频'
+    audio_create: '你没有权限创建音频'
+    audio_update: '你没有权限编辑音频'
+    audio_destroy: '你没有权限删除音频'
+    audio_assign: '你没有权限为音频分配用户'
+    kit_read: '你没有权限查看视频'
+    kit_create: '你没有权限创建视频'
+    kit_update: '你没有权限编辑视频'
+    kit_destroy: '你没有权限删除视频'
+    kit_assign: '你没有权限为视频分配用户'
+    article_read: '你没有权限查看文章'
+    article_create: '你没有权限创建文章'
+    article_update: '你没有权限编辑文章'
+    article_destroy: '你没有权限删除文章'
+    article_assign: '你没有权限为文章分配用户'
+    album_read: '你没有权限查看图集'
+    album_create: '你没有权限创建图集'
+    album_update: '你没有权限编辑图集'
+    album_destroy: '你没有权限删除图集'
+    album_assign: '你没有权限为图集分配用户'
+    map_read: '你没有权限查看地图'
+    map_create: '你没有权限创建地图'
+    map_update: '你没有权限编辑地图'
+    map_destroy: '你没有权限删除地图'
+    map_assign: '你没有权限为地图分配用户'
+    audit_read: '你没有权限查看日志'
+    merchant_read: '你没有权限查看商家'
+    merchant_create: '你没有权限创建商家'
+    merchant_update: '你没有权限编辑商家'
+    merchant_destroy: '你没有权限删除商家'
+    vote_read: '你没有权限查看投票'
+    vote_manage: '你没有权限管理投票'
+    menu_manage: '你没有权限操作菜单'
+    menu_read: '你没有权限查看菜单'
+    menu_create: '你没有权限创建菜单'
+    menu_update: '你没有权限编辑菜单'
+    menu_destroy: '你没有权限删除菜单'
+

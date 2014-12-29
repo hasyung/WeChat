@@ -1,0 +1,12 @@
+.modal-header
+  button.close data-dismiss="modal" aria-hidden="true" ×
+  h3 = t('breadcrumbs.admin.replies.qrcode')
+.modal-body
+  - if can? :create, DimensionalCode
+    .row-fluid
+      .span6
+        = link_to t('breadcrumbs.admin.replies.dimensional_code.temp'), create_qrcode_admin_reply_path(@reply, type: :temp), remote: true, :"data-dismiss" => "modal", :"aria-hidden" => true, method: :post, class: 'btn btn-info'
+      .span6
+        = link_to t('breadcrumbs.admin.replies.dimensional_code.eternal'), create_qrcode_admin_reply_path(@reply), remote: true, :"data-dismiss" => "modal", :"aria-hidden" => true, method: :post, class: 'btn btn-info'
+.modal-footer
+  button.btn data-dismiss="modal" = t('buttons.cancel')

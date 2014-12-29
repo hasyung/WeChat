@@ -1,0 +1,7 @@
+ul.unstyled
+  - if (action_name != 'resources' or action_name != 'update')
+    - reply.resources(true).each do |resource|
+      = render partial: 'admin/replies/resource', locals: { resource: resource }
+  - if @resources.present?
+    - @resources.each do |resource|
+      = render partial: 'admin/replies/resource', locals: { resource: resource }

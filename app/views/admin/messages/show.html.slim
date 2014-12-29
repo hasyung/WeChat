@@ -1,0 +1,50 @@
+.widget-box
+  .widget-header.header-color-dark
+    h5
+      i.icon-file-text
+      span = t("breadcrumbs.admin.messages.show")
+  .widget-body
+    .widget-toolbox.padding-8
+      .btn-toolbar
+    .widget-main
+    fieldset
+      .row-fliud
+        .span8.l-padding-20
+          .control-group
+            h5 = Message.human_attribute_name :msg_type
+            label.label-border = Message.human_enum_name :msg_type, @message.msg_type
+          - if @message.msg_type == :text
+            .control-group
+              h5 = Message.human_attribute_name :content
+              label.label-border = @content['content']
+          - elsif @message.msg_type == :image
+            .control-group
+              h5 = Message.human_attribute_name :image
+              = image_tag @content['pic_url'], class: "img-polaroid"
+          - elsif @message.msg_type == :location
+            .control-group
+              h5 = Message.human_attribute_name :location
+              label.label-border = "#{@content['location_x']}, #{@content['location_y']}"
+            .control-group
+              h5 = Message.human_attribute_name :scale
+              label.label-border = "#{@content['scale']}"
+            .control-group
+              h5 = Message.human_attribute_name :label
+              label.label-border = "#{@content['label']}"
+          - elsif @message.msg_type == :link
+            .control-group
+              h5 = Message.human_attribute_name :link
+              label.label-border = link_to t('views.messages.link'), "#{@content['url']}"
+          - elsif @message.msg_type == :event
+            .control-group
+              h5 = Message.human_attribute_name :event
+              label.label-border = @content['event']
+            .control-group
+              h5 = Message.human_attribute_name :event_key
+              label.label-border = @content['event_key']
+      .row-fliud
+        .span12
+          .form-actions
+            a.btn href==admin_messages_path
+              i.icon-arrow-left.bigger-110
+              span = t("views.buttons.back")

@@ -1,0 +1,7 @@
+#replies.accordion.b-margin-20
+  - @replies.each do |reply|
+    = render partial: 'admin/replies/reply', locals: { reply: reply }
+#pagination-wrap.row-fluid  
+  .span4
+    .pagination-info = page_entries_info @replies
+  .span8 = paginate @replies, theme: 'admin'

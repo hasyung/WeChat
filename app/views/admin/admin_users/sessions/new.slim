@@ -1,0 +1,43 @@
+.login-container
+  .row-fluid.position-relative
+    .span12
+      #login-box.widget-box.no-border.visible
+        .widget-body
+          .widget-main
+            h4.header.blue.lighter.bigger
+              i.icon-coffee.green
+              span.l-padding-5 = t("login.title")
+            .space-6
+            = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { autocomplete: :off }) do |f|
+              fieldset
+                = bootstrap_flash(true)
+                = f.input :email, label: false, hint: false do
+                  label
+                    span.block.input-icon.input-icon-right
+                      = f.text_field :email, class: :span12, placeholder: t("login.email"), autofocus: true
+                      i.icon-user
+                = f.input :password, label: false, hint: false do
+                  label
+                    span.block.input-icon.input-icon-right
+                      = f.password_field :password, class: :span12, placeholder: t("login.password")
+                      i.icon-lock
+
+                = f.input :captcha, label: false, hint: false, wrapper: :captcha, wrapper_html: { class: 'row-fluid' } do
+                  label.span8
+                    span.block.input-icon.input-icon-right
+                      = f.text_field :captcha, class: :span12, placeholder: t("login.captcha")
+                      i.icon-shield
+                  .span4
+                    = captcha_tag class: :captcha
+                .row-fluid
+                  label.span8
+                    = f.check_box :remember_me
+                    span.lbl = t("login.remember_me")
+                  = button_tag class: "span4 btn btn-small btn-primary", data: { disable_with: t("login.disable") } do
+                    i.icon-key
+                    span.l-padding-5 = t("login.login")
+          .toolbar.clearfix
+            div
+              a.forgot-password-link href="#{new_admin_user_password_path}"
+                i.icon-arrow-left
+                span.l-padding-5 = t("login.forgot_password")

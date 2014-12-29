@@ -1,0 +1,29 @@
+.login-container
+  .row-fluid.position-relative
+    .span12
+      #forgot-box.widget-box.no-border.visible
+        .widget-body
+          .widget-main
+            h4.header.blue.lighter.bigger
+              i.icon-key
+              span.l-padding-5 = t("forgot.title")
+            .space-6 
+            p = t("forgot.desc")
+            = simple_form_for(resource, as: resource_name, url: password_path(resource_name)) do |f|
+              fieldset
+                = simple_error_messages!(resource, false)
+                = f.input :email, label: false, hint: false, error: false do
+                  label
+                    span.block.input-icon.input-icon-right
+                      = f.email_field :email, class: :span12, placeholder: t("forgot.email"), autofocus: true
+                      i.icon-envelope
+                .row-fluid
+                  = button_tag class: "span5 offset7 btn btn-small btn-danger", data: { disable_with: t("forgot.disable") } do
+                    i.icon-lightbulb
+                    span.l-padding-5 = t("forgot.send")
+          .toolbar.center.clearfix
+            div
+              a.back-to-login-link href="#{new_admin_user_session_path}"
+                i.icon-arrow-right
+                span.l-padding-5 = t("forgot.login")
+              

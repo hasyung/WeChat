@@ -1,0 +1,6 @@
+<% if @account.errors.any? %>
+  $('#modal').html('<%= j render("modal_form") %>')
+<% else %>
+  $('#account-info').html('<%= j render(partial: "account", locals: { account: @account }) %>')
+  $('#modal').modal('hide')
+<% end %>

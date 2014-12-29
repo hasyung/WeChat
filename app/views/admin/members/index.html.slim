@@ -1,0 +1,23 @@
+#members
+  .widget-box.transparent
+    .widget-body
+      .widget-main
+        .table-header = t('breadcrumbs.admin.members.index')
+        table#members-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_members_path}"
+          thead
+            tr
+              th = Member.human_attribute_name :open_id
+              th = Member.human_attribute_name :alias
+              th = Member.human_attribute_name :city
+              th = Member.human_attribute_name :sex
+              th = Member.human_attribute_name :subscribe
+              th = Member.human_attribute_name :action
+              th = t('buttons.actions')
+            tr
+              th
+              th
+              th
+              th
+              th
+              th
+              th

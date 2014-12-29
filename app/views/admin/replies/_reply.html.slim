@@ -1,0 +1,75 @@
+.accordion-group id='#{reply.new_record? ? "reply-new" : "reply-#{reply.id}"}' class="#{ 'system' if reply.is_system? }"
+  .accordion-heading
+    = link_to reply.new_record? ? "#reply-new-content" : "#reply-#{reply.id}-content", \
+    class: 'accordion-toggle', data: { toggle: :collapse, parent: '#replies' } do
+      - if reply.is_system?
+        i.r-margin-10.icon-cog
+        span = reply.name
+      - else
+        i.r-margin-10 class='#{reply.new_record? ? "icon-plus" : "icon-comment"}'
+        span = reply.new_record? ? t('breadcrumbs.admin.replies.new') : "[#{reply.number}] #{reply.name}"
+    .toolbar
+      - if reply.new_record?
+        = link_to 'javascript:void(0)', class: "reply-close #{reply.new_record? ? 'new' : 'edit'}", data: { toggle: :tooltip }, \
+        title: t('buttons.close') do
+          i.icon-off.icon-large
+      - else
+        - if can? :update, Reply
+          = link_to edit_admin_reply_path(reply), remote: true, class: 'r-margin-10', data: { toggle: :tooltip }, \
+          title: t('breadcrumbs.admin.replies.edit') do
+            i.icon-pencil.icon-large
+        - unless reply.is_system?
+          -if ((reply.scene_id.zero? and reply.scene_delete.blank?) or reply.scene_delete == true) and can? :create_qrcode, Reply
+            = link_to create_qrcode_admin_reply_path(reply), remote: true, method: :post, class: 'r-margin-10 create-qrcode', data: { toggle: :tooltip}, \
+            title: t('breadcrumbs.admin.replies.qrcode') do
+              i.icon-qrcode
+          - if can? :assign_user, Reply
+            = link_to assign_admin_reply_path(reply), remote: true, class: 'r-margin-10', data: { toggle: :tooltip }, \
+            title: t('breadcrumbs.admin.replies.assign') do
+              i.icon-male.icon-large
+          - if can? :destroy, Reply
+            = link_to admin_reply_path(reply), remote: true, method: :delete, data: { toggle: :tooltip, confirm: t('links.confirm') }, \
+            title: t('breadcrumbs.admin.replies.destroy') do
+              i.icon-trash.icon-large
+  .accordion-body.collapse id='#{reply.new_record? ? "reply-new-content" : "reply-#{reply.id}-content"}' class='#{reply.new_record? ? 'in' : nil}'
+    .accordion-inner
+      - if reply.new_record?
+        = render 'admin/replies/form'
+      - else
+        table.table.table-bordered
+          tbody
+            - unless reply.is_system?
+              tr
+                td.label = Reply.human_attribute_name :number
+                td = reply.number
+                td.label = Reply.human_attribute_name :category
+                td
+                  label.label.label-inverse = reply.human_category
+              tr
+                td.label = Reply.human_attribute_name :name
+                td colspan='3' = reply.name
+              tr
+                td.label = Reply.human_attribute_name :tag_list
+                td colspan='3' = reply.tag_list
+              tr
+                td.label = Reply.human_attribute_name :admin_user
+                td = reply.admin_user.blank? ? t('messages.empty') : reply.admin_user.realname
+                td.label = Reply.human_attribute_name :qrcode
+                td
+                  -if !reply.scene_id.zero? and reply.scene_delete.blank?
+                    = qrcode_link reply
+                    = link_to t('buttons.qrcode_rebuild'), create_qrcode_admin_reply_path(reply, type: 'rebuild'), remote: true, method: :post, class: 'l-margin-10'
+                    = link_to t('buttons.qrcode_cancel'), cancel_qrcode_admin_reply_path(reply), method: :delete, remote: true, class: 'l-margin-10'
+            - else
+              tr
+                td.label = Reply.human_attribute_name :category
+                td
+                  label.label.label-inverse = reply.human_category
+            - if reply.resources.count.zero?
+              tr
+                td colspan='4' = reply.body
+            - else
+              tr
+                td colspan='4'
+                  #reply-resources-list
+                    = render partial: 'admin/replies/resources', locals: { reply: reply }

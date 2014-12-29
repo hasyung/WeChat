@@ -1,0 +1,40 @@
+.row-fluid
+  .span12
+    .alert.alert-info.alert-block
+      strong = t('titles.tips')
+      p = t('messages.menus.tips', menu_count: Setting.we_chat.limit_menus, sub_menu_count: Setting.we_chat.limit_sub_menus)
+.row-fluid
+  .span12
+    .btn-toolbar
+      .btn-group
+        = link_to t('breadcrumbs.admin.menus.remote_create'), menus_admin_account_path(current_account), \
+        class: 'btn btn-success', method: :post, remote: true
+        = link_to t('breadcrumbs.admin.menus.remote_show'), menus_admin_account_path(current_account), \
+        class: 'btn btn-success', remote: true
+        = link_to t('breadcrumbs.admin.menus.remote_destroy'), menus_admin_account_path(current_account), \
+        class: 'btn btn-success', remote: true, method: :delete
+.row-fluid
+  .span4
+    #menu-list.widget-box
+      .widget-header.header-color-blue
+        h6 = t('breadcrumbs.admin.menus.manager')
+        .widget-toolbar.no-border
+          = link_to new_admin_menu_path, remote: true, class: 'v-padding-5 add-menu', \
+          title: t('breadcrumbs.admin.menus.new'), data: { toggle: :tooltip } do
+            i.icon-file-text
+          = link_to 'javascript:void(0)', class: 'v-padding-5 start-sort', \
+          title: t('breadcrumbs.admin.menus.sort'), data: { toggle: :tooltip } do
+            i.icon-list-ol
+          = link_to 'javascript:void(0)', class: 'v-padding-5 end-sort hide', \
+          title: t('breadcrumbs.admin.menus.sorted'), data: { toggle: :tooltip } do
+            i.icon-ok-sign
+      .widget-body
+        .widget-main.no-padding
+          = render 'menus'
+  .span8
+    #menu-action.widget-box
+      .widget-header.header-color-blue
+        h6.lighter = t('breadcrumbs.admin.menus.action')
+      .widget-body
+        .widget-main
+          = render 'empty'

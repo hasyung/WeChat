@@ -1,0 +1,23 @@
+<% if @result.blank? %>
+  alert('<%= t("errors.messages.accounts.incomplete") %>')
+<% else %>
+  <% if request.post? %>
+    <% if @result[:errcode] == 0 %>
+      alert('<%= t("successes.messages.menus.remote_create") %>')
+    <% else %>
+      alert('<%= t("errors.messages.menus.remote_create", code: @result[:errcode], message: @result[:errmsg]) %>')
+    <% end %>
+  <% elsif request.get? %>
+    $("#modal").html('<%= j render("menus") %>').modal({
+      backdrop: 'static',
+      keyboard: false,
+      width: 500
+    })
+  <% else %>
+    <% if @result[:errcode] == 0 %>
+      alert('<%= t("successes.messages.menus.remote_destroy") %>')
+    <% else %>
+      alert('<%= t("errors.messages.menus.remote_destroy", code: @result[:errcode], message: @result[:errmsg]) %>')
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,1 @@
+<%= raw({status: response.status, errors: @error.nil? ? '' : @error, result: JSON.parse(yield)}.to_json) %>

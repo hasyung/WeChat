@@ -1,0 +1,6 @@
+- if current_account.menus.blank?
+  .empty
+    .alert.alert-warning = t('messages.menus.empty')
+- else
+  .empty
+    .alert.alert-warning = t('messages.menus.empty_action')

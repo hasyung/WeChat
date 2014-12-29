@@ -1,0 +1,65 @@
+= simple_form_for [:admin, @reply], remote: true do |f|
+  = hidden_field_tag 'reply[admin_user_id]', current_admin_user.id
+  - unless @reply.is_system?
+    .row-fluid
+      .span6
+        = f.input :number, input_html: { class: 'input-block-level' }
+      .span6
+        = f.input :name, input_html: { class: 'input-block-level' }
+  .row-fluid
+    .span6
+      = f.input :category_cd, collection: Reply.categories_for_select(:value), \
+      include_blank: false, input_html: { data: { width: '100%', url: '' } }
+    - unless @reply.is_system?
+      .span6
+        = f.input :tag_list, input_html: { class: 'input-block-level' }
+  - unless @reply.is_system?
+    .row-fluid.location
+      .span5
+        = f.input :lat, input_html: { class: 'input-block-level' }
+      .span5
+        = f.input :lng, input_html: { class: 'input-block-level' }
+      .span2
+        = link_to t('buttons.open_map'), map_admin_replies_path(id: @reply.blank? ? nil : @reply.id), \
+        class: 'btn btn-small btn-success', remote: true, id: 'btn-map'
+  #category-text.row-fluid class="#{@reply.category_text? ? nil : 'hide'}"
+    .span12
+      = f.input :body, input_html: { class: 'input-block-level', rows: 4 }, required: true
+      - if @reply.is_system?
+        span.label.label-inverse {{list}}
+        span.label.label-info = t('messages.replies.placeholder')
+  #category-resource.row-fluid class="#{@reply.category_resource? ? nil : 'hide'}"
+    .span12
+      #reply-resources-list.widget-box
+        .widget-header.header-color-blue3
+          h6.lighter = t('breadcrumbs.admin.replies.resources')
+          .widget-toolbar.no-border
+            = link_to resources_admin_replies_path(id: @reply.new_record? ? nil : @reply.id), \
+            remote: true, class: 'v-padding-5 add-resource', \
+            title: t('breadcrumbs.admin.replies.add_resource'), data: { toggle: :tooltip } do
+              i.icon-plus
+            = link_to 'javascript:void(0)', class: 'v-padding-5 start-sort', \
+            title: t('breadcrumbs.admin.replies.resource_sort'), data: { toggle: :tooltip } do
+              i.icon-list-ol
+            = link_to 'javascript:void(0)', class: 'v-padding-5 end-sort hide', \
+            title: t('breadcrumbs.admin.replies.resource_sorted'), data: { toggle: :tooltip } do
+              i.icon-ok-sign
+        .widget-body
+          .widget-main
+            - if @reply.reply_resources_count.zero? && @reply.errors[:resource_ids].blank?
+              .empty
+                .alert.alert-warning = t('messages.replies.empty_resources')
+            - else
+              - if @reply.errors.include?(:resource_ids)
+                .alert.alert-error = @reply.errors.get(:resource_ids).first
+              = render partial: 'admin/replies/resources', locals: { reply: @reply }
+
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to "#{@reply.new_record? ? 'javascript:void(0)' : admin_reply_path(@reply)}", remote: true, \
+    class: "btn reply-close #{@reply.new_record? ? 'new' : 'edit'}" do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.cancel")

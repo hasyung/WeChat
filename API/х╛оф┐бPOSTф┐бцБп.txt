@@ -1,0 +1,149 @@
+订阅时：
+{
+  "xml"=>
+  {
+    "ToUserName"=>"gh_d7b3ad2ea582",
+    "FromUserName"=>"okr-ojmVpB0H7ebIrij66BSsZXEs",
+    "CreateTime"=>"1377769758",
+    "MsgType"=>"event",
+    "Event"=>"subscribe",
+    "EventKey"=>""
+  },
+  "signature"=>"d17624baa555e726a13887d6a6df867497f182db",
+  "timestamp"=>"1377769758",
+  "nonce"=>"1377811716"
+}
+退订时：
+{
+  "xml"=>
+  {
+    "ToUserName"=>"gh_d7b3ad2ea582",
+    "FromUserName"=>"okr-ojmVpB0H7ebIrij66BSsZXEs",
+    "CreateTime"=>"1377767505",
+    "MsgType"=>"event",
+    "Event"=>"unsubscribe",
+    "EventKey"=>""
+  },
+  "signature"=>"5de5567f50bb25f02d42ed6541d693d8ff852b70",
+  "timestamp"=>"1377767505",
+  "nonce"=>"1377217064"
+}
+发送文本时：
+{
+  "xml"=>
+  {
+    "ToUserName"=>"gh_d7b3ad2ea582",
+    "FromUserName"=>"okr-ojmVpB0H7ebIrij66BSsZXEs",
+    "CreateTime"=>"1377770073",
+    "MsgType"=>"text",
+    "Content"=>"qq",
+    "MsgId"=>"5917477404942532967"
+  },
+  "signature"=>"b0509e95a2549131f7cfc0c76dd72eb6f1b62e7d",
+  "timestamp"=>"1377770073",
+  "nonce"=>"1377581744"
+}
+
+<xml>
+  <ToUserName>gh_d7b3ad2ea582</ToUserName>
+  <FromUserName>okr-ojmVpB0H7ebIrij66BSsZXEs</FromUserName>
+  <CreateTime>1377770073</CreateTime>
+  <MsgType>text</MsgType>
+  <Content>qq</Content>
+  <MsgId>5917477404942532967</MsgId>
+</xml>
+
+发送图片时：
+{
+  "xml"=>
+  {
+    "ToUserName"=>"gh_d7b3ad2ea582",
+    "FromUserName"=>"okr-ojmVpB0H7ebIrij66BSsZXEs",
+    "CreateTime"=>"1377772172",
+    "MsgType"=>"image",
+    "PicUrl"=>"http://mmsns.qpic.cn/mmsns/xtw9Kzoc3huqDoFJ6E4AfiapNEQ3oofFO5icM76G8nEqN3qW4mw8vprg/0",
+    "MsgId"=>"5917486420078887280",
+    "MediaId"=>"yqI-PuMa87nTh4C7zXBqW5kL8lawWTziR3drqxhkU2fpp3YgnVWeE7kcNVj1-Cdy"
+  },
+  "signature"=>"7abfa926d5f5e0713bc7422f5c1f1966438150cd",
+  "timestamp"=>"1377772173",
+  "nonce"=>"1377792455"
+}
+发送视频时：
+{
+  "xml"=>
+  {
+    "ToUserName"=>"gh_d7b3ad2ea582",
+    "FromUserName"=>"okr-ojmVpB0H7ebIrij66BSsZXEs",
+    "CreateTime"=>"1377772499",
+    "MsgType"=>"video",
+    "MediaId"=>"pLvUFMW2K7ehX0FUp1BPsrDghWK7AYMcElHbi6jwK0Y",
+    "ThumbMediaId"=>"2iaYPn5P4ssAFmzSOEUVQ6PlxkLNAdcLVdLHuFMxz5Q",
+    "MsgId"=>"5917487824533193073"
+  },
+  "signature"=>"27423b0bd90a182af05416debbfba90ad446d04d",
+  "timestamp"=>"1377772499",
+  "nonce"=>"1377166053"
+}
+发送地理位置时：
+{
+  "xml"=>
+  {
+    "ToUserName"=>"gh_d7b3ad2ea582",
+    "FromUserName"=>"okr-ojmVpB0H7ebIrij66BSsZXEs",
+    "CreateTime"=>"1377772686",
+    "MsgType"=>"location",
+    "Location_X"=>"30.540874",
+    "Location_Y"=>"104.075306",
+    "Scale"=>"15",
+    "Label"=>"中国四川省成都市武侯区世纪城南路",
+    "MsgId"=>"5917488627692077426"
+  },
+  "signature"=>"79120a8ddc2657ff18beec9f6ed55356b60b4254",
+  "timestamp"=>"1377772686",
+  "nonce"=>"1376796007"
+}
+发送声音时：
+{
+  "xml"=>
+  {
+    "ToUserName"=>"gh_d7b3ad2ea582",
+    "FromUserName"=>"okr-ojmVpB0H7ebIrij66BSsZXEs",
+    "CreateTime"=>"1377772898",
+    "MsgType"=>"voice",
+    "MediaId"=>"E120yJxiCEPCmaQ4TKIxFzE4NmpH62uY3nJ3jzB97CjEQt39iW6KaqOZ9o18ZvpZ",
+    "Format"=>"amr",
+    "MsgId"=>"5917489538225144180",
+    "Recognition"=>""
+  },
+  "signature"=>"d386285ed59e5ed68a1e00ba68d796190840f104",
+  "timestamp"=>"1377772898",
+  "nonce"=>"1377231746"
+}
+<xml>
+  <ToUserName>gh_d7b3ad2ea582</ToUserName>
+  <FromUserName>okr-ojmVpB0H7ebIrij66BSsZXEs</FromUserName>
+  <CreateTime>1377772898</CreateTime>
+  <MsgType>voice</MsgType>
+  <MediaId>E120yJxiCEPCmaQ4TKIxFzE4NmpH62uY3nJ3jzB97CjEQt39iW6KaqOZ9o18ZvpZ</MediaId>
+  <Format>amr</Format>
+  <MsgId>5917489538225144180</MsgId>
+  <Recognition></Recognition>
+</xml>
+
+XML参数
+http://localhost:10000/api/v1/accounts/sichuanhaowan?signature=d17624baa555e726a13887d6a6df867497f182db&timestamp=1377769758&nonce=1377811716
+<xml>
+  <ToUserName><![CDATA[gh_d7b3ad2ea582]]></ToUserName>
+  <FromUserName><![CDATA[okr-ojmVpB0H7ebIrij66BSsZXEs]]></FromUserName>
+  <CreateTime>1377769758</CreateTime>
+  <MsgType><![CDATA[event]]></MsgType>
+  <Event><![CDATA[CLICK]]></Event>
+  <EventKey><![CDATA[1]]></EventKey>
+</xml>
+
+
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxf57fec3ea948fd0d&secret=c2eb94dcbd51d7f06710b521d8ecdc0d
+https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=ACCESS_TOKEN
+https://api.weixin.qq.com/cgi-bin/menu/get?access_token=ACCESS_TOKEN
+https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN

@@ -1,0 +1,14 @@
+<% if params[:type].present? %>
+  $('#edit-image').modal('hide')
+  $('#merchant-images-list').html("<%= j render('list')%>")
+<% else %>
+  $('#modal').html("<%=j render('index') %>").modal({
+    backdrop: 'static',
+    keyboard: false,
+    width: 900
+  })
+  com.onetrip.admin.common.initFileUpload()
+<% end %>
+
+com.onetrip.admin.merchant.initImage()
+com.onetrip.admin.common.initTooltip()

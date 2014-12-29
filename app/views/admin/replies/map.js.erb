@@ -1,0 +1,80 @@
+$("#modal").html('<%= j render("admin/replies/map") %>').modal({
+  backdrop: 'static',
+  keyboard: false,
+  width: 800
+}).on('shown', function(e){
+
+  replyLat = $('<%= "#replies-list #reply-#{params[:id].blank? ? "new" : params[:id]} #reply_lat" %>')
+  replyLng = $('<%= "#replies-list #reply-#{params[:id].blank? ? "new" : params[:id]} #reply_lng" %>')
+
+  map = new AMap.Map('map-content', {
+    level: 12
+  })
+  map.plugin(['AMap.ToolBar', 'AMap.PlaceSearch'], function() {
+    map.addControl(new AMap.ToolBar())
+    MSearch = new AMap.PlaceSearch();
+    AMap.event.addListener(MSearch, "complete", keywordSearch_CallBack)
+  })
+  $('#search-btn').click(function (){
+    MSearch.search($('#search-text').val());
+  })
+
+  function keywordSearch_CallBack(data) {
+    resultStr = "";
+    poiArr = data.poiList.pois;
+    resultCount = poiArr.length;
+    for (var i = 0; i < resultCount; i++) {
+      addmarker(i, poiArr[i]);
+      if (i == 0){ map.setCenter(poiArr[i].location); map.setZoom(14) }
+    }
+  }
+
+  function addmarker(i, d) {
+      lngX = d.location.getLng();
+      latY = d.location.getLat();
+      markerOption = {
+        map: map,
+        icon: "http://webapi.amap.com/images/" + (i + 1) + ".png",
+        position: new AMap.LngLat(lngX, latY)
+      };
+      mar = new AMap.Marker(markerOption);
+  }
+
+  if(replyLat.val().length > 0 && replyLng.val().length > 0) {
+    mapLngLat = new AMap.LngLat(replyLng.val(), replyLat.val())
+    map.setZoom(14)
+    marker = new AMap.Marker({
+      map: map,
+      position: mapLngLat,
+      draggable: true
+    })
+  } else {
+    mapLngLat = new AMap.LngLat(104.065933, 30.656816)
+  }
+
+  map.setCenter(mapLngLat)
+
+  AMap.event.addListener(map, 'rightclick', function(e) {
+    map.clearMap()
+    marker = new AMap.Marker({
+      map: map,
+      position: e.lnglat,
+      draggable: true
+    })
+  })
+
+  $("#modal .modal-footer button.btn-primary").click(function() {
+    if(typeof(marker) === 'undefined') {
+      return alert('marker is empty')
+    } else {
+      replyLng.val(marker.getPosition().getLng())
+      replyLat.val(marker.getPosition().getLat())
+      map.destroy()
+      $("#modal").modal("hide")
+    }
+  })
+
+  $("#modal [data-dismiss='modal']").click(function() {
+    map.destroy()
+  })
+})

@@ -1,0 +1,14 @@
+#admin-audios {
+  form {
+    img {
+      &.cover-big {
+        width: 320px;
+      }
+    }
+  }
+  table.table {
+    td.actions {
+      width: 120px;
+    }
+  }
+}

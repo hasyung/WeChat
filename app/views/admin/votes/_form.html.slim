@@ -1,0 +1,21 @@
+= simple_form_for(current_account, url: setting_admin_votes_path) do |f|
+  = field_set_tag t('breadcrumbs.admin.application.settings.system_vote') do
+    .row-fluid
+      .span12
+        .alert.alert-info.alert-block
+          strong = t('titles.tips')
+          ul
+            li = t('messages.votes.tips')
+            li = t('messages.votes.menu')
+  #vote-form
+    .row-fluid
+      .span4
+        = f.input :vote_switch_cd, collection: Account.vote_switches_for_select(:value), \
+        prompt: false, input_html: { data: { width: '100%' } }
+      .span4
+        = f.input :vote_time_start, readonly: true, \
+        input_html: { class: 'input-block-level datetimepicker datetimepickerStart form_datetime' }
+      .span4
+        = f.input :vote_time_end, readonly: true, \
+        input_html: { class: 'input-block-level datetimepicker datetimepickerEnd form_datetime' }
+    = f.submit t('buttons.save'), class: 'btn btn-primary'

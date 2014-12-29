@@ -1,0 +1,10 @@
+- if current_account.present?
+  #account-info
+    = render partial: 'admin/accounts/account', locals: { account: current_account }
+  
+- else
+  .alert.alert-info.alert-block
+    button.close data-dismiss='alert'
+      i.icon-remove
+    strong = t('titles.tips')
+    p = t('errors.messages.accounts.shoose_empty')

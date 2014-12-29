@@ -1,0 +1,25 @@
+#alert-qrcode.modal.hide.fade
+.row-fluid
+  .span4
+    #replies-filter.widget-box
+      .widget-header.header-color-blue
+        h6 = t('breadcrumbs.admin.replies.filter')
+      .widget-body
+        .widget-main
+          = render 'admin/replies/filter_form'
+  .span8
+    #replies-list.widget-box
+      .widget-header.header-color-blue
+        h6 = t('breadcrumbs.admin.replies.index')
+        - if controller_name != 'system_replies'
+          .widget-toolbar.no-border
+            - if can? :create, Reply
+              = link_to new_admin_reply_path, remote: true, class: 'v-padding-5 add-reply', \
+              title: t("breadcrumbs.admin.replies.new"), data: { toggle: :tooltip } do
+                i.icon-file-text
+      .widget-body
+        .widget-main
+          = render 'admin/replies/replies'
+
+- content_for :scripts do
+  = javascript_include_tag "http://webapi.amap.com/maps?v=1.2&key=#{Setting.map_key}"

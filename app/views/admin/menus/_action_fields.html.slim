@@ -1,0 +1,32 @@
+.span12
+  - if @menu.category == :text
+    = simple_fields_for @menu do |f|
+      = f.input :body, label: Menu.human_attribute_name(:text), \
+      required: true, input_html: { class: 'input-block-level', rows: 5 }
+
+  - if @menu.category == :view
+    = simple_fields_for @menu do |f|
+      = f.input :body, label: Menu.human_attribute_name(:url), as: :string, \
+      required: true, input_html: { class: 'input-block-level' }
+      
+  - if @menu.category == :resource
+    #menu-resources-list.widget-box
+      .widget-header.header-color-blue3
+        h6.lighter = t('breadcrumbs.admin.menus.resources')
+        .widget-toolbar.no-border
+          = link_to resources_admin_menu_path, remote: true, class: 'v-padding-5 add-menu', \
+          title: t('breadcrumbs.admin.menus.add_resource'), data: { toggle: :tooltip } do
+            i.icon-plus
+          = link_to 'javascript:void(0)', class: 'v-padding-5 start-sort', \
+          title: t('breadcrumbs.admin.menus.resource_sort'), data: { toggle: :tooltip } do
+            i.icon-list-ol
+          = link_to 'javascript:void(0)', class: 'v-padding-5 end-sort hide', \
+          title: t('breadcrumbs.admin.menus.resource_sorted'), data: { toggle: :tooltip } do
+            i.icon-ok-sign
+      .widget-body
+        .widget-main
+          - if @menu.menu_resources_count.zero?
+            .empty
+              .alert.alert-warning = t('messages.menus.empty_resources')
+          - else
+            = render 'resources'

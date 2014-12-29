@@ -1,0 +1,24 @@
+#audits
+  /! top toolbar
+  .widget-box.transparent
+    .widget-body
+      .widget-main
+        .table-header = t('breadcrumbs.admin.audits.index')
+        table#audits-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_audits_path}"
+          thead
+            tr
+              th = Audit.human_attribute_name :user_id
+              th = Audit.human_attribute_name :auditable_type
+              th = Audit.human_attribute_name :auditable_id
+              th = Audit.human_attribute_name :action
+              th = Audit.human_attribute_name :version
+              th = Audit.human_attribute_name :created_at
+              th = Audit.human_attribute_name :audited_changes
+            tr
+              th
+              th
+              th
+              th
+              th
+              th
+              th

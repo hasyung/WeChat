@@ -1,0 +1,21 @@
+<% if request.get? %>
+  $("#modal").html('<%= j render(partial: "admin/commons/modal_resources_datatable", locals: { model: @menu }) %>').modal({
+    backdrop: 'static',
+    keyboard: false,
+    width: 900,
+    height: 400
+  })
+  com.onetrip.admin.common.initResourcesModal()
+<% else %>
+  if($('#menu-resources-list li.resource').size() > 0) {
+    <% @resources.each do |resource| %>
+      if($('<%= "#menu-resources-list li#resource_#{resource.id}" %>').size() == 0) {
+        $('#menu-resources-list ul').prepend('<%= j render(partial: "resource", locals: { resource: resource }) %>')
+      }
+    <% end %>
+  } else {
+    $('#menu-resources-list .widget-main').html('<%= j render("resources") %>')
+  }
+  $('#modal').modal('hide')
+  com.onetrip.admin.menu.menuResourceList()
+<% end %>

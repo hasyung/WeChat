@@ -1,0 +1,18 @@
+= simple_form_for(current_admin_user, url: setting_admin_admin_users_path, \
+html: { method: :post, enctype: "multipart/form-data", id: :setting }) do |f|
+  .row-fluid
+    .span6
+      = field_set_tag t('breadcrumbs.admin.admin_users.setting') do
+        = f.input :realname
+        = f.input :avatar
+        = image_tag current_admin_user.avatar.url, class: 'cover-small img-polaroid l-margin-20'
+    .span6
+      = field_set_tag t('breadcrumbs.admin.admin_users.password') do
+        = f.input :current_password
+        = f.input :password
+        = f.input :password_confirmation
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")

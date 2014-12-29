@@ -1,0 +1,8 @@
+<% if @menu.errors.any? %>
+  alert('<% t("errors.messages.menus.destroy") %>')
+<% else %>
+  $('#menu-list .widget-main').html('<%= j render("menus") %>')
+  $('#menu-action .widget-main').html('<%= j render("empty") %>')
+  $('#modal').modal('hide')
+  com.onetrip.admin.menu.menuList()
+<% end %>

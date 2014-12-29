@@ -1,0 +1,5 @@
+translations:
+  - file: "app/assets/javascripts/i18n/zh-CN.js"
+    only: 'zh-CN.*'
+  - file: "app/assets/javascripts/i18n/en.js"
+    only: 'en.*'

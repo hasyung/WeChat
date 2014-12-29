@@ -1,0 +1,124 @@
+/*
+ * = require fonts
+ * = require bootstrap
+ * = require bootstrap-responsive
+ * = require font-awesome
+ * = require ace
+ * = require ace-responsive
+ * = require audiojs
+ * = require admin/menu
+ * = require admin/reply
+ * = require admin/audio
+ * = require admin/video
+ * = require admin/album
+ * = require admin/map
+ * = require admin/article
+ * = require admin/merchant
+ * = require admin/vote
+ * = require admin/admin_user
+ * = require admin/setting
+ * = require videos/videos
+ * = require bootstrap-datetimepicker
+ * = require_self
+ */
+
+.list {
+  margin-top: 20px;
+}
+.btn-toolbar {
+  margin-top: 0;
+}
+.widget-toolbar {
+  a {
+    &.default {
+      color: #FFF;
+      &:hover {
+        color: #87b87f;
+      }
+    }
+  }
+}
+
+#modal {
+  .alert {
+    margin-bottom: 0;
+  }
+  #choose-account {
+    .control-group.select {
+      margin-bottom: 0;
+      .bootstrap-select {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+#admin-audios, #admin-articles, #admin-audios, #admin-albums, #admin-kits, #admin-maps, #admin-merchants {
+  form {
+    img {
+      &.cover-big {
+        width: 320px;
+      }
+    }
+    kit{
+      width: 640px;
+    }
+  }
+}
+
+
+#admin-home {
+  #account-info {
+    .table-header {
+      .widget-toolbar {
+        a {
+          color: #FFF;
+        }
+      }
+    }
+    .widget-main {
+      padding-top: 0;
+    }
+    table {
+      tbody {
+        tr {
+          td {
+            width: 300px;
+          }
+          td.title {
+            width: 150px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: whitesmoke;
+  border: 1px solid #e5e5e5;
+}
+
+table {
+  td.number {
+    text-align: center;
+    width: 60px;
+  }
+  td.ip {
+    text-align: center;
+    width: 80px;
+  }
+  td.num {
+    text-align: center;
+    width: 60px;
+  }
+}
+
+#admin-audits .modal-scrollable .modal-body .row-fluid p {
+  font-size: 14px;
+}

@@ -1,0 +1,41 @@
+<% if request.get? %>
+  if ($('#list-id').length > 0 && $('#list-id').val() == '<%= params[:id]%>'){
+  $("#modal").modal({
+    backdrop: 'static',
+    keyboard: false,
+    width: 900,
+    height: 400
+  })
+  $('.row-selected').removeClass('row-selected')
+  }else{
+  $("#modal").html('<%= j render(partial: "admin/commons/modal_resources_datatable", locals: { model: @reply }) %>').modal({
+    backdrop: 'static',
+    keyboard: false,
+    width: 900,
+    height: 400
+  })
+    com.onetrip.admin.common.initResourcesModal()
+  }
+<% else %>
+  var reply_id = '<%= @reply.new_record? ? "#reply-new" : "#reply-#{@reply.id}" %>'
+  if($(reply_id + ' #reply-resources-list li.resource').size() > 0 && $(reply_id + ' #reply-resources-list li.resource').size() < 10) {
+    <% @resources.each do |resource| %>
+      if($(reply_id + '<%= " #reply-resources-list li#resource_#{resource.id}" %>').size() == 0 ) {
+        $(reply_id + ' #reply-resources-list ul').prepend('<%= j render(partial: "admin/replies/resource", locals: { resource: resource }) %>')
+      }
+    <% end %>
+  } else if($(reply_id + ' #reply-resources-list li.resources').size() >= 10) {
+    alert('<%= t("errors.messages.resources.beyond_limit", count: Setting.we_chat.limit_resources) %>')
+  } else {
+    <% if @reply.new_record? || @reply.resources.blank? %>
+       $(reply_id + ' #reply-resources-list .widget-main').html('<%= j render(partial: "admin/replies/resources", locals: { reply: @reply }) %>')
+    <% else %>
+      <% @resources.each do |resource| %>
+          $(reply_id + ' #reply-resources-list ul').prepend('<%= j render(partial: "admin/replies/resource", locals: { resource: resource }) %>')
+      <% end %>
+    <% end %>
+  }
+  $('#modal').modal('hide')
+  $('.resource-count').html("[已使用资源"+$(reply_id + ' #reply-resources-list li.resource').size()+"个]")
+  com.onetrip.admin.reply.replyResourceList()
+<% end %>

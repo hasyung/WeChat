@@ -1,0 +1,5 @@
+<% if @reply.errors.any? %>
+  alert(<%= t('errors.messages.replies.destroy') %>)
+<% else %>
+  $('<%= "#reply-#{@reply.id}" %>').remove()
+<% end %>

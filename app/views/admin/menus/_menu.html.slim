@@ -1,0 +1,25 @@
+= content_tag_for :li, menu, class: "#{menu.parent? ? nil : 'sub'}" do
+  .menu-inner.row-fluid data-url='#{menu.subs.count.zero? ? edit_admin_menu_path(menu, type: :action) : admin_menu_path(menu)}'
+    .span8
+      - if menu.parent?
+        i class="#{menu.parent? ? 'icon-chevron-sign-down' : 'icon-chevron-sign-right' }"
+      - else
+        i.icon-bookmark-empty
+      span.name.l-margin-10 = menu.name
+    .span4
+      - if menu.parent?
+        = link_to new_admin_menu_path(parent_id: menu.id), remote: true, data: { toggle: :tooltip }, \
+        title: t('breadcrumbs.admin.menus.new_sub') do
+          i.icon-plus.icon-large
+      = link_to edit_admin_menu_path(menu), remote: true, data: { toggle: :tooltip }, \
+      title: t('breadcrumbs.admin.menus.edit') do
+        i.icon-pencil.icon-large
+      = link_to admin_menu_path(menu), method: :delete, remote: true, \
+      data: { toggle: :tooltip, confirm: t('messages.menus.destroy') }, \
+      title: t('breadcrumbs.admin.menus.destroy') do
+        i.icon-trash.icon-large
+      i.icon-align-justify.icon-large.hide
+  - unless menu.subs.count.zero?
+    ul.nav.nav-pills.nav-stacked data-url='#{sort_admin_menus_path}'
+      - menu.subs.each do |sub_menu|
+        = render partial: 'menu', locals: { menu: sub_menu }

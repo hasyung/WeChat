@@ -1,0 +1,49 @@
+.navbar.navbar-fixed-top bs-navbar=''
+  .navbar-inner
+    .container
+      a.btn.btn-navbar data-toggle='collapse' data-target='.nav-collapse'
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to admin_root_path, class: 'brand' do
+        i.icon-comments
+        span = Setting.app_name_locale
+      .nav-collapse.collapse.navbar-responsive-collapse
+        ul.nav
+          li class="#{active_page %w(home), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.home'), admin_root_path
+          - if current_account.present?
+            - if can? :read, Member
+              li class="#{active_page %w(members), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.member'), admin_members_path
+            - if can? :read, Menu
+              li class="#{active_page %w(menus), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.menu'), admin_menus_path
+            - if can? :read, Reply
+              li class="#{active_page %w(replies), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.reply'), admin_replies_path
+            - if can? :system, Reply
+              li = link_to t('breadcrumbs.admin.application.settings.system_reply'), admin_system_replies_path
+            - if can?(:read, Kit)
+              li.dropdown class="#{active_page %w(kits), namespace: 'admin', value: 'active'}"
+                a.dropdown-toggle href='#' data-toggle='dropdown'
+                  span.title.r-padding-5 = t('breadcrumbs.admin.application.resources.index')
+                  b.caret
+                ul.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
+                  - if can? :read, Kit
+                    li = link_to t('breadcrumbs.admin.application.resources.kit'), admin_kits_path
+            - if can? :read, AdminUser
+              li class="#{active_page %w(admin_users), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.admin_user'), admin_admin_users_path
+            - if can?(:read, Audit)
+              li class="#{active_page %w(audits), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.audit'), admin_audits_path
+        ul.nav.ace-nav.pull-right
+          li.light-blue.user-profile
+            = link_to '#', class: 'user-menu dropdown-toggle', data: { toggle: 'dropdown' } do
+              = image_tag current_admin_user.avatar.small.url, class: 'nav-user-photo'
+              span.user_info
+                small = current_admin_user.realname || current_admin_user.email
+              i.icon-caret-down
+            ul.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer#user-menu
+              li = link_to setting_admin_admin_users_path do
+                i.icon-cog.icon-large
+                span = t('buttons.setting')
+              li.divider
+              li = link_to destroy_admin_user_session_path, method: :delete do
+                i.icon-signout.icon-large
+                span = t('buttons.logout')

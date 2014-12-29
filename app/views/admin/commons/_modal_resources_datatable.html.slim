@@ -1,0 +1,25 @@
+.modal-header
+  button.close data-dismiss='modal' aria-hidden='true' &times;
+  h3 = t('breadcrumbs.admin.resources.index')
+.modal-body
+  = hidden_field_tag 'list-id', params[:id]
+  .alert.alert-warning
+    button.close data-dismiss='alert' &times;
+    strong = t('titles.tips')
+    span.l-margin-10 = t('messages.resources.add', count: Setting.we_chat.limit_resources)
+  .widget-box.transparent
+    .widget-body
+      .widget-main
+        table#resource-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_resources_path}"
+          thead
+            tr
+              th = Resource.human_attribute_name :title
+              th = Resource.human_attribute_name :type
+              th = Resource.human_attribute_name :created_at
+            tr
+              th = Resource.human_attribute_name :title
+              th
+              th
+.modal-footer
+  button.btn data-dismiss='modal' aria-hidden='true' = t('buttons.close')
+  button#submit.btn.btn-primary data-url='#{%w(Reply).include?(model.class.name) ? resources_admin_replies_path(id: model.new_record? ? nil : model.id) : polymorphic_path([:admin, model], action: :resources)}' = t('buttons.ok')

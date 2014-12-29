@@ -1,0 +1,41 @@
+#album-images-list.widget-box
+  .widget-header.header-color-blue3
+    h6.lighter = t('breadcrumbs.admin.images.index')
+    .widget-toolbar.no-border
+      = link_to 'javascript:void(0)', class: 'v-padding-5 start-sort', \
+      title: t('breadcrumbs.admin.images.image_sort'), data: { toggle: :tooltip } do
+        i.icon-list-ol
+      = link_to 'javascript:void(0)', class: 'v-padding-5 end-sort hide', \
+      title: t('breadcrumbs.admin.images.image_sorted'), data: { toggle: :tooltip } do
+        i.icon-ok-sign
+  .widget-body
+    #edit-image.modal.hide.fade
+    .widget-main#images-list
+      - if @images.count.zero?
+        .empty
+          .alert.alert-warning = t('messages.images.empty_action')
+      - else
+        = simple_form_for @album, url: images_sort_admin_album_path(@album), remote: true do |f|
+          ul.unstyled
+            - @images.each do |image|
+              - if not image.new_record?
+                li.resource.clearfix id='resource_#{image.id}'
+                  input type='hidden' name='album[image_ids][]' value='#{image.id}'
+                  .resource-cover.pull-left
+                    .action-shade.hide
+                      = link_to admin_album_image_path(@album, image), remote: true, method: :delete, data: { confirm: t('messages.confirm_destroy'), toggle: :tooltip }, title: t('breadcrumbs.admin.images.delete') do
+                        i.icon-trash.icon-2x
+                    = image_tag image.file.small.url.to_s, class: 'img-rounded'
+                  .resource-info.pull-left
+                    .title
+                      = link_to edit_admin_album_image_path(@album, image), remote: true do
+                        i.icon-edit
+                      span = image.title.blank? ? t('messages.images.empty_title') : image.title
+                  .resource-sort.pull-right
+                    i.icon-align-justify.icon-large
+
+          /! buttons
+          .form-actions
+            button.btn.btn-primary.r-margin-10 type="submit"
+              i.icon-ok.bigger-110
+              span = t("buttons.submit")

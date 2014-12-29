@@ -1,0 +1,2 @@
+$('<%= "#reply-#{@reply.id}" %>').replaceWith('<%= j render partial: "admin/replies/reply", locals: { reply: @reply } %>')
+alert('<%= @result[:message] %>')

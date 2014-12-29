@@ -1,0 +1,24 @@
+= simple_form_for [:admin, @account], remote: true do |f|
+  .modal-header
+    button.close data-dismiss='modal' aria-hidden='true' &times;
+    h3 = t("breadcrumbs.admin.accounts.edit")
+  .modal-body
+    .row-fluid
+      .span6
+        = f.input :name, input_html: { class: 'input-block-level' }
+      .span6
+        = f.input :alias, input_html: { class: 'input-block-level' }
+    .row-fluid
+      .span6
+        = f.input :token, readonly: true, input_html: { class: 'input-block-level' }
+      .span6
+        = f.input :identifier, input_html: { class: 'input-block-level' }
+    .row-fluid
+      .span6
+        = f.input :app_id, input_html: { class: 'input-block-level' }
+      .span6
+        = f.input :app_secret, input_html: { class: 'input-block-level' }
+      = f.input :description, as: :text, input_html: { class: 'input-block-level', rows: 4 }
+  .modal-footer
+    button.btn data-dismiss='modal' aria-hidden='true' = t('buttons.close')
+    button.btn.btn-primary type='submit' = t('buttons.ok')

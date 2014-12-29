@@ -1,0 +1,8 @@
+<% if @menu.errors.any? %>
+  $('#modal').html('<%= j render("menu_form") %>');
+<% else %>
+  $('#menu-list .widget-main').html('<%= j render("menus") %>')
+  $('#menu-action .widget-main').html('<%= j render("empty") %>')
+  $('#modal').modal('hide')
+  com.onetrip.admin.menu.menuList()
+<% end %>

@@ -1,0 +1,5 @@
+p 你好 #{@resource.email}!
+
+p 请点击下面的连接验证你的帐号。
+
+p = link_to '验证帐号', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)

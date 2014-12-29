@@ -1,0 +1,122 @@
+
+
+/** General page styling **/
+html {
+}
+.container {
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.container #main {
+  margin: 0 auto;
+  margin: 30px 0;
+  position: relative;
+  margin-top: -30px;
+  background: #f3f3f3;
+}
+/*
+header h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 30px 0 3px 0;
+}
+
+header p {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}*/
+
+/**
+ * Grid container
+ */
+#tiles {
+  list-style-type: none;
+  position: relative; /** Needed to ensure items are laid out relative to this container **/
+  margin: 0;
+  padding: 0;
+}
+#tiles a {
+  text-align: none;
+}
+#tiles a:-webkit-any-link {
+  text-align: none;
+}
+ul#tiles {
+  left: -4px;
+}
+
+/**
+ * Grid items
+ */
+#tiles li {
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+          border-radius: 2px;
+     -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  display: none; /** Hide items initially to avoid a flicker effect **/
+  cursor: pointer;
+  padding: 4px;
+  width: 27.77%;
+  float: left;
+}
+
+#tiles li.inactive {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#tiles li img {
+  display: block;
+  width: 100%;
+}
+
+/**
+ * Grid item text
+ */
+#tiles li .p-desc {
+  background-color: #0b4aa1;
+  padding-bottom: 5px;
+}
+#tiles li p {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 5px 0 0 7px;
+  display: inline-block;
+}
+#tiles li p.count {
+  float: right;
+  margin-right: 3px;
+}
+
+/**
+ * Placerholder css
+ */
+.wookmark-placeholder {
+          border-radius: 2px;
+     -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  z-index: -1;
+}
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 720px;
+  }
+}

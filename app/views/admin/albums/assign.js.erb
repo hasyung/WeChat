@@ -1,0 +1,10 @@
+<% if request.get? %>
+  $("#modal").html('<%= j render(partial: "assign_form", locals: { album: @album }) %>').modal({
+    backdrop: 'static',
+    keyboard: false,
+    width: 350
+  })
+  com.onetrip.admin.common.initSelectpicker()
+<% else %>
+  $("#modal").modal('hide')
+<% end %>

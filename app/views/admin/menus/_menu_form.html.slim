@@ -1,0 +1,15 @@
+= simple_form_for [:admin, @menu], remote: true do |f|
+  .modal-header
+    button.close data-dismiss='modal' aria-hidden='true' &times;
+    - if @menu.new_record?
+      h3 = t("breadcrumbs.admin.menus.#{@menu.parent? ? 'new' : 'new_sub'}")
+    - else
+      h3 = t("breadcrumbs.admin.menus.#{@menu.parent? ? 'edit' : 'edit_sub'}")
+  .modal-body
+    = f.input :name, label: false, input_html: { class: 'input-block-level' }
+    .label.label-warning = t('titles.heads_up')
+    .label.label-inverse = t("messages.menus.#{@menu.parent? ? 'menu' : 'sub'}")
+    = f.input :parent_id, as: :hidden
+  .modal-footer
+    button.btn data-dismiss='modal' aria-hidden='true' = t('buttons.close')
+    button.btn.btn-primary = t('buttons.ok')

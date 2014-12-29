@@ -1,0 +1,34 @@
+.login-container
+  .row-fluid.position-relative
+    .span12
+      #forgot-box.widget-box.no-border.visible
+        .widget-body
+          .widget-main
+            h4.header.blue.lighter.bigger
+              i.icon-key
+              span.l-padding-5 = t("reset.title")
+            .space-6 
+            p = t("reset.desc")
+            = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+              fieldset
+                = simple_error_messages!(resource, false)
+                = f.input :reset_password_token, as: :hidden
+                = f.input :password, label: false, hint: false, error: false do
+                  label
+                    span.block.input-icon.input-icon-right
+                      = f.password_field :password, class: :span12, placeholder: t("reset.password"), autofocus: true
+                      i.icon-lock
+                = f.input :password_confirmation, label: false, hint: false, error: false do
+                  label
+                    span.block.input-icon.input-icon-right
+                      = f.password_field :password_confirmation, class: :span12, placeholder: t("reset.password_confirmation")
+                      i.icon-lock
+                .row-fluid
+                  = button_tag class: "span5 offset7 btn btn-small btn-danger", data: { disable_with: t("reset.disable") } do
+                    i.icon-lightbulb
+                    span.l-padding-5 = t("reset.send")
+          .toolbar.center.clearfix
+            div
+              a.back-to-login-link href="#{session_path(resource)}"
+                i.icon-arrow-right
+                span.l-padding-5 = t("forgot.login")

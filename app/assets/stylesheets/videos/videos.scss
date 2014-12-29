@@ -1,0 +1,30 @@
+/*
+ * = require videos/mediaelementplayer.css
+ * = require videos/mejs-skins.css
+ */
+
+#example_video_1 {
+  margin: 0 auto;
+}
+.mejs-wmp .mejs-controls .mejs-time {
+top: 25px;
+right: 50%;
+margin-right: 15px;
+width: 77px;
+height: 15px;
+}
+.add-background {
+  position: absolute;
+  top: 41%;
+  left: 51%;
+  width: 100px;
+  height: 100px;
+  margin: 0 0 0 -50px;
+  background: image-url('videos/bigplay.svg') no-repeat;
+}
+#video .mejs-inner .add-mejs-background {
+  background:transparent image-url('videos/controls-wmp-bg.png') center 16px no-repeat ;
+}
+.mejs-wmp .mejs-controls .mejs-fullscreen-button {
+  margin-right: -65px;
+}

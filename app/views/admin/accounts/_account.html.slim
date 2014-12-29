@@ -1,0 +1,59 @@
+.widget-box.transparent
+  .widget-body
+    .widget-main
+      .table-header.clearfix
+        .pull-left = t('breadcrumbs.admin.accounts.info')
+        .widget-toolbar.no-border.pull-right
+          - if can? :update, Account
+            = link_to edit_admin_account_path(account), remote: true, \
+            title: t('breadcrumbs.admin.accounts.edit'), data: { toggle: :tooltip } do
+              i.icon-pencil
+      table.table.table-bordered
+        tbody
+          tr
+            td.title = Account.human_attribute_name :name
+            td colspan='3' = account.name
+            td.title = Account.human_attribute_name :alias
+            td colspan='3' = account.alias
+          tr
+            td.title = Account.human_attribute_name :token
+            td colspan='3' = account.token
+            td.title = Account.human_attribute_name :identifier
+            td colspan='3'
+              - if account.identifier.blank?
+                span.label.label-important = t('errors.messages.no_attribute')
+              - else
+                span.label = account.identifier
+          tr
+            td.title = Account.human_attribute_name :app_id
+            td colspan='3'
+              - if account.app_id.blank?
+                span.label.label-important = t('errors.messages.no_attribute')
+              - else
+                span.label.label-success = account.app_id
+            td.title = Account.human_attribute_name :app_secret
+            td colspan='3'
+              - if account.app_secret.blank?
+                span.label.label-important = t('errors.messages.no_attribute')
+              - else
+                span.label.label-success = account.app_secret
+          tr
+            td.title = Account.human_attribute_name :api
+            td colspan='7' = api_v1_alias_url(account.alias)
+          tr
+            td.title = Account.human_attribute_name :members_count
+            td.text-center = number_html_highlight account.members_count
+            td.title = Account.human_attribute_name :kits_count
+            td.text-center = number_html_highlight account.kits_count
+            td.title = Account.human_attribute_name :albums_count
+            td.text-center = number_html_highlight account.albums.count
+          tr
+            td.title = Account.human_attribute_name :menus_count
+            td.text-center = number_html_highlight account.menus_count
+            td.title = Account.human_attribute_name :replies_count
+            td.text-center = number_html_highlight account.replies_count
+            td.title
+            td.text-center
+          tr
+            td.title = Account.human_attribute_name :description
+            td colspan='7' = account.description

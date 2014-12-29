@@ -1,0 +1,4 @@
+$('#replies-list #replies').find('#reply-new').remove()
+$('#replies-list #replies').prepend('<%= j render(partial: "admin/replies/reply", locals: { reply: Reply.new }) %>')
+com.onetrip.admin.reply.initReplyNew()
+com.onetrip.admin.reply.replyMap()

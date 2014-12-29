@@ -1,0 +1,108 @@
+#account-table {
+  margin-bottom: 0;
+  td {
+    padding: 18px;
+    font-size: 14px;
+  }
+  tr {
+    td:first-child {
+      color: #ccc;
+      width: 100px;
+    }
+  }
+}
+
+
+.account {
+  .account-avatar {
+    width: 120px;
+    float: left;
+    padding: 10px;
+    img {
+      width: 120px;
+      height: 120px;
+    }
+    .en-name {
+      display: block;
+      margin-top: 5px;
+      text-align: center;
+      padding: 4px 0;
+    }
+  }
+  .account-info {
+    margin-left: 141px;
+    .column {
+      height: 35px;
+      line-height: 35px;
+      .label-name {
+        background-color: #EEE !important;
+        text-align: center;
+      }
+      [class*="span"] {
+        margin-left: 0;
+      }
+      .span1 {
+        width: 8.33%;
+      }
+      .span2 {
+        width: 16.66%;
+      }
+      .span3 {
+        width: 24.99%;
+      }
+      .span4 {
+        width: 33.32%;
+      }
+      .span5 {
+        width: 41.65%;
+      }
+      .span6 {
+        width: 49.98%;
+      }
+      .span7 {
+        width: 58.31%;
+      }
+      .span8 {
+        width: 66.64%;
+      }
+      .span9 {
+        width: 74.97%;
+      }
+      .span10 {
+        width: 83.3%;
+      }
+      .span11 {
+        width: 91.63%;
+      }
+      .span12 {
+        width: 100%;
+      }
+      &.description {
+        height: 44px;
+        line-height: 20px;
+        overflow: hidden;
+        padding: 10px 5px 5px 5px;
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.header-color-dark + .widget-body {
+  .account {
+    border-top: 1px solid #CCC;
+    .account-avatar {
+      border-right: 1px solid #CCC;
+    }
+    .account-info {
+      .column {
+        border-bottom: 1px solid #CCC;
+        &.description {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

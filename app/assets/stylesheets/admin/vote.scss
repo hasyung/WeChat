@@ -1,0 +1,12 @@
+#admin-votes{
+  form fieldset {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  #vote-form{
+    padding-left: 20px;
+    .control-group .controls{
+      width: 300px;
+    }
+  }
+}

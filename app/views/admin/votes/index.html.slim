@@ -1,0 +1,27 @@
+#votes
+  - if can? :manage, Vote
+    /! top toolbar
+    .btn-toolbar
+      .btn-group
+        = link_to export_admin_votes_path(format: "xls"), class: 'btn btn-primary' do
+          i.icon-file-text
+          span.l-padding-5 = t("breadcrumbs.admin.votes.excel")
+        = link_to export_admin_votes_path(format: "xml"), class: 'btn btn-primary' do
+          i.icon-file-text
+          span.l-padding-5 = t("breadcrumbs.admin.votes.xml")
+  .widget-box.transparent
+    .widget-body
+      .widget-main
+        .table-header = t('breadcrumbs.admin.votes.index')
+        table#votes-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_votes_path}"
+          thead
+            tr
+              th = Vote.human_attribute_name :booth
+              th = Vote.human_attribute_name :phone
+              th = Vote.human_attribute_name :created_at
+              th = Vote.human_attribute_name :actions
+            tr
+              th
+              th
+              th
+              th

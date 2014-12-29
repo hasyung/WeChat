@@ -1,0 +1,7 @@
+<% if @reply.errors.any? %>
+  $('#reply-new.accordion-group .accordion-inner').html('<%= j render("admin/replies/form") %>')
+<% else %>
+  $('#replies-list .widget-main #reply-new').remove()
+  $('#replies-list #replies').prepend('<%= j render(partial: "admin/replies/reply", locals: { reply: @reply }) %>')
+<% end %>
+com.onetrip.admin.reply.initReplyNew()

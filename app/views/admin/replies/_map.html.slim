@@ -1,0 +1,11 @@
+.modal-header
+  button.close data-dismiss='modal' aria-hidden='true' &times;
+  h3 = t("breadcrumbs.admin.replies.map")
+.modal-body
+  #map-content
+.modal-footer
+  span
+    input#search-text.input-small placeholder="#{t('titles.maps.search')}" type="text"
+    button#search-btn.btn.btn-info = t('buttons.search')
+  button.btn data-dismiss='modal' aria-hidden='true' = t('buttons.close')
+  button.btn.btn-primary = t('buttons.ok')

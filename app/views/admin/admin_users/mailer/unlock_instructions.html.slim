@@ -1,0 +1,5 @@
+p 你好 #{@resource.email}!
+
+p 请点击下面的连接解锁
+
+p = link_to '解锁', unlock_url(@resource, :unlock_token => @resource.unlock_token)

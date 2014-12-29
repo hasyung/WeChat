@@ -1,0 +1,25 @@
+= simple_form_for [:admin, @account] do |f|
+  .row-fluid
+    .span6
+      = f.input :name do
+        = f.text_field :name, class: :span12
+        .label.label-light = t('messages.accounts.name')
+    .span6
+      = f.input :alias do
+        = f.text_field :alias, class: :span12
+        .label.label-light = t('messages.accounts.alias')
+    = f.input :token, input_html: { class: 'input-xlarge' }
+    = f.input :identifier, input_html: { class: 'input-xlarge' }
+    = f.input :app_id, input_html: { class: 'input-xlarge' }
+    = f.input :app_secret, input_html: { class: 'input-xlarge' }
+    = f.input :description do
+      = f.text_area :description, class: :span12, rows: 6
+      .label = t('messages.accounts.description')
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to admin_accounts_path, class: :btn do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.back")

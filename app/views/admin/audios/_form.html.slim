@@ -1,0 +1,33 @@
+= simple_form_for [:admin, @audio] do |f|
+  = hidden_field_tag 'audio[admin_user_id]', current_admin_user.id
+  .row-fluid
+    .span3
+      = f.association :directory, collection: current_account.directories.collect{ |d| [d.name, d.id] }, \
+      include_blank: false, input_html: { data: { width: '100%' } }
+    .span9
+      = f.input :title, input_html: { class: :span12 }
+  .row-fluid.b-margin-10
+    .span12
+      = f.input :cover do
+        = f.file_field :cover
+        = f.hidden_field :cover_cache
+      = image_tag @audio.cover.big.url, class: 'cover-big img-polaroid' if @audio.cover?
+      = image_tag @audio.cover.small.url, class: 'cover-small img-polaroid l-margin-20' if @audio.cover?
+  .row-fluid.b-margin-10
+    .span12
+      = f.simple_fields_for :audio_profile, @audio.new_record? ? @audio.build_audio_profile : @audio.audio_profile do |profile|
+        = profile.input :file, wrapper_html: { class: (@audio.errors.include?(:audio_profile) or @audio.errors.include?(:"audio_profile.file")) ? :error : nil } do
+          = profile.file_field :file
+          - if @audio.errors.include?(:audio_profile) or @audio.errors.include?(:"audio_profile.file")
+            span.help-inline = @audio.errors.get(:audio_profile).blank? ? @audio.errors.get(:"audio_profile.file").first : @audio.errors.get(:audio_profile).first
+      = audio_tag @audio.audio_profile.file.url if @audio.audio_profile.file?
+  .row-fluid.b-margin-10
+    = f.input :description, as: :text, input_html: { class: :span12, rows: 6 }
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to admin_audios_path, class: :btn do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.back")
