@@ -57,7 +57,7 @@ gem 'redis-store', '~> 1.0.0'
 
 # CSS and JS
 # gem 'angularjs-rails-resource'
-gem 'ace-theme-rails', path: '/home/hasyung/works/ace-theme-rails'
+gem 'ace-theme-rails', git: 'git@code.jd.com:yh8102326/ace-theme-rails.git'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-datetime-picker-for-rails'
 
