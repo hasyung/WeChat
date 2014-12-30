@@ -61,7 +61,6 @@ gem 'redis-store', '~> 1.0.0'
 gem 'ace-theme-rails', git: 'git@code.jd.com:yh8102326/ace-theme-rails.git'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-datetime-picker-for-rails'
-gem "font-awesome-rails"
 
 # Captcha
 gem 'easy_captcha'
