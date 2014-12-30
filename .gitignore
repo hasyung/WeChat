@@ -8,8 +8,8 @@ bin/
 solr/data/
 solr/pids/
 db/*.sqlite3
-public/assets/**/*
-public/uploads/**/*
+public/assets/
+public/uploads/
 config/database.yml
 config/mongoid.yml
 config/config.yml
