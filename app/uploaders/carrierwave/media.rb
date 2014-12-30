@@ -28,7 +28,7 @@ module CarrierWave
 
     def media_info
       cache_stored_file! if !cached?
-      #@info = ::FFMPEG::Movie.new(current_path)
+      @info = ::FFMPEG::Movie.new(current_path)
     end
 
     module ClassMethods

@@ -64,23 +64,25 @@ class Account < ActiveRecord::Base
   end
 
   def menus_json
-    Jbuilder.encode do |json|
-      json.button menus.roots.non_deleted.each do |json, menu|
-        json.name menu.name
-        if menu.subs.count.zero?
-          json.type %(text resource).include?(menu.category.to_s) ? 'click' : 'view'
-          json.key menu.id if %(text resource).include?(menu.category.to_s)
-          json.url menu.body if %(view).include?(menu.category.to_s)
-        else
-          json.sub_button menu.subs.non_deleted do |sub_menu|
-            json.name sub_menu.name
-            json.type %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view'
-            json.key sub_menu.id if %(text resource).include?(sub_menu.category.to_s)
-            json.url sub_menu.body if %(view).include?(sub_menu.category.to_s)
+    {
+      "button" => menus.roots.non_deleted.each do |menu|
+        Jbuilder.encode do |js|
+          js.name menu.name
+          if menu.subs.count.zero?
+            js.type %(text resource).include?(menu.category.to_s) ? 'click' : 'view'
+            js.key menu.id if %(text resource).include?(menu.category.to_s)
+            js.url menu.body if %(view).include?(menu.category.to_s)
+          else
+            js.sub_button menu.subs.non_deleted do |sub_menu|
+              js.name sub_menu.name
+              js.type %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view'
+              js.key sub_menu.id if %(text resource).include?(sub_menu.category.to_s)
+              js.url sub_menu.body if %(view).include?(sub_menu.category.to_s)
+            end
           end
         end
       end
-    end
+    }
   end
 
   def create_menus
