@@ -72,17 +72,19 @@ class Account < ActiveRecord::Base
         js.merge("key" => menu.id) if %(text resource).include?(menu.category.to_s)
         js.merge("url" => menu.body) if %(view).include?(menu.category.to_s)
       else
-        js.sub_button menu.subs.non_deleted do |sub_menu|
-          js = {"name" => sub_menu.name}
-          js.merge("type" => %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view')
-          js.merge("key" => sub_menu.id) if %(text resource).include?(sub_menu.category.to_s)
-          js.merge("url" => sub_menu.body) if %(view).include?(sub_menu.category.to_s)
+        sub_ms = []
+        menu.subs.non_deleted do |sub_menu|
+          sub_js = {"name" => sub_menu.name}
+          sub_js.merge("type" => %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view')
+          sub_js.merge("key" => sub_menu.id) if %(text resource).include?(sub_menu.category.to_s)
+          sub_js.merge("url" => sub_menu.body) if %(view).include?(sub_menu.category.to_s)
+          sub_ms.push sub_js
         end
+        js.merge("sub_button" => sub_ms)
       end
       ms.push js
     end
-    a = {"button" => ms}
-    binding.pry
+    {"button" => ms}
   end
 
   def create_menus
