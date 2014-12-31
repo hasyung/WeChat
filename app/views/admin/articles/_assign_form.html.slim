@@ -1,9 +1,0 @@
-= simple_form_for @article, url: assign_admin_article_path(@article), remote: true do |f|
-  .modal-header
-    button.close data-dismiss='modal' aria-hidden='true' &times;
-    h3 = t("breadcrumbs.admin.articles.assign")
-  .modal-body
-    = f.association :admin_user, label_method: :realname, value_method: :id, input_html: { data: { width: '100%' } }
-  .modal-footer
-    button.btn data-dismiss='modal' aria-hidden='true' = t('buttons.close')
-    button.btn.btn-primary = t('buttons.ok')

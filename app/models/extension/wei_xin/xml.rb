@@ -36,7 +36,7 @@ module Extension
               end
               case self.category
               when :text
-                build_text xml
+                xml.Content { xml.text self.body.gsub("{{list}}", member) }
               when :resource
                 build_resource xml
               end
@@ -45,10 +45,6 @@ module Extension
         end
 
         private
-
-        def build_text xml
-          xml.Content { xml.text self.body }
-        end
 
         def build_resource xml
           xml.ArticleCount { xml.text self.resources.size }

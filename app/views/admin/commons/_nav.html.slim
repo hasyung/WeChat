@@ -19,7 +19,7 @@
             - if can? :read, Reply
               li class="#{active_page %w(replies), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.reply'), admin_replies_path
             - if can? :system, Reply
-              li = link_to t('breadcrumbs.admin.application.settings.system_reply'), admin_system_replies_path
+              li class="#{active_page %w(system_replies), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.settings.system_reply'), admin_system_replies_path
             - if can?(:read, Kit)
               li.dropdown class="#{active_page %w(kits), namespace: 'admin', value: 'active'}"
                 a.dropdown-toggle href='#' data-toggle='dropdown'

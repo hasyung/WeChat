@@ -23,7 +23,7 @@ gem 'rest-client'
 gem 'nokogiri'
 gem 'rails_kindeditor', '~> 0.4.0'
 
-gem 'rabl'
+gem 'rabl', '0.8.6'
 gem 'jbuilder'
 
 # Tags

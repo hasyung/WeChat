@@ -301,7 +301,7 @@ DEPENDENCIES
   pry-rails
   pry-remote
   quiet_assets
-  rabl
+  rabl (= 0.8.6)
   rails (= 3.2.13)
   rails-i18n
   rails_kindeditor (~> 0.4.0)

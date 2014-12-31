@@ -1,9 +1,0 @@
-= simple_form_for [:admin, @merchant, @image], remote: true do |f|
-  .modal-header
-    button.close data-dismiss='modal' aria-hidden='true' &times;
-    h3 = t("breadcrumbs.admin.images.edit")
-  .modal-body
-    = f.input :title, input_html: { class: 'input-block-level' }
-  .modal-footer
-    button.btn data-dismiss='modal' aria-hidden='true' = t('buttons.cancel')
-    button.btn.btn-primary = t('buttons.ok')
