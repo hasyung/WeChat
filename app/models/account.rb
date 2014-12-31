@@ -68,21 +68,21 @@ class Account < ActiveRecord::Base
     menus.roots.non_deleted.each do |menu|
       js = {"name" => menu.name}
       if menu.subs.count.zero?
-        js.merge("type" => %(text resource).include?(menu.category.to_s) ? 'click' : 'view')
-        js.merge("key" => menu.id) if %(text resource).include?(menu.category.to_s)
-        js.merge("url" => menu.body) if %(view).include?(menu.category.to_s)
-        ms.push js
+        js.merge!("type" => %(text resource).include?(menu.category.to_s) ? 'click' : 'view')
+        js.merge!("key" => menu.id) if %(text resource).include?(menu.category.to_s)
+        js.merge!("url" => menu.body) if %(view).include?(menu.category.to_s)
       else
         sub_ms = []
         menu.subs.non_deleted.each do |sub_menu|
           sub_js = {"name" => sub_menu.name}
-          sub_js.merge("type" => %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view')
-          sub_js.merge("key" => sub_menu.id) if %(text resource).include?(sub_menu.category.to_s)
-          sub_js.merge("url" => sub_menu.body) if %(view).include?(sub_menu.category.to_s)
+          sub_js.merge!("type" => %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view')
+          sub_js.merge!("key" => sub_menu.id) if %(text resource).include?(sub_menu.category.to_s)
+          sub_js.merge!("url" => sub_menu.body) if %(view).include?(sub_menu.category.to_s)
           sub_ms.push sub_js
         end
-        ms.push(js.merge("sub_button" => sub_ms))
+        js.merge!("sub_button" => sub_ms)
       end
+      ms.push js
     end
     a = {"button" => ms}
   end
