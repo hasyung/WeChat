@@ -84,7 +84,25 @@ class Account < ActiveRecord::Base
       end
       ms.push js
     end
-    a = {"button" => ms}
+    {"button" => ms}.to_json
+
+    # Jbuilder.encode do |json|
+    #   json.button json.array(menus.roots.non_deleted) do |menu|
+    #     json.name menu.name
+    #     if menu.subs.count.zero?
+    #       json.type %(text resource).include?(menu.category.to_s) ? 'click' : 'view'
+    #       json.key menu.id if %(text resource).include?(menu.category.to_s)
+    #       json.url menu.body if %(view).include?(menu.category.to_s)
+    #     else
+    #       json.sub_button json.array(menu.subs.non_deleted) do |sub_menu|
+    #         json.name sub_menu.name
+    #         json.type %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view'
+    #         json.key sub_menu.id if %(text resource).include?(sub_menu.category.to_s)
+    #         json.url sub_menu.body if %(view).include?(sub_menu.category.to_s)
+    #       end
+    #     end
+    #   end
+    # end
   end
 
   def create_menus
