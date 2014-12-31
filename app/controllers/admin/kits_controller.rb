@@ -10,7 +10,7 @@ class Admin::KitsController < Admin::ApplicationController
       format.html
       format.json do
         @data_tables = current_account.kits.includes([:kit_profile])
-        @data_tables = @data_tables.where(admin_user_id: current_admin_user.id) if cannot? :manage, kit
+        @data_tables = @data_tables.where(admin_user_id: current_admin_user.id) if cannot? :manage, Kit
         @data_tables = @data_tables.to_datatable(self)
         render layout: false
       end

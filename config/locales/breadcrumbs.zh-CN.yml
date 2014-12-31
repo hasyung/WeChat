@@ -101,7 +101,7 @@
         manager: '菜单管理'
         remote_create: '提交微信菜单'
         remote_destroy: '删除微信菜单'
-        remote_show: '查看微信彩信'
+        remote_show: '查看微信菜单'
         new: '添加菜单'
         sort: '排序'
         sorted: '提交排序'
