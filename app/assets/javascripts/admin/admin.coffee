@@ -40,6 +40,7 @@ $ ->
   com.onetrip.admin.dataTable.initMessagesDataTable()
   com.onetrip.admin.dataTable.initDirectoriesDataTable()
   com.onetrip.admin.dataTable.initAdminUserDataTable()
+  com.onetrip.admin.dataTable.initCustomersDataTable()
   com.onetrip.admin.dataTable.initAuditsDataTable()
 
   com.onetrip.admin.menu.initMenu()

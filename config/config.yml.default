@@ -73,6 +73,8 @@ defaults: &defaults
     # 'audio_manager',
     'kit',
     'kit_manager',
+    'customer',
+    'customer_manager',
     # 'article',
     # 'article_manager',
     # 'album',

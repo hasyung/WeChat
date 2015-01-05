@@ -1,7 +1,7 @@
-= simple_form_for @kit, url: assign_admin_kit_path(@kit), remote: true do |f|
+= simple_form_for @customer, url: assign_admin_customer_path(@customer), remote: true do |f|
   .modal-header
     button.close data-dismiss='modal' aria-hidden='true' &times;
-    h3 = t("breadcrumbs.admin.kits.assign")
+    h3 = t("breadcrumbs.admin.customers.assign")
   .modal-body
     = f.association :admin_user, label_method: :realname, value_method: :id, input_html: { data: { width: '100%' } }
   .modal-footer

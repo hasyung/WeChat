@@ -1,7 +1,6 @@
 Namespace 'com.onetrip.admin.dataTable',
-  # 初始化音频的DataTable
 
-  # 初始化视频的DataTable
+  # 初始化急救用品的DataTable
   initKitsDataTable: ()->
     $('#kits-datatables').dataTable
       bSortCellsTop: true
@@ -21,6 +20,31 @@ Namespace 'com.onetrip.admin.dataTable',
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         null
+        null
+      ]
+    .fnSetFilteringDelay()
+
+  # 初始化客户的DataTable
+  initCustomersDataTable: ()->
+    $('#customers-datatables').dataTable
+      bSortCellsTop: true
+      aoColumns: [
+        { mData: 'name' }
+        { mData: 'identity', sClass: 'date' }
+        { mData: 'phone', sClass: 'date' }
+        { mData: 'created_at', sClass: 'date' }
+        { mData: 'actions.html', sClass: 'actions', bSortable: false }
+      ]
+      fnCreatedRow: (nRow, aData, iDataIndex)->
+        # 处理操作按钮
+        $(nRow).find('a[data-toggle="tooltip"]').tooltip
+          placement: 'bottom'
+    .columnFilter
+      sPlaceHolder: 'head:after'
+      aoColumns: [
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 2 }
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 2 }
         null
         null
       ]
@@ -53,7 +77,7 @@ Namespace 'com.onetrip.admin.dataTable',
       ]
     .fnSetFilteringDelay()
 
-  # 初始化目录的DataTable
+  # 初始化急救包的DataTable
   initDirectoriesDataTable: ()->
     $('#directories-datatables').dataTable
       bSortCellsTop: true
@@ -72,7 +96,6 @@ Namespace 'com.onetrip.admin.dataTable',
       aoColumns: [
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
         null
         null
       ]

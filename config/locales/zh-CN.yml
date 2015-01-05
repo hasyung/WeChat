@@ -162,10 +162,10 @@
         accept_file_types: '文件类型错误。'
         max_number_of_files: '超过最大上传数量。'
         max_file_size: '文件太大了，上传限制为 %{count} 。'
-      audios:
-        create: '创建音频失败！'
-        update: '修改音频失败！'
-        destroy: '删除音频失败！'
+      customers:
+        create: '创建客户失败！'
+        update: '修改客户失败！'
+        destroy: '删除客户失败！'
       kits:
         create: '创建急救用品失败！'
         update: '修改急救用品失败！'
@@ -234,10 +234,10 @@
 
   successes:
     messages:
-      audios:
-        create: '创建音频成功！'
-        update: '修改音频成功！'
-        destroy: '删除音频成功！'
+      customers:
+        create: '创建客户成功！'
+        update: '修改客户成功！'
+        destroy: '删除客户成功！'
       kits:
         create: '创建急救用品成功！'
         update: '修改急救用品成功！'
@@ -351,6 +351,8 @@
       reply_resource: "回复资源"
       menu: '菜单'
       image: '图片'
+      customer: '客户'
+      address: '地址管理'
     attributes:
       admin_user:
         realname: '昵称'
@@ -488,47 +490,6 @@
         url: 'URL连接地址'
         audio_title: '音频标题'
         audio_file: '音频文件'
-      weather:
-        account: "公众帐号"
-        name: "名称"
-        body: "内容"
-        weather_at: '天气时间'
-        cityid: "城市ID"
-        w1: "开始天气现象代码"
-        w2: "结束天气现象代码"
-        wt: "天气现象"
-        weather_id: "天气ID"
-        city: "城市名称"
-        t1: "白天温度"
-        strdate: "天气时间"
-        wind: "风向"
-        resourcecode: "景区编码"
-        t2: "夜间温度"
-        fh: "预报时次"
-        tag_list: "标记"
-        keyword: "关键码"
-        tt: "温度"
-      guide:
-        account: "公众帐号"
-        name: "姓名"
-        qualificationscardno: "编号"
-        body: "内容"
-        created_at: '创建时间'
-        company: "公司"
-        typename: "级别"
-        regionname: "地区"
-        language: "语言"
-        gender: "性别"
-        areacode: "地区编号"
-        rn: "序号"
-        idno: "ID序号"
-        memo: "备注"
-        guideidcard: "导游ID编号"
-        guide_id: "导游ID"
-        identification: "身份号"
-        guidelevel: "导游等级"
-        guideimage: "导游照片"
-        created_at: '创建时间'
       audit:
         user_id: "用户名"
         auditable_type: "类型"
@@ -541,6 +502,19 @@
         reply_id: "回复ID"
         resource_id: "资源ID"
         order: "排序"
+      customer:
+        name: '姓名'
+        identity: '身份证'
+        phone: '电话'
+        department: '部门'
+        created_at: '创建时间'
+      address:
+        name: '收货人姓名'
+        phone: '收货电话'
+        address: '收货地址'
+        postcode: '邮编'
+        created_at: '创建时间'
+        customer_id: '客户'
 
     roles:
       admin_users:
@@ -560,8 +534,8 @@
         message_manager: '消息管理员'
         directory: '急救包录入员'
         directory_manager: '急救包管理员'
-        audio: '音频录入员'
-        audio_manager: '音频管理员'
+        customer: '客户录入员'
+        customer_manager: '客户管理员'
         kit: '急救用品录入员'
         kit_manager: '急救用品管理员'
         article: '文章录入员'
@@ -717,6 +691,11 @@
     kit_update: '你没有权限编辑急救用品'
     kit_destroy: '你没有权限删除急救用品'
     kit_assign: '你没有权限为急救用品分配管理员'
+    customer_read: '你没有权限查看客户'
+    customer_create: '你没有权限创建客户'
+    customer_update: '你没有权限编辑客户'
+    customer_destroy: '你没有权限删除客户'
+    customer_assign: '你没有权限为客户分配管理员'
     article_read: '你没有权限查看文章'
     article_create: '你没有权限创建文章'
     article_update: '你没有权限编辑文章'

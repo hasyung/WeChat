@@ -1,0 +1,26 @@
+#customers
+  /! top toolbar
+  - if can? :create, Customer
+    .btn-toolbar
+      .btn-group
+        = link_to new_admin_customer_path, class: 'btn btn-primary' do
+          i.icon-file-text
+          span.l-padding-5 = t("breadcrumbs.admin.customers.new")
+  .widget-box.transparent
+    .widget-body
+      .widget-main
+        .table-header = t('breadcrumbs.admin.customers.index')
+        table#customers-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_customers_path}"
+          thead
+            tr
+              th = Customer.human_attribute_name :name
+              th = Customer.human_attribute_name :identity
+              th = Customer.human_attribute_name :phone
+              th = Customer.human_attribute_name :created_at
+              th = t('buttons.actions')
+            tr
+              th
+              th
+              th
+              th
+              th

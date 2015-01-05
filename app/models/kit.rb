@@ -18,5 +18,4 @@ class Kit < Resource
   # Validates
   validates :kit_profile, presence: true, on: :create
 
-
 end

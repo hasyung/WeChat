@@ -15,6 +15,8 @@
         admin_user: '管理员'
         audit: ' 日志'
         vote: '投票'
+        customer: '客户'
+        address: '地址'
         settings:
           index: '设置'
           system_reply: '自动回复'
@@ -45,12 +47,13 @@
       messages:
         index: '消息列表'
         show: '查看消息'
-      audios:
-        index: '音频列表'
-        new: '添加音频'
-        edit: '编辑音频'
+      customers:
+        index: '客户列表'
+        new: '添加客户'
+        edit: '编辑客户'
         search: '搜索结果'
         assign: '分配管理员'
+        import: '导入'
       kits:
         index: '急救用品列表'
         new: '添加急救用品'

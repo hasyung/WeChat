@@ -14,6 +14,8 @@
           - if current_account.present?
             - if can? :read, Member
               li class="#{active_page %w(members), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.member'), admin_members_path
+            - if can? :read, Customer
+              li class="#{active_page %w(customers), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.customer'), admin_customers_path
             - if can? :read, Menu
               li class="#{active_page %w(menus), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.menu'), admin_menus_path
             - if can? :read, Reply

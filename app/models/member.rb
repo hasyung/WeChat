@@ -10,6 +10,7 @@ class Member < ActiveRecord::Base
   # Relations
   has_many    :messages,  dependent: :destroy
   belongs_to  :account,   counter_cache: true
+  belongs_to  :customer,  inverse_of: :member
 
   # Validates
   validates :open_id, presence: true

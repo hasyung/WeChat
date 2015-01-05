@@ -16,7 +16,6 @@ class Account < ActiveRecord::Base
   has_many :resources,    dependent: :destroy
   has_many :kits,         dependent: :destroy
   has_many :directories,  dependent: :destroy
-  has_many :albums,       dependent: :destroy
 
   # Validates
   validates :name, :alias, :token, presence: true

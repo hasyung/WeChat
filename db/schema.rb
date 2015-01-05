@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141231090453) do
+ActiveRecord::Schema.define(:version => 20150105062710) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                                   :null => false
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(:version => 20141231090453) do
   end
 
   add_index "accounts", ["alias"], :name => "index_accounts_on_alias"
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "customer_id", :default => 0
+    t.string   "name",                       :null => false
+    t.string   "phone",                      :null => false
+    t.string   "address",                    :null => false
+    t.string   "postcode"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
@@ -83,6 +93,17 @@ ActiveRecord::Schema.define(:version => 20141231090453) do
   add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
   add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
+
+  create_table "customers", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "identity",   :null => false
+    t.string   "phone",      :null => false
+    t.string   "department"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "customers", ["name"], :name => "index_customers_on_name"
 
   create_table "directory_kits", :force => true do |t|
     t.integer  "directory_id", :null => false

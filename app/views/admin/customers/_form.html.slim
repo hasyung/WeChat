@@ -1,0 +1,29 @@
+= simple_form_for [:admin, @customer] do |f|
+  = hidden_field_tag 'customer[admin_user_id]', current_admin_user.id
+  .row-fluid
+    .span6
+      = f.input :name, input_html: { class: :span12 }
+  .row-fluid
+    .span12
+      = f.input :identity, input_html: { class: :span4 }
+  .row-fluid
+    .span12
+      = f.input :phone, input_html: { class: :span3 }
+  .row-fluid
+    .span12
+      = f.input :department, input_html: { class: :span4 }
+  .row-fluid
+    .span12
+      = f.simple_fields_for :address, @customer.address.blank? ? @customer.build_address : @customer.address do |profile|
+        = profile.input :name, input_html: { class: :span6 }
+        = profile.input :phone, input_html: { class: :span3 }
+        = profile.input :address, input_html: { class: :span12 }
+        = profile.input :postcode, input_html: { class: :span2 }
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to admin_customers_path, class: :btn do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.back")
