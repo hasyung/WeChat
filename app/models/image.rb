@@ -9,14 +9,14 @@ class Image < ActiveRecord::Base
   uploader_image :file, PictureUploader, size: Setting.image_upload_size
 
   # Relations
-  belongs_to :album
+  belongs_to :kit
 
   audited
 
   default_scope order("`order` ASC")
 
   before_create do
-    self.order = Image.where(album_id: self.album_id).count + 1
+    self.order = Image.where(kit_id: self.kit_id).count + 1
   end
 
   def to_jq_images(type, type_id)

@@ -1,42 +1,5 @@
 Namespace 'com.onetrip.admin.dataTable',
   # 初始化音频的DataTable
-  initAudiosDataTable: ()->
-    $('#audios-datatables').dataTable
-      bSortCellsTop: true
-      aoColumns: [
-        { mData: 'audio_profile.file', sClass: 'audio' }
-        { mData: 'title' }
-        { mData: 'realname_at', sClass: 'date' }
-        { mData: 'created_at', sClass: 'date' }
-        { mData: 'actions.html', sClass: 'actions', bSortable: false }
-      ]
-      fnCreatedRow: (nRow, aData, iDataIndex)->
-        # 处理音频
-        audio = $('<audio>').attr('src', aData.audio_profile.file)
-        $(nRow).find('td:first').html(audio)
-
-      fnDrawCallback: ()->
-        # 处理操作按钮
-        $('#audios-datatables').find('a[data-toggle="tooltip"]').tooltip
-          placement: 'bottom'
-        $('.dataTables_length select').selectpicker
-          style: 'btn-primary'
-
-
-        audiojs.events.ready ()->
-          audiojs.createAll
-            preload: false
-    .columnFilter
-      sPlaceHolder: 'head:after'
-      aoColumns: [
-        null
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
-        null
-        null
-      ]
-    .fnSetFilteringDelay()
 
   # 初始化视频的DataTable
   initKitsDataTable: ()->
@@ -44,7 +7,7 @@ Namespace 'com.onetrip.admin.dataTable',
       bSortCellsTop: true
       aoColumns: [
         { mData: 'title' }
-        { mData: 'realname_at' }
+        { mData: 'price' }
         { mData: 'created_at', sClass: 'date' }
         { mData: 'actions.html', sClass: 'actions', bSortable: false }
       ]
@@ -63,30 +26,8 @@ Namespace 'com.onetrip.admin.dataTable',
       ]
     .fnSetFilteringDelay()
 
+
   # 初始化文章的DataTable
-  initArticlesDataTable: ()->
-    $('#articles-datatables').dataTable
-      bSortCellsTop: true
-      aoColumns: [
-        { mData: 'title' }
-        { mData: 'realname_at' }
-        { mData: 'created_at', sClass: 'date' }
-        { mData: 'actions.html', sClass: 'actions', bSortable: false }
-      ]
-      fnCreatedRow: (nRow, aData, iDataIndex)->
-        # 处理操作按钮
-        $(nRow).find('a[data-toggle="tooltip"]').tooltip
-          placement: 'bottom'
-    .columnFilter
-      sPlaceHolder: 'head:after'
-      aoColumns: [
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
-        null
-        null
-      ]
-    .fnSetFilteringDelay()
 
   # 初始化帐号的DataTable
   initAccountsDataTable: ()->
@@ -113,11 +54,12 @@ Namespace 'com.onetrip.admin.dataTable',
     .fnSetFilteringDelay()
 
   # 初始化目录的DataTable
-  initDirectiesDataTable: ()->
+  initDirectoriesDataTable: ()->
     $('#directories-datatables').dataTable
       bSortCellsTop: true
       aoColumns: [
-        { mData: 'name' }
+        { mData: 'title' }
+        { mData: 'price' }
         { mData: 'created_at', sClass: 'date' }
         { mData: 'actions.html', sClass: 'actions', bSortable: false }
       ]
@@ -129,6 +71,8 @@ Namespace 'com.onetrip.admin.dataTable',
       sPlaceHolder: 'head:after'
       aoColumns: [
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
+        null
         null
         null
       ]
@@ -224,29 +168,6 @@ Namespace 'com.onetrip.admin.dataTable',
       ]
     .fnSetFilteringDelay()
 
-  # 初始化图集的DataTable
-  initMerchantsDataTable: ()->
-    $('#merchants-datatables').dataTable
-      bSortCellsTop: true
-      aoColumns: [
-        { mData: 'title' }
-        { mData: 'realname_at', sClass: 'date' }
-        { mData: 'created_at', sClass: 'date' }
-        { mData: 'actions.html', sClass: 'actions date', bSortable: false }
-      ]
-      fnCreatedRow: (nRow, aData, iDataIndex)->
-        # 处理操作按钮
-        $(nRow).find('a[data-toggle="tooltip"]').tooltip
-          placement: 'bottom'
-    .columnFilter
-      sPlaceHolder: 'head:after'
-      aoColumns: [
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
-        null
-        null
-      ]
-    .fnSetFilteringDelay()
 
   # 初始化会员的DataTable
   initMembersDataTable: ()->
@@ -272,56 +193,6 @@ Namespace 'com.onetrip.admin.dataTable',
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
-      ]
-    .fnSetFilteringDelay()
-
-  # 初始化天气的DataTable
-  initWeathersDataTable: ()->
-    $('#weathers-datatables').dataTable
-      bSortCellsTop: true
-      aoColumns: [
-        { mData: 'keyword' }
-        { mData: 'name' }
-        { mData: 'tag_list', bSortable: false }
-        { mData: 'weather_at', sClass: 'date' }
-        { mData: 'actions.html', sClass: 'actions', bSortable: false }
-      ]
-      fnCreatedRow: (nRow, aData, iDataIndex)->
-        # 处理操作按钮
-        $(nRow).find('a[data-toggle="tooltip"]').tooltip
-          placement: 'bottom'
-    .columnFilter
-      sPlaceHolder: 'head:after'
-      aoColumns: [
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
-        null
-        null
-      ]
-    .fnSetFilteringDelay()
-
-  # 初始化导游的DataTable
-  initGuidesDataTable: ()->
-    $('#guides-datatables').dataTable
-      bSortCellsTop: true
-      aoColumns: [
-        { mData: 'name' }
-        { mData: 'qualificationscardno' }
-        { mData: 'created_at', sClass: 'date' }
-        { mData: 'actions.html', sClass: 'actions', bSortable: false }
-      ]
-      fnCreatedRow: (nRow, aData, iDataIndex)->
-        # 处理操作按钮
-        $(nRow).find('a[data-toggle="tooltip"]').tooltip
-          placement: 'bottom'
-    .columnFilter
-      sPlaceHolder: 'head:after'
-      aoColumns: [
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
         null
       ]
     .fnSetFilteringDelay()
@@ -366,59 +237,12 @@ Namespace 'com.onetrip.admin.dataTable',
       ]
     .fnSetFilteringDelay()
 
-  # 初始化投票的DataTable
-  initVotesDataTable: ()->
-    $('#votes-datatables').dataTable
-      bSortCellsTop: true
-      aoColumns: [
-        { mData: 'booth' }
-        { mData: 'phone' }
-        { mData: 'created_at' }
-        { mData: 'actions.html', sClass: 'actions', bSortable: false }
-      ]
-      fnCreatedRow: (nRow, aData, iDataIndex)->
-        # 处理操作按钮
-        $(nRow).find('a[data-toggle="tooltip"]').tooltip
-          placement: 'bottom'
-    .columnFilter
-      sPlaceHolder: 'head:after'
-      aoColumns: [
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
-        null
-      ]
-    .fnSetFilteringDelay()
-
-  # 初始化地图的DataTable
-  initMapsDataTable: ()->
-    $('#maps-datatables').dataTable
-      bSortCellsTop: true
-      aoColumns: [
-        { mData: 'title' }
-        { mData: 'realname_at', sClass: 'date' }
-        { mData: 'created_at', sClass: 'date' }
-        { mData: 'actions.html', sClass: 'actions', bSortable: false }
-      ]
-      fnCreatedRow: (nRow, aData, iDataIndex)->
-        # 处理操作按钮
-        $(nRow).find('a[data-toggle="tooltip"]').tooltip
-          placement: 'bottom'
-    .columnFilter
-      sPlaceHolder: 'head:after'
-      aoColumns: [
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        null
-        null
-        null
-      ]
-    .fnSetFilteringDelay()
 
   # 初始化日志的DataTable
   initAuditsDataTable: ()->
     $('#audits-datatables').dataTable
       bSortCellsTop: true
+      bFilter: false
       aoColumns: [
         { mData: 'user_id', sClass: 'date' }
         { mData: 'auditable_type', sClass: 'date' }
@@ -435,8 +259,8 @@ Namespace 'com.onetrip.admin.dataTable',
     .columnFilter
       sPlaceHolder: 'head:after'
       aoColumns: [
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
+        null
+        null
         null
         null
         null

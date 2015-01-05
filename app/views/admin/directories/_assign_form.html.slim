@@ -1,7 +1,7 @@
-= simple_form_for @album, url: assign_admin_album_path(@album), remote: true do |f|
+= simple_form_for @directory, url: assign_admin_directory_path(@directory), remote: true do |f|
   .modal-header
     button.close data-dismiss='modal' aria-hidden='true' &times;
-    h3 = t("breadcrumbs.admin.albums.assign")
+    h3 = t("breadcrumbs.admin.directories.assign")
   .modal-body
     = f.association :admin_user, label_method: :realname, value_method: :id, input_html: { data: { width: '100%' } }
   .modal-footer

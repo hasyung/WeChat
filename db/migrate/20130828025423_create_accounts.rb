@@ -13,6 +13,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer     :expires_in,                default: 0
       t.integer     :members_count,             default: 0
       t.integer     :kits_count,                default: 0
+      t.integer     :directories_count,         default: 0
       t.integer     :menus_count,               default: 0
       t.integer     :replies_count,             default: 0
       t.timestamps

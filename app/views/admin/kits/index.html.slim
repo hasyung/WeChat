@@ -1,10 +1,11 @@
 #kits
   /! top toolbar
-  .btn-toolbar
-    .btn-group
-      = link_to new_admin_kit_path, class: 'btn btn-primary' do
-        i.icon-file-text
-        span.l-padding-5 = t("breadcrumbs.admin.kits.new")
+  - if can? :create, Directory
+    .btn-toolbar
+      .btn-group
+        = link_to new_admin_kit_path, class: 'btn btn-primary' do
+          i.icon-file-text
+          span.l-padding-5 = t("breadcrumbs.admin.kits.new")
   .widget-box.transparent
     .widget-body
       .widget-main
@@ -13,7 +14,7 @@
           thead
             tr
               th = Resource.human_attribute_name :title
-              th = t('breadcrumbs.admin.articles.assign')
+              th = Resource.human_attribute_name :price
               th = Resource.human_attribute_name :created_at
               th = t('buttons.actions')
             tr

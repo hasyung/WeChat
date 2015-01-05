@@ -1,5 +1,5 @@
 <% if request.get? %>
-  $("#modal").html('<%= j render(partial: "assign_form", locals: { album: @album }) %>').modal({
+  $("#modal").html('<%= j render(partial: "assign_form", locals: { category: @category }) %>').modal({
     backdrop: 'static',
     keyboard: false,
     width: 350

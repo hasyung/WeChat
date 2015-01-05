@@ -3,7 +3,7 @@
   - if can? :create, Directory
     .btn-toolbar
       .btn-group
-        = link_to new_admin_directory_path, remote: true, class: 'btn btn-primary' do
+        = link_to new_admin_directory_path, class: 'btn btn-primary' do
           i.icon-file-text
           span.l-padding-5 = t("breadcrumbs.admin.directories.new")
   .widget-box.transparent
@@ -13,10 +13,12 @@
         table#directories-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_directories_path}"
           thead
             tr
-              th = Directory.human_attribute_name :name
-              th = Directory.human_attribute_name :created_at
+              th = Resource.human_attribute_name :title
+              th = Resource.human_attribute_name :price
+              th = Resource.human_attribute_name :created_at
               th = t('buttons.actions')
             tr
-              th = Directory.human_attribute_name :name
+              th
+              th
               th
               th

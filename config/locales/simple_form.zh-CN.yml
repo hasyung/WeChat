@@ -4,7 +4,6 @@
       defaults:
         title: '必须填写，长度在2~100之间'
         cover: '必须上传，用于微信回复图文列表时显示。大小控制在5M，格式为：jpg|jpeg|gif|png|bmp'
-        description: '必须填写'
       album:
         directory_id: '必须选择， 用于归类资源'
         album_profile:

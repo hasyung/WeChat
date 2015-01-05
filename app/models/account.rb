@@ -15,6 +15,7 @@ class Account < ActiveRecord::Base
   has_many :replies,      dependent: :destroy, order: '`id` DESC'
   has_many :resources,    dependent: :destroy
   has_many :kits,         dependent: :destroy
+  has_many :directories,  dependent: :destroy
   has_many :albums,       dependent: :destroy
 
   # Validates

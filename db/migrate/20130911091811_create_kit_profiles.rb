@@ -2,6 +2,7 @@ class CreateKitProfiles < ActiveRecord::Migration
   def change
     create_table :kit_profiles do |t|
       t.references  :kit, default: 0
+      t.integer     :category_cd,       default: 0
       t.string      :file
       t.string      :file_type
       t.integer     :file_size,     default: 0

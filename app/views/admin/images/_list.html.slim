@@ -1,4 +1,4 @@
-#album-images-list.widget-box
+#kit-images-list.widget-box
   .widget-header.header-color-blue3
     h6.lighter = t('breadcrumbs.admin.images.index')
     .widget-toolbar.no-border
@@ -15,20 +15,20 @@
         .empty
           .alert.alert-warning = t('messages.images.empty_action')
       - else
-        = simple_form_for @album, url: images_sort_admin_album_path(@album), remote: true do |f|
+        = simple_form_for @kit, url: images_sort_admin_kit_path(@kit), remote: true do |f|
           ul.unstyled
             - @images.each do |image|
               - if not image.new_record?
                 li.resource.clearfix id='resource_#{image.id}'
-                  input type='hidden' name='album[image_ids][]' value='#{image.id}'
+                  input type='hidden' name='kit[image_ids][]' value='#{image.id}'
                   .resource-cover.pull-left
                     .action-shade.hide
-                      = link_to admin_album_image_path(@album, image), remote: true, method: :delete, data: { confirm: t('messages.confirm_destroy'), toggle: :tooltip }, title: t('breadcrumbs.admin.images.delete') do
+                      = link_to admin_kit_image_path(@kit, image), remote: true, method: :delete, data: { confirm: t('messages.confirm_destroy'), toggle: :tooltip }, title: t('breadcrumbs.admin.images.delete') do
                         i.icon-trash.icon-2x
                     = image_tag image.file.small.url.to_s, class: 'img-rounded'
                   .resource-info.pull-left
                     .title
-                      = link_to edit_admin_album_image_path(@album, image), remote: true do
+                      = link_to edit_admin_kit_image_path(@kit, image), remote: true do
                         i.icon-edit
                       span = image.title.blank? ? t('messages.images.empty_title') : image.title
                   .resource-sort.pull-right

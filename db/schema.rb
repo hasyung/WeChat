@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123050654) do
+ActiveRecord::Schema.define(:version => 20141231090453) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                                   :null => false
@@ -26,13 +26,11 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
     t.integer  "expires_in",              :default => 0
     t.integer  "members_count",           :default => 0
     t.integer  "kits_count",              :default => 0
+    t.integer  "directories_count",       :default => 0
     t.integer  "menus_count",             :default => 0
     t.integer  "replies_count",           :default => 0
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.integer  "votes_count",             :default => 0
-    t.integer  "maps_count",              :default => 0
-    t.integer  "merchants_count"
   end
 
   add_index "accounts", ["alias"], :name => "index_accounts_on_alias"
@@ -65,26 +63,6 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
     t.datetime "updated_at",                :null => false
   end
 
-  create_table "article_profiles", :force => true do |t|
-    t.integer  "article_id", :default => 0
-    t.text     "body"
-    t.string   "url"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  create_table "audio_profiles", :force => true do |t|
-    t.integer  "audio_id",      :default => 0
-    t.string   "file"
-    t.string   "file_type"
-    t.integer  "file_size",     :default => 0
-    t.integer  "file_duration", :default => 0
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-  end
-
-  add_index "audio_profiles", ["audio_id"], :name => "index_audio_profiles_on_audio_id"
-
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
     t.string   "auditable_type"
@@ -106,36 +84,15 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
   add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
-  create_table "directories", :force => true do |t|
-    t.integer  "account_id",                     :null => false
-    t.string   "name",                           :null => false
-    t.integer  "audios_count",    :default => 0
-    t.integer  "articles_count",  :default => 0
-    t.integer  "albums_count",    :default => 0
-    t.integer  "kits_count",      :default => 0
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "maps_count",      :default => 0
-    t.integer  "merchants_count"
+  create_table "directory_kits", :force => true do |t|
+    t.integer  "directory_id", :null => false
+    t.integer  "kit_id",       :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
-
-  add_index "directories", ["account_id"], :name => "index_directories_on_account_id"
-
-  create_table "guides", :force => true do |t|
-    t.integer  "account_id",                          :null => false
-    t.string   "name",                 :limit => 200, :null => false
-    t.string   "qualificationscardno", :limit => 200
-    t.text     "body"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-  end
-
-  add_index "guides", ["account_id"], :name => "index_guides_on_account_id"
-  add_index "guides", ["name"], :name => "index_guides_on_name"
-  add_index "guides", ["qualificationscardno"], :name => "index_guides_on_qualificationscardno", :unique => true
 
   create_table "images", :force => true do |t|
-    t.integer  "album_id",   :default => 0
+    t.integer  "kit_id",     :default => 0
     t.string   "title"
     t.string   "file"
     t.string   "file_type"
@@ -145,7 +102,7 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
     t.datetime "updated_at",                :null => false
   end
 
-  add_index "images", ["album_id"], :name => "index_images_on_album_id"
+  add_index "images", ["kit_id"], :name => "index_images_on_kit_id"
   add_index "images", ["title"], :name => "index_images_on_title"
 
   create_table "kindeditor_assets", :force => true do |t|
@@ -160,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
 
   create_table "kit_profiles", :force => true do |t|
     t.integer  "kit_id",        :default => 0
+    t.integer  "category_cd",   :default => 0
     t.string   "file"
     t.string   "file_type"
     t.integer  "file_size",     :default => 0
@@ -169,17 +127,6 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
   end
 
   add_index "kit_profiles", ["kit_id"], :name => "index_kit_profiles_on_kit_id"
-
-  create_table "map_profiles", :force => true do |t|
-    t.integer  "map_id",     :default => 0
-    t.string   "file"
-    t.string   "file_type"
-    t.integer  "file_size",  :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "map_profiles", ["map_id"], :name => "index_map_profiles_on_map_id"
 
   create_table "members", :force => true do |t|
     t.integer  "account_id",     :default => 0
@@ -227,29 +174,6 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
 
   add_index "menus", ["account_id"], :name => "index_menus_on_account_id"
   add_index "menus", ["parent_id"], :name => "index_menus_on_parent_id"
-
-  create_table "merchant_images", :force => true do |t|
-    t.integer  "merchant_id", :default => 0
-    t.string   "title"
-    t.string   "file"
-    t.string   "file_type"
-    t.integer  "file_size",   :default => 0
-    t.integer  "order",       :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-  end
-
-  add_index "merchant_images", ["merchant_id"], :name => "index_merchant_images_on_merchant_id"
-  add_index "merchant_images", ["title"], :name => "index_merchant_images_on_title"
-
-  create_table "merchant_profiles", :force => true do |t|
-    t.integer  "merchant_id", :default => 0
-    t.integer  "type_cd",     :default => 0
-    t.string   "url"
-    t.text     "body"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-  end
 
   create_table "messages", :force => true do |t|
     t.integer  "member_id",   :default => 0
@@ -304,6 +228,8 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
     t.string   "type"
     t.string   "title"
     t.text     "description"
+    t.float    "price",                        :null => false
+    t.integer  "sale_count",    :default => 0
     t.string   "cover"
     t.string   "cover_type"
     t.integer  "cover_size"
@@ -353,31 +279,5 @@ ActiveRecord::Schema.define(:version => 20131123050654) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
-
-  create_table "votes", :force => true do |t|
-    t.integer  "account_id",                :null => false
-    t.string   "open_id",                   :null => false
-    t.string   "booth",                     :null => false
-    t.string   "phone",                     :null => false
-    t.integer  "order",      :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "votes", ["account_id", "order"], :name => "index_votes_on_account_id_and_order", :unique => true
-  add_index "votes", ["open_id"], :name => "index_votes_on_open_id"
-
-  create_table "weathers", :force => true do |t|
-    t.integer  "account_id",               :null => false
-    t.string   "name",       :limit => 50, :null => false
-    t.text     "body"
-    t.datetime "weather_at"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
-    t.string   "keyword",                  :null => false
-  end
-
-  add_index "weathers", ["account_id"], :name => "index_weathers_on_account_id"
-  add_index "weathers", ["name"], :name => "index_weathers_on_name"
 
 end

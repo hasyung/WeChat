@@ -55,7 +55,7 @@ OneTripWeChat::Application.routes.draw do
     resources :members, only: [:index, :destroy] do
       get :info, on: :member
     end
-    resources :directories, except: [:show]
+
     resources :replies do
       get :category, on: :member
       get :map, on: :collection
@@ -70,6 +70,13 @@ OneTripWeChat::Application.routes.draw do
         match :assign, on: :member, via: [:get, :put]
       end
       resources :kits do
+        match :assign, on: :member, via: [:get, :put]
+        put :images_sort, on: :member
+        resources :images do
+          get :list, on: :collection
+        end
+      end
+      resources :directories do
         match :assign, on: :member, via: [:get, :put]
       end
       resources :articles do

@@ -1,6 +1,9 @@
 class Admin::KitsController < Admin::ApplicationController
+
   before_filter :add_breadcrumbs
-  before_filter :find_kit, only: [:edit, :update, :destroy, :assign]
+  before_filter :find_kit, only: [:edit, :update, :destroy, :assign, :images_sort]
+
+  skip_authorization_check only: [:images_sort]
 
   def index
     # 授权
@@ -9,9 +12,9 @@ class Admin::KitsController < Admin::ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        @data_tables = current_account.kits.includes([:kit_profile])
-        @data_tables = @data_tables.where(admin_user_id: current_admin_user.id) if cannot? :manage, Kit
-        @data_tables = @data_tables.to_datatable(self)
+        @data_tables = current_account.kits.includes([:kit_profile]).to_datatable(self)
+        # @data_tables = @data_tables.where(admin_user_id: current_admin_user.id) if cannot? :manage, Kit
+        # @data_tables = @data_tables.to_datatable(self)
         render layout: false
       end
     end
@@ -40,14 +43,14 @@ class Admin::KitsController < Admin::ApplicationController
 
   def edit
     # 授权
-    authorize! :update, @kit, message: t('unauthorized.kit_update')
+    authorize! :update, Kit, message: t('unauthorized.kit_update')
     
     add_breadcrumb :edit
   end
 
   def update
     # 授权
-    authorize! :update, @kit, message: t('unauthorized.kit_update')
+    authorize! :update, Kit, message: t('unauthorized.kit_update')
     
     if @kit.update_attributes params[:kit]
       redirect_to admin_kits_path, notice: t('successes.messages.kits.update')
@@ -59,7 +62,7 @@ class Admin::KitsController < Admin::ApplicationController
 
   def destroy
     # 授权
-    authorize! :destroy, @kit, message: t('unauthorized.kit_destroy')
+    authorize! :destroy, Kit, message: t('unauthorized.kit_destroy')
     
     if @kit.destroy
       redirect_to admin_kits_path, notice: t('successes.messages.kits.destroy')
@@ -74,6 +77,13 @@ class Admin::KitsController < Admin::ApplicationController
     
     if request.put?
       @kit.update_attributes params[:kit]
+    end
+  end
+
+  def images_sort
+    @images = @kit.images
+    params[:kit][:image_ids].each_with_index do |id, index|
+      Image.update_all({ order: index + 1 }, { kit_id: @kit.id, id: id })
     end
   end
 

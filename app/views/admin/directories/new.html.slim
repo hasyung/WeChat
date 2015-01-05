@@ -1,8 +1,8 @@
 /! top toolbar
-- if can? :create, Kit
+- if can? :create, Directory
   .btn-toolbar
     .btn-group
-      = link_to admin_kits_path, class: :btn do
+      = link_to admin_directories_path, class: :btn do
         i.icon-arrow-left.bigger-110
         span = t("buttons.back")
 
@@ -10,8 +10,7 @@
   .span12
     .widget-box
       .widget-header.widget-header-blue.widget-header-flat.wi1dget-header-large
-        h5 = t("breadcrumbs.admin.kits.new")
+        h5 = t("breadcrumbs.admin.directories.new")
       .widget-body
         .widget-main
           = render 'form'
-

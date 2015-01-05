@@ -47,7 +47,7 @@ if Rails.env.test? or Rails.env.development?
 
   # Kit
   unless Kit.exists?(title: '大家来看好视频')
-    Kit.create title: '大家来看好视频', description: '好视频要大家一起看', \
+    Kit.create title: '大家来看好视频', description: '好视频要大家一起看', price: 100.00, \
     kit_profile_attributes: { file: File.open(File.expand_path('resources/videos/wuhouci.mp4', Rails.root)) }, \
     cover: File.open(File.expand_path('resources/images/bugs.jpg', Rails.root)), \
     account_id: account1.id

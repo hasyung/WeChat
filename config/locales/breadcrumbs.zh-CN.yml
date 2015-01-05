@@ -22,11 +22,12 @@
         resources:
           index: '资源'
           audio: '音频'
-          kit: '视频'
+          kit: '急救用品'
           article: '文章'
           album: '图集'
           merchant: '商家'
           map: '地图'
+          directory: '急救包'
         weather: '天气'
         guide: '导游'
       home:
@@ -51,9 +52,9 @@
         search: '搜索结果'
         assign: '分配管理员'
       kits:
-        index: '视频列表'
-        new: '添加视频'
-        edit: '编辑视频'
+        index: '急救用品列表'
+        new: '添加急救用品'
+        edit: '编辑急救用品'
         search: '搜索结果'
         assign: '分配管理员'
       articles:
@@ -76,9 +77,11 @@
         excel: '导出Excel'
         xml: '导出xml'
       directories:
-        index: '目录'
-        new: '添加目录'
-        edit: '编辑目录'
+        index: '急救包'
+        new: '添加急救包'
+        edit: '编辑急救包'
+        search: '搜索结果'
+        assign: '分配管理员'
       images:
         edit: '编辑图片'
         index: '图片'

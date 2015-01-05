@@ -80,7 +80,7 @@
     add: '添加'
     select: '选择'
     images: '图集'
-    assign_user: '分配用户'
+    assign_user: '分配管理员'
     qrcode_download: '查看二维码'
     qrcode_cancel: '取消二维码'
     qrcode_rebuild: '重建二维码'
@@ -167,9 +167,9 @@
         update: '修改音频失败！'
         destroy: '删除音频失败！'
       kits:
-        create: '创建视频失败！'
-        update: '修改视频失败！'
-        destroy: '删除视频失败！'
+        create: '创建急救用品失败！'
+        update: '修改急救用品失败！'
+        destroy: '删除急救用品失败！'
       accounts:
         destroy: '删除帐号失败！'
         empty: '您的微信帐号还没有开通，请联系管理员。'
@@ -191,9 +191,9 @@
         update: '更新商家失败！'
         destroy: '删除商家失败！'
       directory:
-        create: '创建目录失败！'
-        update: '更新目录失败！'
-        destroy: '删除目录失败！'
+        create: '创建急救包失败！'
+        update: '更新急救包失败！'
+        destroy: '删除急救包失败！'
         has_resources: '删除目录失败，该目录下还有资源！'
       replies:
         create: '创建回复失败！'
@@ -218,7 +218,7 @@
         empty_select: '你没有选中任何资源'
         beyond_limit: '你最多只能添加 %{count} 个资源。'
       admin_user:
-        current_password: '请输入当前用户的登陆密码！'
+        current_password: '请输入当前管理员的登陆密码！'
         password_confirmation: '两次输入的新密码不一致!'
       votes:
         save: '保存投票信息失败！'
@@ -228,9 +228,9 @@
         update: '修改地图失败！'
         destroy: '删除地图失败！'
       admin_users:
-        create: '创建用户失败！'
-        update: '修改用户失败！'
-        destroy: '删除用户失败！'
+        create: '创建管理员失败！'
+        update: '修改管理员失败！'
+        destroy: '删除管理员失败！'
 
   successes:
     messages:
@@ -239,9 +239,9 @@
         update: '修改音频成功！'
         destroy: '删除音频成功！'
       kits:
-        create: '创建视频成功！'
-        update: '修改视频成功！'
-        destroy: '删除视频成功！'
+        create: '创建急救用品成功！'
+        update: '修改急救用品成功！'
+        destroy: '删除急救用品成功！'
       accounts:
         create: '创建帐号成功！'
         update: '修改帐号成功！'
@@ -263,9 +263,9 @@
       members:
         destroy: '删除会员成功！'
       directory:
-        create: '创建目录成功！'
-        update: '更新目录成功！'
-        destroy: '删除目录成功！'
+        create: '创建急救包成功！'
+        update: '更新急救包成功！'
+        destroy: '删除急救包成功！'
       replies:
         create: '创建回复成功！'
         update: '更新回复成功！'
@@ -293,9 +293,9 @@
         update: '修改地图成功！'
         destroy: '删除地图成功！'
       admin_users:
-        create: '创建用户成功！'
-        update: '修改用户成功！'
-        destroy: '删除用户成功！'
+        create: '创建管理员成功！'
+        update: '修改管理员成功！'
+        destroy: '删除管理员成功！'
 
   system_messages:
     subscribe: '当用户订阅时自动回复'
@@ -327,21 +327,21 @@
   activerecord:
     models:
       user: '用户'
-      admin_user: "用户"
+      admin_user: "管理员"
       account: '微信帐号'
       article_group: '图文'
       article: '文章'
       article_profile: '文章附件'
       audio: '音频'
       audio_profile: '音频附件'
-      kit: '视频'
-      kit_profile: '视频附件'
+      kit: '急救用品'
+      kit_profile: '急救用品'
       reply: '回复'
       album: '图集'
       album_profile: '图集附件'
       merchant: '商家'
       merchant_profile: '商家附件'
-      directory: '目录'
+      directory: '急救包'
       weather: '天气'
       guide: '导游'
       map: '地图'
@@ -350,6 +350,7 @@
       resource: "资源"
       reply_resource: "回复资源"
       menu: '菜单'
+      image: '图片'
     attributes:
       admin_user:
         realname: '昵称'
@@ -388,11 +389,11 @@
         app_secret: 'APP Secret'
         access_token: '访问密钥'
         expires_in: '密钥过期时间'
-        directories_count: '目录数'
+        directories_count: '急救包数'
         audios_count: '音频数'
         articles_count: '文章数'
         albums_count: '图集数'
-        kits_count: '急救包数'
+        kits_count: '急救用品数'
         menus_count: '菜单数'
         messages_count: '消息数'
         identifier: '标识符'
@@ -433,25 +434,26 @@
         news: '图文'
         lat: '纬度'
         lng: '经度'
-        admin_user: '用户'
+        admin_user: '管理员'
         qrcode: '二维码'
       resource:
         title: '标题'
+        price: '价格'
         description: '描述'
         created_at: '创建时间'
         updated_at: '修改时间'
         account: '所属帐号'
         account_id: '所属帐号'
-        directory: '所属目录'
-        directory_id: '目录'
+        directory: '急救包'
+        directory_id: '急救包'
         cover: '封面'
         type: '类型'
-        admin_user: '所属用户'
+        admin_user: '所属管理员'
       vote:
         booth: '展台'
         phone: '手机'
         created_at: '创建时间'
-      album:
+      kit:
         image: '图片'
       merchant:
         image: '图片'
@@ -463,6 +465,7 @@
         file: '音频文件'
       kit_profile:
         file: '视频文件'
+        category_cd: '类型'
       article_profile:
         body: '正文'
         url: 'URL地址'
@@ -475,10 +478,7 @@
       map_profile:
         file: '地图文件'
       directory:
-        name: '名称'
-        account_id: '所属帐号'
-        created_at: '创建时间'
-        account: '所属帐号'
+        kits: '急救用品'
       menu:
         category_cd: '菜单类型'
         category: '菜单类型'
@@ -545,7 +545,7 @@
     roles:
       admin_users:
         admin: '超级管理员'
-        admin_user_manager: '用户管理员'
+        admin_user_manager: '超级用户管理员'
         reply: '回复录入员'
         reply_manager: '回复管理员'
         menu: '菜单录入员'
@@ -558,12 +558,12 @@
         member_manager: '会员管理员'
         message: '消息录入员'
         message_manager: '消息管理员'
-        directory: '目录录入员'
-        directory_manager: '目录管理员'
+        directory: '急救包录入员'
+        directory_manager: '急救包管理员'
         audio: '音频录入员'
         audio_manager: '音频管理员'
-        kit: '视频录入员'
-        kit_manager: '视频管理员'
+        kit: '急救用品录入员'
+        kit_manager: '急救用品管理员'
         article: '文章录入员'
         article_manager: '文章管理员'
         album: '图集录入员'
@@ -614,6 +614,14 @@
       merchant_profile:
         types:
           ordinary: '普通'
+
+      kit_profile:
+        categories:
+          zero: '文本'
+          one: '图文'
+          two: '资源'
+          three: '资源'
+          four: '资源'
 
       member:
         sexes:
@@ -669,11 +677,11 @@
     guides: '武侯祠语音导游'
     list: '精彩图记'
   unauthorized:
-    admin_user_read: '你没有权限查看用户列表'
-    admin_user_create: '你没有权限创建用户'
-    admin_user_update: '你没有权限编辑用户'
-    admin_user_destroy: '你没有权限删除用户'
-    admin_user_setting: '你没有权限修改用户信息'
+    admin_user_read: '你没有权限查看管理员列表'
+    admin_user_create: '你没有权限创建管理员'
+    admin_user_update: '你没有权限编辑管理员'
+    admin_user_destroy: '你没有权限删除管理员'
+    admin_user_setting: '你没有权限修改管理员信息'
     member_read: '你没有权限查看会员列表'
     member_destroy: '你没有权限删除会员'
     account_update: '你没有权限修改帐号'
@@ -683,13 +691,14 @@
     reply_create: '你没有权限创建回复'
     reply_update: '你没有权限编辑回复'
     reply_destroy: '你没有权限删除回复'
-    reply_assign: '你没有权限为回复分配用户'
+    reply_assign: '你没有权限为回复分配管理员'
     reply_create_qrcode: '你没有权限创建二维码'
     reply_cancel_qrcode: '你没有权限取消二维码'
-    directory_read: '你没有权限查看目录'
-    directory_create: '你没有权限创建目录'
-    directory_update: '你没有权限编辑目录'
-    directory_destroy: '你没有权限删除目录'
+    directory_read: '你没有权限查看急救包'
+    directory_create: '你没有权限创建急救包'
+    directory_update: '你没有权限编辑急救包'
+    directory_destroy: '你没有权限删除急救包'
+    directory_assign: '你没有权限为急救包分配管理员'
     weather_read: '你没有权限查看天气'
     weather_create: '你没有权限创建天气'
     weather_update: '你没有权限编辑天气'
@@ -702,27 +711,27 @@
     audio_create: '你没有权限创建音频'
     audio_update: '你没有权限编辑音频'
     audio_destroy: '你没有权限删除音频'
-    audio_assign: '你没有权限为音频分配用户'
-    kit_read: '你没有权限查看视频'
-    kit_create: '你没有权限创建视频'
-    kit_update: '你没有权限编辑视频'
-    kit_destroy: '你没有权限删除视频'
-    kit_assign: '你没有权限为视频分配用户'
+    audio_assign: '你没有权限为音频分配管理员'
+    kit_read: '你没有权限查看急救用品'
+    kit_create: '你没有权限创建急救用品'
+    kit_update: '你没有权限编辑急救用品'
+    kit_destroy: '你没有权限删除急救用品'
+    kit_assign: '你没有权限为急救用品分配管理员'
     article_read: '你没有权限查看文章'
     article_create: '你没有权限创建文章'
     article_update: '你没有权限编辑文章'
     article_destroy: '你没有权限删除文章'
-    article_assign: '你没有权限为文章分配用户'
+    article_assign: '你没有权限为文章分配管理员'
     album_read: '你没有权限查看图集'
     album_create: '你没有权限创建图集'
     album_update: '你没有权限编辑图集'
     album_destroy: '你没有权限删除图集'
-    album_assign: '你没有权限为图集分配用户'
+    album_assign: '你没有权限为图集分配管理员'
     map_read: '你没有权限查看地图'
     map_create: '你没有权限创建地图'
     map_update: '你没有权限编辑地图'
     map_destroy: '你没有权限删除地图'
-    map_assign: '你没有权限为地图分配用户'
+    map_assign: '你没有权限为地图分配管理员'
     audit_read: '你没有权限查看日志'
     merchant_read: '你没有权限查看商家'
     merchant_create: '你没有权限创建商家'

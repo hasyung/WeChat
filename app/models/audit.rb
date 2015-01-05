@@ -5,7 +5,7 @@ class Audit < Audited::Adapters::ActiveRecord::Audit
   include Extension::DataTable
 
   # Scopes
-  scope :created_desc, order("created_at DESC")
+  default_scope order("created_at DESC")
 
   def change_audited
     result =""

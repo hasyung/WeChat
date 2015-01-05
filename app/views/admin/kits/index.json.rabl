@@ -6,7 +6,7 @@ child @data_tables.records => :aaData do
   if @data_tables.records.any?
     node(:DT_RowId) { |o| o.id.to_s }
     node(:title) { |o| o.title }
-    node(:realname_at) { |o| o.admin_user.nil? ? "" : o.admin_user.realname }
+    node(:price) { |o| o.price }
     node(:created_at) { |o| I18n.l o.created_at, format: :long }
     node(:actions) { |o| partial('admin/kits/actions', object: o) }
   end

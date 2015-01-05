@@ -1,10 +1,12 @@
 class CreateResources < ActiveRecord::Migration
   def change
     create_table :resources do |t|
-      t.references  :account,       default: 0
+      t.references  :account,         default: 0
       t.string      :type
       t.string      :title
       t.text        :description
+      t.float       :price,           null: false
+      t.integer     :sale_count,      default: 0
       t.string      :cover
       t.string      :cover_type
       t.integer     :cover_size

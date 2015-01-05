@@ -1,10 +1,38 @@
-= simple_form_for [:admin, @directory], remote: true do |f|
-  .modal-header
-    button.close type='button' data-dismiss='modal' aria-hidden='true' ×
-    h3 = "#{@directory.new_record? ? t("breadcrumbs.admin.directories.new") : t("breadcrumbs.admin.directories.edit") }"
-  .modal-body
-    .row-fluid
-      .span12 = f.input :name, hint: false, input_html: { class: :span12 }
-  .modal-footer
-    button.btn data-dismiss="modal" aria-hidden='true' = t('buttons.close')
-    = f.submit class: 'btn btn-primary'
+= simple_form_for [:admin, @directory] do |f|
+  = hidden_field_tag 'directory[admin_user_id]', current_admin_user.id
+  .row-fluid
+    .span12
+      = f.input :title, input_html: { class: :span12 }
+  .row-fluid
+    .span12
+      = f.input :price, input_html: { class: :span3 }
+  .row-fluid.b-margin-10
+    .span12
+      = f.input :cover do
+        = f.file_field :cover
+        = f.hidden_field :cover_cache
+      = image_tag @directory.cover.big.url, class: 'cover-big img-polaroid' if @directory.cover?
+      = image_tag @directory.cover.small.url, class: 'cover-small img-polaroid l-margin-20' if @directory.cover?
+  .row-fluid.b-margin-10
+    = f.input :description, as: :text, input_html: { class: :span12, rows: 6 }
+
+  .row-fluid
+    .span12
+      hr
+      = f.input :kits do
+        .row-fluid
+          - Kit.all.each do |kit|
+            label.checkbox.inline.span3
+              = check_box_tag "directory[kits][#{kit}]", kit.id, @directory.kits.include?(kit), \
+              { name: "directory[kits][]" }
+              span.lbl = "#{kit.title}"
+          = hidden_field_tag "directory[kits][]", ""
+
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to admin_directories_path, class: :btn do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.back")

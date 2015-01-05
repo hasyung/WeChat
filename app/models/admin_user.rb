@@ -11,17 +11,17 @@ class AdminUser < ActiveRecord::Base
   
   acts_as_user roles: Setting.admin_user_roles.map { |role| role.to_sym }
 
-  # audited only: [:email, :password, :avatar, :realname]
+  #audited only: [:email, :password, :avatar, :realname]
 
   uploader_image :avatar, AvatarUploader, size: Setting.image_upload_size
   
   has_many :replies
   has_many :audios
-  has_many :videos
   has_many :articles
   has_many :albums
-  has_many :maps
-  has_many :merchants
+
+  has_many :kits
+  has_many :directories
 
   validates :email, presence: true
   validates :realname, presence: true, length: { in: 2..60 }

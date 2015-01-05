@@ -1,11 +1,11 @@
-= simple_form_for @album.images.new, url: admin_album_images_path(@album), remote: true, html: { id: "fileupload" } do |f|
+= simple_form_for @kit.images.new, url: admin_kit_images_path(@kit), remote: true, html: { id: "fileupload" } do |f|
   .container-fluid
     .row.fileupload-buttonbar
       .span7
         span.btn.btn-success.fileinput-button
           i.icon-plus.icon-white
           span = t('buttons.select')
-          = f.file_field :file
+          = f.file_field :file, multiple: "true"
         button.btn.btn-primary.start type="submit"
           i.icon-upload.icon-white
           span = t('buttons.start')
@@ -16,7 +16,7 @@
     table.table.table-striped
       thead
         tr
-          th = Album.human_attribute_name :image
+          th = Kit.human_attribute_name :image
           th.date
           th colspan='2' = t('buttons.actions')
       tbody.files data-toggle="modal-gallery" data-target="#modal-gallery"

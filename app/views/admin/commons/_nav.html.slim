@@ -20,14 +20,16 @@
               li class="#{active_page %w(replies), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.reply'), admin_replies_path
             - if can? :system, Reply
               li class="#{active_page %w(system_replies), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.settings.system_reply'), admin_system_replies_path
-            - if can?(:read, Kit)
-              li.dropdown class="#{active_page %w(kits), namespace: 'admin', value: 'active'}"
+            - if can?(:read, Kit) || can?(:read, Directory)
+              li.dropdown class="#{active_page %w(directories kits), namespace: 'admin', value: 'active'}"
                 a.dropdown-toggle href='#' data-toggle='dropdown'
                   span.title.r-padding-5 = t('breadcrumbs.admin.application.resources.index')
                   b.caret
                 ul.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
                   - if can? :read, Kit
                     li = link_to t('breadcrumbs.admin.application.resources.kit'), admin_kits_path
+                  - if can? :read, Directory
+                    li = link_to t('breadcrumbs.admin.application.resources.directory'), admin_directories_path
             - if can? :read, AdminUser
               li class="#{active_page %w(admin_users), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.admin_user'), admin_admin_users_path
             - if can?(:read, Audit)

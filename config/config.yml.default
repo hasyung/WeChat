@@ -6,6 +6,8 @@ defaults: &defaults
   domain: 'http://114.215.142.122'
 
   map_key: 'baaaac304561811303175c820920071e'
+  app_id: 'wx06237246bc6b1de1'
+  app_secret: 'f9f7a10cf559bc29b1eeec61f9ff869e'
 
   weather_keyword:
     key: '#'
@@ -57,8 +59,8 @@ defaults: &defaults
     'reply_manager',
     'menu',
     'menu_manager',
-    # 'weather',
-    # 'weather_manager',
+    'directory',
+    'directory_manager',
     # 'guide',
     # 'guide_manager',
     # 'member',
@@ -69,8 +71,8 @@ defaults: &defaults
     # 'directory_manager',
     # 'audio',
     # 'audio_manager',
-    'video',
-    'video_manager',
+    'kit',
+    'kit_manager',
     # 'article',
     # 'article_manager',
     # 'album',
@@ -129,6 +131,12 @@ defaults: &defaults
       gallery: 1
     merchant:
       ordinary: 0
+    kit_category:
+      zero:  0
+      one:   1
+      two:   2
+      three: 3
+      four:  4
 
   system_messages:
     subscribe: -1000

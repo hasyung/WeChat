@@ -34,20 +34,13 @@ $ ->
   com.onetrip.admin.common.toggleAccount()
   com.onetrip.admin.common.initAudioJSAll()
 
-  com.onetrip.admin.dataTable.initAudiosDataTable()
   com.onetrip.admin.dataTable.initKitsDataTable()
-  com.onetrip.admin.dataTable.initArticlesDataTable()
   com.onetrip.admin.dataTable.initAlbumsDataTable()
-  com.onetrip.admin.dataTable.initMerchantsDataTable()
-  com.onetrip.admin.dataTable.initMapsDataTable()
   com.onetrip.admin.dataTable.initMembersDataTable()
-  com.onetrip.admin.dataTable.initWeathersDataTable()
-  com.onetrip.admin.dataTable.initGuidesDataTable()
   com.onetrip.admin.dataTable.initMessagesDataTable()
-  com.onetrip.admin.dataTable.initDirectiesDataTable()
+  com.onetrip.admin.dataTable.initDirectoriesDataTable()
   com.onetrip.admin.dataTable.initAdminUserDataTable()
   com.onetrip.admin.dataTable.initAuditsDataTable()
-  com.onetrip.admin.dataTable.initVotesDataTable()
 
   com.onetrip.admin.menu.initMenu()
 

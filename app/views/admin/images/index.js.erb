@@ -1,6 +1,6 @@
 <% if params[:type].present? %>
   $('#edit-image').modal('hide')
-  $('#album-images-list').html("<%= j render('list')%>")
+  $('#kit-images-list').html("<%= j render('list')%>")
 <% else %>
   $('#modal').html("<%=j render('index') %>").modal({
     backdrop: 'static',

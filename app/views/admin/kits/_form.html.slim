@@ -1,8 +1,15 @@
 = simple_form_for [:admin, @kit] do |f|
   = hidden_field_tag 'kit[admin_user_id]', current_admin_user.id
   .row-fluid
-    .span12
+    .span6
       = f.input :title, input_html: { class: :span12 }
+  .row-fluid
+    .span12
+      = f.input :price, input_html: { class: :span3 }
+  .row-fluid
+    .span4
+      = f.simple_fields_for :kit_profile, @kit.new_record? ? @kit.build_kit_profile : @kit.kit_profile do |profile|
+        = profile.input :category_cd, collection: KitProfile.categories_for_select(:value), prompt: false, input_html: { data: { width: '100%' } }
   .row-fluid.b-margin-10
     .span12
       = f.input :cover do
