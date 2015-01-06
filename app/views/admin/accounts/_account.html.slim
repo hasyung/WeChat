@@ -45,8 +45,8 @@
             td.text-center = number_html_highlight account.members_count
             td.title = Account.human_attribute_name :kits_count
             td.text-center = number_html_highlight account.kits_count
-            td.title
-            td.text-center
+            td.title = Account.human_attribute_name directories_count
+            td.text-center = number_html_highlight account.directories_count
           tr
             td.title = Account.human_attribute_name :menus_count
             td.text-center = number_html_highlight account.menus_count
