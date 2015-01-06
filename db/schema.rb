@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20150105062710) do
     t.datetime "updated_at",                 :null => false
   end
 
+  add_index "addresses", ["customer_id"], :name => "index_addresses_on_customer_id"
+
   create_table "admin_users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
     t.string   "encrypted_password",                   :default => "", :null => false
@@ -65,13 +67,6 @@ ActiveRecord::Schema.define(:version => 20150105062710) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
-
-  create_table "album_profiles", :force => true do |t|
-    t.integer  "album_id",   :default => 0
-    t.integer  "type_cd",    :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"

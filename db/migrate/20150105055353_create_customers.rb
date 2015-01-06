@@ -9,5 +9,6 @@ class CreateCustomers < ActiveRecord::Migration
     end
 
     add_index  :customers, :name
+    add_index  :customers, :identity, unique: true
   end
 end

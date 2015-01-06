@@ -6,6 +6,10 @@
         = link_to new_admin_customer_path, class: 'btn btn-primary' do
           i.icon-file-text
           span.l-padding-5 = t("breadcrumbs.admin.customers.new")
+      .btn-group
+        = link_to import_admin_customers_path, class: 'btn btn-primary' do
+          i.icon-upload
+          span.l-padding-5 = t("breadcrumbs.admin.customers.import")
   .widget-box.transparent
     .widget-body
       .widget-main

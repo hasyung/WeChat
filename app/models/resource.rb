@@ -17,7 +17,7 @@ class Resource < ActiveRecord::Base
     resource.validates :title, length: { in: 2..100 }
   end
   with_options if: :description? do |resource|
-    resource.validates :description, length: { in: 1..1000 }
+    resource.validates :description, length: { in: 0..2000 }
   end
   with_options if: :price? do |price|
     price.validates :price,numericality:{greater_than: 0,less_than_or_equal_to: 99999}

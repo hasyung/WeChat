@@ -78,6 +78,8 @@ gem 'slim-rails', '~> 1.1.1'
 
 gem 'newrelic_rpm'
 
+gem 'spreadsheet'
+
 group :test, :development do
   gem 'better_errors'
   gem 'pry'

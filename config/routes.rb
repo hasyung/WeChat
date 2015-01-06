@@ -102,6 +102,7 @@ OneTripWeChat::Application.routes.draw do
     end
     resources :customers do
       match :assign, on: :member, via: [:get, :put]
+      match :import, on: :collection, via: [:get, :post]
     end
     scope path: 'settings' do
       resources :system_replies, path: 'replies', only: [:index]

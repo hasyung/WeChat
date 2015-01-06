@@ -1,0 +1,26 @@
+/! top toolbar
+- if can? :create, Customer
+  .btn-toolbar
+    .btn-group
+      = link_to admin_customers_path, class: :btn do
+        i.icon-arrow-left.bigger-110
+        span = t("buttons.back")
+
+.row-fluid
+  .span12
+    .widget-box
+      .widget-header.widget-header-blue.widget-header-flat.wi1dget-header-large
+        h5 = t("breadcrumbs.admin.customers.import")
+      .widget-body
+        .widget-main
+          = simple_form_for [:admin, @customer], url: import_admin_customers_path do |f|
+            = hidden_field_tag 'customer[admin_user_id]', current_admin_user.id
+            .row-fluid
+              .span4
+                = f.input :import_file do
+                  = f.file_field :import_file
+            /! buttons
+            .form-actions
+              button.btn.btn-primary.r-margin-10 type="submit"
+                i.icon-ok.bigger-110
+                span = t("buttons.submit")

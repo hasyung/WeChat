@@ -155,6 +155,7 @@
       mini_magick_processing_error: '使用 MiniMagick 处理影像时发生错误，也许上载的不是影像档？原错误：%{e}'
       no_attribute: '暂无'
       system_error: '出错啦！'
+      some_row_errors: '第【%{index}】行数据有误！'
       weixin:
         request_argument: '参数错误'
         request_invalid: '不是来自微信的访问'
@@ -162,10 +163,12 @@
         accept_file_types: '文件类型错误。'
         max_number_of_files: '超过最大上传数量。'
         max_file_size: '文件太大了，上传限制为 %{count} 。'
+        not_null: '导入文件不能为空！'
       customers:
         create: '创建客户失败！'
         update: '修改客户失败！'
         destroy: '删除客户失败！'
+        import: '导入客户失败，请重新上传！'
       kits:
         create: '创建急救用品失败！'
         update: '修改急救用品失败！'
@@ -238,6 +241,7 @@
         create: '创建客户成功！'
         update: '修改客户成功！'
         destroy: '删除客户成功！'
+        import: '导入客户成功！'
       kits:
         create: '创建急救用品成功！'
         update: '修改急救用品成功！'
@@ -508,6 +512,7 @@
         phone: '电话'
         department: '部门'
         created_at: '创建时间'
+        import_file: '导入文件'
       address:
         name: '收货人姓名'
         phone: '收货电话'
@@ -696,6 +701,7 @@
     customer_update: '你没有权限编辑客户'
     customer_destroy: '你没有权限删除客户'
     customer_assign: '你没有权限为客户分配管理员'
+    customer_import: '你没有权限导入客户'
     article_read: '你没有权限查看文章'
     article_create: '你没有权限创建文章'
     article_update: '你没有权限编辑文章'

@@ -13,7 +13,8 @@
         audio_profile:
           file: '必须上传，大小控制在20M，格式为：mp3'
       kit:
-        directory_id: '必须选择， 用于归类资源'
+        price: '必须填写'
+        description: '选填,长度在2000以内'
         kit_profile:
           file: '必须上传，大小控制在100M，格式为：mp4'
       article:
@@ -27,6 +28,20 @@
           type_cd: '必须选择，用于微信菜单的资源归类'
           body: '无URL地址时必须填写，用于展示给微信用户看的内容。'
           url: '必须以http://打头'
+      directory:
+        price: '必须填写'
+        description: '选填,长度在2000以内'
+      customer:
+        name: '必须填写，长度在2~10之间'
+        identity: '必须填写，且不能重复。长度在15~18之间，只能为阿拉伯数字和英文字母'
+        phone: '必须填写，长度在6~15之间，只能为阿拉伯数字'
+        department: '必须填写,长度在2~50之间'
+        import_file: '必须选择，只能为.xls类型文件，单元格请选择：文本格式(text)'
+        address:
+          name: '必须填写，长度在2~10之间'
+          phone: '必须填写，长度在6~15之间，只能为阿拉伯数字'
+          address: '必须填写，长度在2~100之间'
+          postcode: '选填,长度只能为6'
 
 
     labels:

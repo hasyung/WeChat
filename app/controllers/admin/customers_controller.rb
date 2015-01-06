@@ -37,6 +37,24 @@ class Admin::CustomersController < Admin::ApplicationController
     end
   end
 
+  def import
+    # 授权
+    authorize! :create, Customer, message: t('unauthorized.customer_import')
+    
+    @customer = Customer.new
+    if request.get?
+      add_breadcrumb :import
+    else
+      @customer.import_file = params[:customer][:import_file]
+      message = @customer.import_excel_file
+      if message.blank?
+        redirect_to admin_customers_path, notice: t('successes.messages.customers.import')
+      else
+        redirect_to admin_customers_path, alert: message + t('errors.messages.customers.import')
+      end
+    end
+  end
+
   def edit
     # 授权
     authorize! :update, Customer, message: t('unauthorized.customer_update')

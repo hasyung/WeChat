@@ -42,10 +42,12 @@ defaults: &defaults
   upload_audio_extension: ['mp3']
   upload_media_extension: ['swf', 'flv', 'mp3', 'wav', 'wma', 'wmv', 'mid', 'avi', 'mpg', 'asf', 'rm', 'rmvb', 'mp4']
   upload_file_extension: ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2']
+  upload_excel_extension: ['xls']
   # 上传大小
   audio_upload_size: 20
   image_upload_size: 5
   video_upload_size: 100
+  excel_upload_size: 10
 
   # GPS 距离
   distance: 20

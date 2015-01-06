@@ -53,7 +53,7 @@
         edit: '编辑客户'
         search: '搜索结果'
         assign: '分配管理员'
-        import: '导入'
+        import: '导入客户'
       kits:
         index: '急救用品列表'
         new: '添加急救用品'
