@@ -10,5 +10,7 @@ class CreateCustomers < ActiveRecord::Migration
 
     add_index  :customers, :name
     add_index  :customers, :identity, unique: true
+
+    add_column :members, :customer_id, :integer
   end
 end

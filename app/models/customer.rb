@@ -1,7 +1,6 @@
 class Customer < ActiveRecord::Base
   require 'spreadsheet'
   include Extension::DataTable
-  include Extension::Uploader
 
   attr_accessible :name, :identity, :phone, :department, :address_attributes
   attr_accessor   :import_file
@@ -10,11 +9,9 @@ class Customer < ActiveRecord::Base
   has_one     :member,  inverse_of: :customer
   has_one     :address, dependent: :destroy, inverse_of: :customer, :autosave => true
   belongs_to  :admin_user
+  has_many    :indents
 
   audited
-
-  # Extension::Uploader
-  # uploader_image :import_file, ExcelUploader, size: Setting.excel_upload_size
 
   # Validates
   validates :name, :identity, :phone, presence: true
@@ -41,12 +38,14 @@ class Customer < ActiveRecord::Base
     f = self.import_file.original_filename
     return I18n.t('errors.messages.fileupload.accept_file_types') unless Setting.upload_excel_extension.include?(f[f.length-3, f.length])
     
-    Spreadsheet.client_encoding = 'UTF-8'
-    book = Spreadsheet.open self.import_file.tempfile
-    sheet = book.worksheet 0
-    sheet.each_with_index do |row, index|
-      cus = Customer.create name: row[0], identity: row[1], phone: row[2], department: row[3]
-      return I18n.t('errors.messages.some_row_errors', index: index + 1) if cus.errors.messages.size > 0
+    Customer.transaction do
+      Spreadsheet.client_encoding = 'UTF-8'
+      book = Spreadsheet.open self.import_file.tempfile
+      sheet = book.worksheet 0
+      sheet.each_with_index do |row, index|
+        cus = Customer.create name: row[0], identity: row[1], phone: row[2], department: row[3]
+        return I18n.t('errors.messages.some_row_errors', index: index + 1) if cus.errors.messages.size > 0
+      end
     end
     return
   end

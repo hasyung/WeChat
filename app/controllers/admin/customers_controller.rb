@@ -100,7 +100,6 @@ class Admin::CustomersController < Admin::ApplicationController
   end
 
   def add_breadcrumbs
-    add_breadcrumb I18n.t('breadcrumbs.admin.resources.application.index'), admin_customers_path
     add_breadcrumb :index, admin_customers_path
   end
 end

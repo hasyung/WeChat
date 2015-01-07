@@ -15,8 +15,8 @@
         .widget-main
           = simple_form_for [:admin, @customer], url: import_admin_customers_path do |f|
             = hidden_field_tag 'customer[admin_user_id]', current_admin_user.id
-            .row-fluid
-              .span4
+            .row-fluid.b-margin-10
+              .span5
                 = f.input :import_file do
                   = f.file_field :import_file
             /! buttons

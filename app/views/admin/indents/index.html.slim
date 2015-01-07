@@ -1,0 +1,32 @@
+#indents
+  /! top toolbar
+  - if can? :create, Indent
+    .btn-toolbar
+      .btn-group
+        = link_to new_admin_indent_path, class: 'btn btn-primary' do
+          i.icon-file-text
+          span.l-padding-5 = t("breadcrumbs.admin.indents.new")
+  .widget-box.transparent
+    .widget-body
+      .widget-main
+        .table-header = t('breadcrumbs.admin.indents.index')
+        table#indents-datatables.table.table-striped.table-bordered.table-hover data-source="#{admin_indents_path}"
+          thead
+            tr
+              th = Indent.human_attribute_name :code
+              th = Indent.human_attribute_name :customer
+              th = Indent.human_attribute_name :kit
+              th = Indent.human_attribute_name :item_count
+              th = Indent.human_attribute_name :price_count
+              th = Indent.human_attribute_name :type_cd
+              th = Indent.human_attribute_name :created_at
+              th = t('buttons.actions')
+            tr
+              th
+              th
+              th
+              th
+              th
+              th
+              th
+              th

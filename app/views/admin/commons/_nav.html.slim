@@ -32,6 +32,8 @@
                     li = link_to t('breadcrumbs.admin.application.resources.kit'), admin_kits_path
                   - if can? :read, Directory
                     li = link_to t('breadcrumbs.admin.application.resources.directory'), admin_directories_path
+            - if can? :read, Indent
+              li class="#{active_page %w(indents), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.indent'), admin_indents_path
             - if can? :read, AdminUser
               li class="#{active_page %w(admin_users), namespace: 'admin', value: 'active'}" = link_to t('breadcrumbs.admin.application.admin_user'), admin_admin_users_path
             - if can?(:read, Audit)

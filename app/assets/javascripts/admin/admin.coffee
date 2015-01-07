@@ -42,6 +42,7 @@ $ ->
   com.onetrip.admin.dataTable.initAdminUserDataTable()
   com.onetrip.admin.dataTable.initCustomersDataTable()
   com.onetrip.admin.dataTable.initAuditsDataTable()
+  com.onetrip.admin.dataTable.initIndentsDataTable()
 
   com.onetrip.admin.menu.initMenu()
 

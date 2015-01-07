@@ -17,6 +17,7 @@
         vote: '投票'
         customer: '客户'
         address: '地址'
+        indent: '订单'
         settings:
           index: '设置'
           system_reply: '自动回复'
@@ -60,11 +61,10 @@
         edit: '编辑急救用品'
         search: '搜索结果'
         assign: '分配管理员'
-      articles:
-        index: '文章列表'
-        new: '添加文章'
-        edit: '编辑文章'
-        assign: '分配管理员'
+      indents:
+        index: '订单列表'
+        new: '添加订单'
+        edit: '编辑订单'
       albums:
         index: '图集'
         new: '添加图集'

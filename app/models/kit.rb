@@ -9,6 +9,7 @@ class Kit < Resource
   has_many   :directory_kits
   has_many   :directories, through: :directory_kits
   has_many   :images,    dependent: :destroy
+  has_many   :indents
 
   audited
 

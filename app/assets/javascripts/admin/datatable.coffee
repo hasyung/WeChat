@@ -101,6 +101,38 @@ Namespace 'com.onetrip.admin.dataTable',
       ]
     .fnSetFilteringDelay()
 
+  # 初始化订单的DataTable
+  initIndentsDataTable: ()->
+    $('#indents-datatables').dataTable
+      bSortCellsTop: true
+      aoColumns: [
+        { mData: 'code', sClass: 'date' }
+        { mData: 'customer.name', sClass: 'date' }
+        { mData: 'kit.title', sClass: 'date' }
+        { mData: 'item_count', sClass: 'date', bSortable: false }
+        { mData: 'price_count', sClass: 'date', bSortable: false }
+        { mData: 'type_cd', sClass: 'msg-type' }
+        { mData: 'created_at', sClass: 'date' }
+        { mData: 'actions.html', sClass: 'actions', bSortable: false }
+      ]
+      fnCreatedRow: (nRow, aData, iDataIndex)->
+        # 处理操作按钮
+        $(nRow).find('a[data-toggle="tooltip"]').tooltip
+          placement: 'bottom'
+    .columnFilter
+      sPlaceHolder: 'head:after'
+      aoColumns: [
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
+        null
+        null
+        null
+        null
+        null
+      ]
+    .fnSetFilteringDelay()
+
   # 初始化消息的DataTable
   initMessagesDataTable: ()->
     $('#messages-datatables').dataTable

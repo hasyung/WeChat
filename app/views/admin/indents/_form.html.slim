@@ -1,0 +1,37 @@
+= simple_form_for [:admin, @indent] do |f|
+  - unless @indent.new_record?
+    .row-fluid
+      .span3
+        = f.input :code, disabled: true
+  .row-fluid
+    .span3
+      = f.association :customer, collection: Customer.all.collect{ |c| [c.name, c.id] }, \
+      include_blank: false, input_html: { data: { width: '100%' } }
+  .row-fluid
+    .span3
+      = f.association :kit, collection: current_account.kits.collect{ |c| [c.title, c.id] }, \
+      include_blank: false, input_html: { data: { width: '100%' } }
+    .span3
+      = f.input :item_count
+  .row-fluid
+    .span4
+      = f.input :type_cd, collection: Indent.types_for_select(:value), prompt: false, input_html: { data: { width: '100%' } }
+  .row-fluid
+    .span3
+      = f.input :logistics
+    .span4
+      = f.input :logistics_code
+    .span3
+      = f.input :freight
+  .row-fluid
+    .span3
+      = f.input :price_count
+
+  /! buttons
+  .form-actions
+    button.btn.btn-primary.r-margin-10 type="submit"
+      i.icon-ok.bigger-110
+      span = t("buttons.submit")
+    = link_to admin_indents_path, class: :btn do
+      i.icon-arrow-left.bigger-110
+      span = t("buttons.back")

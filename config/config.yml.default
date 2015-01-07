@@ -49,6 +49,9 @@ defaults: &defaults
   video_upload_size: 100
   excel_upload_size: 10
 
+  #发货到收货时间
+  kit_exprise_in: 864000 #10天
+
   # GPS 距离
   distance: 20
 
@@ -141,6 +144,12 @@ defaults: &defaults
       two:   2
       three: 3
       four:  4
+    indent_type:
+      submit:  0
+      pass:   1
+      unpass:   2
+      shipment: 3
+      receipt:  4
 
   system_messages:
     subscribe: -1000

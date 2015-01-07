@@ -213,8 +213,8 @@
         destroy: '删除失败，请联系管理员。'
         remote_create: '发布失败，错误代码： %{code}, 错误信息：%{message}。'
         remote_destroy: '删除失败，错误代码： %{code}, 错误信息：%{message}。'
-      weathers:
-        destroy: '删除天气失败！'
+      indent:
+        destroy: '删除订单失败！'
       guides:
         destroy: '删除导游失败！'
       resources:
@@ -280,10 +280,10 @@
         action: '设置菜单动作成功！'
         remote_create: '菜单发布成功！'
         remote_destroy: '菜单删除成功！'
-      weathers:
-        create: '创建天气成功！'
-        update: '更新天气成功！'
-        destroy: '删除天气成功！'
+      indent:
+        create: '创建订单成功！'
+        update: '更新订单成功！'
+        destroy: '删除订单成功！'
       guides:
         create: '创建导游成功！'
         update: '更新导游成功！'
@@ -357,6 +357,7 @@
       image: '图片'
       customer: '客户'
       address: '地址管理'
+      indent: '订单'
     attributes:
       admin_user:
         realname: '昵称'
@@ -520,6 +521,17 @@
         postcode: '邮编'
         created_at: '创建时间'
         customer_id: '客户'
+      indent:
+        customer: '客户'
+        kit: '急救用品'
+        item_count: '数量'
+        logistics: '物流公司'
+        logistics_code: '物流号'
+        freight: '运费'
+        type_cd: '状态'
+        code: '订单号'
+        price_count: '总价'
+        created_at: '创建时间'
 
     roles:
       admin_users:
@@ -541,6 +553,8 @@
         directory_manager: '急救包管理员'
         customer: '客户录入员'
         customer_manager: '客户管理员'
+        indent: '订单录入员'
+        indent_manager: '订单管理员'
         kit: '急救用品录入员'
         kit_manager: '急救用品管理员'
         article: '文章录入员'
@@ -601,6 +615,13 @@
           two: '资源'
           three: '资源'
           four: '资源'
+      indent:
+        types:
+          submit: '待审核'
+          pass: '已通过'
+          unpass: '未通过'
+          shipment: '已发货'
+          receipt: '已收货'
 
       member:
         sexes:
@@ -682,10 +703,10 @@
     weather_create: '你没有权限创建天气'
     weather_update: '你没有权限编辑天气'
     weather_destroy: '你没有权限删除天气'
-    guide_read: '你没有权限查看导游'
-    guide_create: '你没有权限创建导游'
-    guide_update: '你没有权限编辑导游'
-    guide_destroy: '你没有权限删除导游'
+    indent_read: '你没有权限查看订单'
+    indent_create: '你没有权限创建订单'
+    indent_update: '你没有权限编辑订单'
+    indent_destroy: '你没有权限删除订单'
     audio_read: '你没有权限查看音频'
     audio_create: '你没有权限创建音频'
     audio_update: '你没有权限编辑音频'
