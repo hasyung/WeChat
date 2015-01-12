@@ -26,7 +26,7 @@
             span.help-inline = @kit.errors.get(:kit_profile).blank? ? @kit.errors.get(:"kit_profile.file").first : @kit.errors.get(:kit_profile).first
       - if not @kit.new_record?
         video#example_video_1.video-js controls="controls" preload="none" poster="#{@kit.cover.url}"
-          source src="#{@kit.kit_profile.file.url}" type='kit/mp4'
+          source src="#{@kit.kit_profile.file.url}" type='video/mp4'
   .row-fluid.b-margin-10
     = f.input :description, as: :text, input_html: { class: :span12, rows: 6 }
   /! buttons
