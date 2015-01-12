@@ -86,6 +86,7 @@
     qrcode_rebuild: '重建二维码'
     articles:
       new: '新增一条'
+    export_indents: '导出订单'
 
   messages:
     place_chose: '请选择'
@@ -215,6 +216,8 @@
         remote_destroy: '删除失败，错误代码： %{code}, 错误信息：%{message}。'
       indent:
         destroy: '删除订单失败！'
+        date_null: '开始时间和结束时间不能为空'
+        nil_data: '所选时间导出数据为空'
       guides:
         destroy: '删除导游失败！'
       resources:
@@ -527,11 +530,14 @@
         item_count: '数量'
         logistics: '物流公司'
         logistics_code: '物流号'
-        freight: '运费'
-        type_cd: '状态'
+        freight: '运费（单位：元）'
+        type_cd: '订单状态'
         code: '订单号'
-        price_count: '总价'
+        price_count: '总价（单位：元）'
         created_at: '创建时间'
+        start_date: '开始时间'
+        end_date: '结束时间'
+        count: '合计'
 
     roles:
       admin_users:

@@ -2,6 +2,20 @@
   /! top toolbar
   - if can? :create, Indent
     .btn-toolbar
+      .btn-right
+        = simple_form_for [:admin, @indent], url: export_admin_indents_path do |f|
+          .row-fluid
+            .span2
+              = f.input :type_cd, collection: Indent.types_for_select(:value), include_blank: t("messages.place_chose"), input_html: { data: { width: '100%' } }
+            .span2
+              = f.input :start_date, readonly: true, \
+              input_html: { class: 'input-block-level datetimepicker datetimepickerStart form_datetime' }
+            .span2
+              = f.input :end_date, readonly: true, \
+              input_html: { class: 'input-block-level datetimepicker datetimepickerStart form_datetime' }
+            .span4#export-indents
+              = f.submit t('buttons.export_indents'), class: 'btn btn-primary'
+    .btn-toolbar
       .btn-group
         = link_to new_admin_indent_path, class: 'btn btn-primary' do
           i.icon-file-text

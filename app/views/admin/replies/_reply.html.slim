@@ -18,15 +18,6 @@
           = link_to edit_admin_reply_path(reply), remote: true, class: 'r-margin-10', data: { toggle: :tooltip }, \
           title: t('breadcrumbs.admin.replies.edit') do
             i.icon-pencil.icon-large
-        - unless reply.is_system?
-          -if ((reply.scene_id.zero? and reply.scene_delete.blank?) or reply.scene_delete == true) and can? :create_qrcode, Reply
-            = link_to create_qrcode_admin_reply_path(reply), remote: true, method: :post, class: 'r-margin-10 create-qrcode', data: { toggle: :tooltip}, \
-            title: t('breadcrumbs.admin.replies.qrcode') do
-              i.icon-qrcode
-          - if can? :assign_user, Reply
-            = link_to assign_admin_reply_path(reply), remote: true, class: 'r-margin-10', data: { toggle: :tooltip }, \
-            title: t('breadcrumbs.admin.replies.assign') do
-              i.icon-male.icon-large
           - if can? :destroy, Reply
             = link_to admin_reply_path(reply), remote: true, method: :delete, data: { toggle: :tooltip, confirm: t('links.confirm') }, \
             title: t('breadcrumbs.admin.replies.destroy') do

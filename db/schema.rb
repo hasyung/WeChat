@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(:version => 20150106090810) do
     t.string   "logistics_code"
     t.float    "freight",        :default => 0.0
     t.float    "price_count",    :default => 0.0
-    t.integer  "type_cd",        :default => 0
+    t.integer  "type_cd",                         :null => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end

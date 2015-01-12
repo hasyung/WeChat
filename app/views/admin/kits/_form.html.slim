@@ -9,7 +9,7 @@
   .row-fluid
     .span4
       = f.simple_fields_for :kit_profile, @kit.new_record? ? @kit.build_kit_profile : @kit.kit_profile do |profile|
-        = profile.input :category_cd, collection: KitProfile.categories_for_select(:value), prompt: false, input_html: { data: { width: '100%' } }
+        = profile.input :category_cd, collection: KitProfile.categories_for_select(:value), include_blank: t("messages.place_chose"), input_html: { data: { width: '100%' } }
   .row-fluid.b-margin-10
     .span12
       = f.input :cover do

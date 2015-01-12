@@ -8,8 +8,9 @@ Namespace 'com.onetrip.admin.common',
   initDatetimepicker: ()->
     $('.datetimepicker')
     .datetimepicker
-      format: 'yyyy-mm-dd hh:ii'
+      format: 'yyyy-mm-dd'
       autoclose: true
+      minView: 'month'
     $('.datetimepickerEnd').datetimepicker 'setStartDate', $('.datetimepickerStart').val()
     $('.datetimepickerStart').datetimepicker 'setEndDate', $('.datetimepickerEnd').val()
     $('.datetimepickerStart').on 'change', ()->

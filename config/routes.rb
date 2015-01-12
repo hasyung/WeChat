@@ -66,9 +66,6 @@ OneTripWeChat::Application.routes.draw do
       match :resources, on: :collection, via: [:get, :post]
     end
     scope path: 'resources' do
-      resources :audios do
-        match :assign, on: :member, via: [:get, :put]
-      end
       resources :kits do
         match :assign, on: :member, via: [:get, :put]
         put :images_sort, on: :member
@@ -79,49 +76,24 @@ OneTripWeChat::Application.routes.draw do
       resources :directories do
         match :assign, on: :member, via: [:get, :put]
       end
-      resources :articles do
-        match :assign, on: :member, via: [:get, :put]
-      end
-      resources :albums do
-        match :assign, on: :member, via: [:get, :put]
-        put :images_sort, on: :member
-        resources :images do
-          get :list, on: :collection
-        end
-      end
-      resources :maps do
-        match :assign, on: :member, via: [:get, :put]
-      end
-      resources :merchants do
-        match :assign, on: :member, via: [:get, :put]
-        put :images_sort, on: :member
-        resources :merchant_images do
-          get :list, on: :collection
-        end
-      end
     end
     resources :customers do
       match :assign, on: :member, via: [:get, :put]
       match :import, on: :collection, via: [:get, :post]
     end
-    resources :indents
+    resources :indents do
+      post :export, on: :collection
+    end
 
     scope path: 'settings' do
       resources :system_replies, path: 'replies', only: [:index]
     end
-    resources :weathers
-    resources :guides
     resources :audits, only: [:index, :show]
     resources :admin_users do
       match 'setting', to: 'admin_users#setting', via: [:get, :post], on: :collection
     end
     resources :exceptions, path: '', only: [] do
       match 'unauthorized', to: 'exceptions#unauthorized', via: [:get, :delete], on: :collection
-    end
-    resources :votes, only: [:index, :new, :edit, :destroy] do
-      post :edit, on: :collection
-      get :export, on: :collection
-      match 'setting', to: 'votes#setting', via: [:get, :put], on: :collection
     end
   end
 

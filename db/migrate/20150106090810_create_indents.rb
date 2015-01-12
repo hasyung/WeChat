@@ -9,7 +9,7 @@ class CreateIndents < ActiveRecord::Migration
       t.string      :logistics_code
       t.float       :freight,     default: 0
       t.float       :price_count, default: 0
-      t.integer     :type_cd,     default: 0
+      t.integer     :type_cd,     null: false
       t.timestamps
     end
 
