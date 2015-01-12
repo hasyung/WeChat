@@ -73,7 +73,7 @@ class Admin::IndentsController < Admin::ApplicationController
     authorize! :read, Indent, message: t('unauthorized.indent_read')
 
     if params[:indent][:start_date].blank? || params[:indent][:end_date].blank?
-      redirect_to admin_indents_path, notice: t('errors.messages.indent.date_null')
+      redirect_to admin_indents_path, alert: t('errors.messages.indent.date_null')
     else
       @type_cd = params[:indent][:type_cd]
       @start_date = params[:indent][:start_date].to_date

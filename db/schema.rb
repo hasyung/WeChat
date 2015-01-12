@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20150106090810) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "customers", ["identity"], :name => "index_customers_on_identity", :unique => true
   add_index "customers", ["name"], :name => "index_customers_on_name"
 
   create_table "directory_kits", :force => true do |t|
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20150106090810) do
     t.integer  "action_cd",      :default => 0
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.integer  "customer_id"
   end
 
   add_index "members", ["account_id"], :name => "index_members_on_account_id"
