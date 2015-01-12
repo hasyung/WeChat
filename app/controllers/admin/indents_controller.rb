@@ -83,13 +83,12 @@ class Admin::IndentsController < Admin::ApplicationController
       filename = @type_cd.blank? ? filename + "X" : filename + @type_cd
       FileUtils.mkdir_p("export/indents/") unless File.directory?("export/indents/")
       path = "export/indents/#{filename}.xls"
-      unless File.exist?(path)
-        indents = Indent.where data_search
-        if indents.blank?
-          redirect_to admin_indents_path, alert: t('errors.messages.indent.nil_data')
-          return
-        end
-        Indent.export_indents_file indents, filename, @start_date.to_s, @end_date.to_s
+      indents = Indent.where data_search
+      if indents.blank?
+        redirect_to admin_indents_path, alert: t('errors.messages.indent.nil_data')
+        return
+      end
+      Indent.export_indents_file indents, filename, @start_date.to_s, @end_date.to_s
       end
       send_file path
     end
