@@ -8,10 +8,11 @@ OneTripWeChat::Application.routes.draw do
     controllers: { sessions: 'admin/admin_users/sessions', passwords: 'admin/admin_users/passwords' }
 
   scope path: 'weixin' do
-    resources :articles, :audios, :kits, :albums, :merchants, :guides, only: [:show]
-    resources :maps, only: [:index, :show]
-    match '/:alias/albums/:type_cd' => 'albums#index'
-    match '/:alias/merchants' => 'merchants#index'
+    resources :directories, only: [:index, :show] do
+      resources :kits, only: [:index, :show]
+    end
+
+    resources :indents, only: [:index, :show]
   end
 
   # weixin server routes

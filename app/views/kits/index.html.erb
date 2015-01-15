@@ -1,0 +1,21 @@
+<head>
+<title><%= t('breadcrumbs.admin.kits.index') %></title>
+</head>
+
+<body>
+<header>
+	<img src="<%= @parent.cover.middle1x.url %>" width="100%">
+</header>
+<div class="row pro-list">
+	<% if @models.present? %>
+		<% @models.each do |kit| %>
+			<div class="col-xs-12 col-sm-6"> 
+				<a href="<%= directory_kit_path(@parent, kit) %>"><img src="<%= kit.cover.middle1x.url %>"></a>
+				<h1><a href="<%= directory_kit_path(@parent, kit) %>"><%= kit.title %></a></h1>
+				<figcaption>标配 <%= kit.directory_kits.where(directory_id: @parent.id).first.items_count %></figcaption>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+</body>
+</html>

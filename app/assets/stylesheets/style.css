@@ -1,0 +1,30 @@
+h1,h2,h3 { margin:0px; padding:0px; font-weight:normal; font-size:100%;}
+.pro-list div { border-bottom:1px solid #e4e4e4; padding-bottom:10px;}
+.pro-list div:nth-child(odd) {border-right:1px solid #e4e4e4; height:calc(100% + 1px);}
+.pro-list img { width:95%; float:left;}
+.pro-list h1 { float:left; padding-left:10px;}
+.pro-list figcaption { width:auto; padding:1px 5px; float:right; margin-right:10px; font-size:12px; background-color:#f5a021; text-align:center; color:#fff;}
+.pro-detail { padding:20px;}
+.pro-detail h1 { font-size:18px; height:45px; font-weight:bold;}
+
+.pro-dh { height:35px; line-height:35px; border-bottom:1px solid #e4e4e4; border-top:1px solid #e4e4e4;}
+.pro-contrl {line-height:35px; height:35px; background-color:#f4f4f4;}
+.pro-contrl a { float:right; margin-right:15px; margin-top:4px;}
+.pro-contrl span { float:right; margin-right:15px;color:#f5a021;}
+.pro-address { height:70px; background-image:url(../images/addre.jpg); background-position:10px center; background-repeat:no-repeat; color:#fff; background-color:#a5adc0; padding:10px 10px 10px 50px;}
+.pro-address span { width:50%; float:left;}
+.pro-address span:last-child { float:right; text-align:right;}
+.pro-address p { font-size:12px; width:inherit; float:left;}
+
+
+
+
+
+
+
+
+
+
+
+
+

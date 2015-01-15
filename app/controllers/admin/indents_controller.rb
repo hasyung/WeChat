@@ -89,7 +89,6 @@ class Admin::IndentsController < Admin::ApplicationController
         return
       end
       Indent.export_indents_file indents, filename, @start_date.to_s, @end_date.to_s
-      end
       send_file path
     end
   end

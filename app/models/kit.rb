@@ -1,6 +1,7 @@
 class Kit < Resource
 
   attr_accessible :images_attributes, :kit_profile_attributes
+  attr_accessor :items_count
 
   # Relations
   has_one    :kit_profile, inverse_of: :kit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150106090810) do
+ActiveRecord::Schema.define(:version => 20150112080452) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                                   :null => false
@@ -102,10 +102,11 @@ ActiveRecord::Schema.define(:version => 20150106090810) do
   add_index "customers", ["name"], :name => "index_customers_on_name"
 
   create_table "directory_kits", :force => true do |t|
-    t.integer  "directory_id", :null => false
-    t.integer  "kit_id",       :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "directory_id",                :null => false
+    t.integer  "kit_id",                      :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "items_count",  :default => 0
   end
 
   create_table "images", :force => true do |t|

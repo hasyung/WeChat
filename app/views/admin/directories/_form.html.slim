@@ -24,9 +24,10 @@
           - Kit.all.each do |kit|
             label.checkbox.inline.span3
               = check_box_tag "directory[kits][#{kit}]", kit.id, @directory.kits.include?(kit), \
-              { name: "directory[kits][]" }
+              { name: "directory[kits][][id]" }
               span.lbl = "#{kit.title}"
-          = hidden_field_tag "directory[kits][]", ""
+              input name="directory[kits][][items_count]" class="span3" style="margin-left:10px;" value="#{DirectoryKit.where(directory_id:@directory,kit_id:kit).first.items_count if DirectoryKit.where(directory_id:@directory,kit_id:kit).present?}"
+              = hidden_field_tag "directory[kits][][id]", ""
 
   /! buttons
   .form-actions

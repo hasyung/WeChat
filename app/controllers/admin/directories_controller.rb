@@ -85,10 +85,12 @@ class Admin::DirectoriesController < Admin::ApplicationController
   end
 
   def add_kits
-    params[:directory]["kits"].delete("")
+    params[:directory]["kits"].delete_if{|k|k["id"].blank?}
     DirectoryKit.transaction do
       @directory.kits.clear
-      params[:directory]["kits"].each{|kit_id|@directory.kits << Kit.find(kit_id)}
+      params[:directory]["kits"].each do |kit|
+        DirectoryKit.create directory_id:@directory.id,kit_id:kit["id"],items_count:kit["items_count"].present? ? kit["items_count"].to_i : 1
+      end
     end
   end
 

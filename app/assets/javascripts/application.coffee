@@ -1,3 +1,2 @@
 # = require jquery
-# = require namespace
-# = require bootstrap
+# = require bootstrap3

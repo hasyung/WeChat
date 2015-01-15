@@ -6,7 +6,6 @@ html lang="zh-cn"
     meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"
     = yield :meta
     meta name="description" content="#{Setting.app_name_locale}"
-    title = content_for?(:title) ? yield(:title) : Setting.app_name_locale
     = csrf_meta_tags
 
     = stylesheet_link_tag 'application', media: :all

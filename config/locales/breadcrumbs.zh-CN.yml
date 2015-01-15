@@ -61,10 +61,12 @@
         edit: '编辑急救用品'
         search: '搜索结果'
         assign: '分配管理员'
+        show: '急救用品详情'
       indents:
         index: '订单列表'
         new: '添加订单'
         edit: '编辑订单'
+        show: '订单详情'
       albums:
         index: '图集'
         new: '添加图集'
@@ -85,6 +87,7 @@
         edit: '编辑急救包'
         search: '搜索结果'
         assign: '分配管理员'
+        show: '急救包详情'
       images:
         edit: '编辑图片'
         index: '图片'
