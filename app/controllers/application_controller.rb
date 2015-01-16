@@ -26,10 +26,10 @@ class ApplicationController < ActionController::Base
     if params[:customer_id].blank?
       account = Account.first
       path = Setting.domain + request.env["REQUEST_PATH"]
-      if params[:code].blank?
+      if params[:code].blank? && params[:openid].blank?
         account.get_oauth_code CGI.escape(path)
       else
-        openid = account.get_oauth_openid params[:code]
+        openid = account.get_oauth_openid params[:code] if params[:openid].blank?
         member = Member.find_by_open_id openid
         if member.customer.blank?
           redirect_to bound_customers_path(openid: openid, path: path), alert: t('errors.messages.customer.unbound')
