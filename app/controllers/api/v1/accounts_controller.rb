@@ -55,6 +55,8 @@ class Api::V1::AccountsController < Api::ApplicationController
 
   def request_event
     @object = Menu.where(id: weixin_request.body[:event_key]).first
+    @object = Menu.where(body: weixin_request.body[:event_key]).first
+    binding.pry
     @member.action = @object.action
     render xml: @object.to_weixin_xml(@member.open_id)
   end

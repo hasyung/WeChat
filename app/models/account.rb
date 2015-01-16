@@ -1,6 +1,7 @@
 class Account < ActiveRecord::Base
 
   include Extension::DataTable
+  require 'httpclient'
 
   audited
 
@@ -64,7 +65,7 @@ class Account < ActiveRecord::Base
   end
 
   def get_oauth_code path
-    RestClient.get "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{path}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
+    HTTPClient.new.get "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{path}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
   end
 
   def get_oauth_openid code
