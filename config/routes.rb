@@ -12,7 +12,13 @@ OneTripWeChat::Application.routes.draw do
       resources :kits, only: [:index, :show]
     end
 
-    resources :indents, only: [:index, :show]
+    resources :indents, only: [:index, :show, :create] do
+      put :unpass, on: :member
+    end
+
+    resources :customers, only: [] do
+      match :bound, on: :collection, via: [:get, :post]
+    end
   end
 
   # weixin server routes

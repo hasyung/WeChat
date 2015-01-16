@@ -7,14 +7,14 @@
 	<div class="pro-contant">
 		<img src="<%= @model.cover.middle1x.url %>" class="img-responsive">
 	</div>
-	<div class="pro-dh"><a href="index.html">[<%= KitProfile.categories_for_select[@model.kit_profile.category_cd][0] %>]</a><%= @model.title %></div>
+	<div class="pro-dh">[<%= KitProfile.categories_for_select[@model.kit_profile.category_cd][0] %>]<%= @model.title %></div>
 	<div class="pro-video">
 		这里是显示的视频
 	</div>
 </div>
 <div class="pro-contrl">
-	<a href="pro-list.html" class="btn">申请列表</a>
-	<a href="pro-add.html" class="btn btn-yellow">申请更换</a>
+	<a href="<%= indents_path(customer_id: params[:customer_id]) %>" class="btn">申请列表</a>
+	<a href="<%= indents_path(customer_id: params[:customer_id] , kit_id: @model.id, directory_id: params[:directory_id]) %>" class="btn btn-yellow">申请更换</a>
 </div>
 </body>
 </html>

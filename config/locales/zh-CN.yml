@@ -170,6 +170,7 @@
         update: '修改客户失败！'
         destroy: '删除客户失败！'
         import: '导入客户失败，请重新上传！'
+        unbound: '继续访问前请按下方提示绑定用户！'
       kits:
         create: '创建急救用品失败！'
         update: '修改急救用品失败！'
@@ -216,8 +217,9 @@
         remote_destroy: '删除失败，错误代码： %{code}, 错误信息：%{message}。'
       indent:
         destroy: '删除订单失败！'
-        date_null: '开始时间和结束时间不能为空'
-        nil_data: '所选时间导出数据为空'
+        date_null: '开始时间和结束时间不能为空！'
+        nil_data: '所选时间导出数据为空！'
+        unpass: '取消订单失败！'
       guides:
         destroy: '删除导游失败！'
       resources:
@@ -287,6 +289,7 @@
         create: '创建订单成功！'
         update: '更新订单成功！'
         destroy: '删除订单成功！'
+        unpass: '取消订单成功！'
       guides:
         create: '创建导游成功！'
         update: '更新导游成功！'
@@ -518,7 +521,7 @@
         created_at: '创建时间'
         import_file: '导入文件'
       address:
-        name: '收货人姓名'
+        name: '收货人'
         phone: '收货电话'
         address: '收货地址'
         postcode: '邮编'
@@ -527,12 +530,13 @@
       indent:
         customer: '客户'
         kit: '急救用品'
+        directory: '急救包'
         item_count: '数量'
         logistics: '物流公司'
-        logistics_code: '物流号'
+        logistics_code: '物流单号'
         freight: '运费（单位：元）'
         type_cd: '订单状态'
-        code: '订单号'
+        code: '订单编号'
         price_count: '总价（单位：元）'
         created_at: '创建时间'
         start_date: '开始时间'
@@ -623,11 +627,12 @@
           four: '资源'
       indent:
         types:
-          submit: '待审核'
-          pass: '已通过'
-          unpass: '未通过'
+          submit: '审核中'
+          pass: '审核通过'
+          unpass: '审核未过'
           shipment: '已发货'
           receipt: '已收货'
+          unpassed: '已取消'
 
       member:
         sexes:

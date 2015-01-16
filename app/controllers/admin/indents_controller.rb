@@ -30,6 +30,7 @@ class Admin::IndentsController < Admin::ApplicationController
     authorize! :create, Indent, message: t('unauthorized.indent_create')
     
     @indent = Indent.new params[:indent]
+    @indent.directory = @indent.kit.directories.first
     if @indent.save
       redirect_to admin_indents_path, notice: t('successes.messages.indent.create')
     else

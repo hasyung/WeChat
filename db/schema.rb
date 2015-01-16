@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20150112080452) do
   create_table "indents", :force => true do |t|
     t.integer  "customer_id",                     :null => false
     t.integer  "kit_id",                          :null => false
+    t.integer  "directory_id",                    :null => false
     t.string   "code",                            :null => false
     t.integer  "item_count",     :default => 1
     t.string   "logistics"

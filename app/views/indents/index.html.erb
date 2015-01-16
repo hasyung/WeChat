@@ -1,0 +1,34 @@
+<head>
+<title><%= t('breadcrumbs.admin.indents.index') %></title>
+</head>
+
+<body>
+	<% @models.each do |key, value| %>
+		<div class="pro-title"><%= key %></div>
+		<% value.each do |indent|%>
+			<div class="pro-addlt">
+				<div class="pro-num"><%= t('activerecord.attributes.indent.code') %>：<%= indent.code %></div>
+				<img src="<%= indent.kit.cover.middle1x.url %>">	<div class="info">
+					<a href="<%= indent_path(indent, customer_id: params[:customer_id]) %>"><%= indent.kit.title %></a><br>
+					申请时间：<%= I18n.l indent.created_at.to_date, format: :long %><br>
+					数量 * <%= indent.item_count %>		
+				</div>
+				<% if(indent.type_cd == 0) %>
+					<div class="contrl">
+						<span><%= Indent.types_for_select[indent.type_cd][0] %></span>	
+						<a href="<%= unpass_indent_path(indent, customer_id: params[:customer_id]) %>">取消审核</a>
+				<% elsif(indent.type_cd == 2) %>
+					<div class="contrl no">
+						<span><%= Indent.types_for_select[indent.type_cd][0] %></span>
+						<a href="<%= indents_path(customer_id: params[:customer_id] , kit_id: indent.kit_id, directory_id: indent.directory_id) %>">重新申请</a>
+				<% else %>
+					<div class="contrl">
+						<span><%= Indent.types_for_select[indent.type_cd][0] %></span>
+				<% end %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</body>
+</html>
+

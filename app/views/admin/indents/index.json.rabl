@@ -12,6 +12,9 @@ child @data_tables.records => :aaData do
     child :kit do
       node(:title) { |o| o.title }
     end
+    child :directory do
+      node(:title) { |o| o.title }
+    end
     node(:item_count) { |o| o.item_count }
     node(:price_count) { |o| o.price_count }
     node(:type_cd) { |o| Indent.types_for_select[o.type_cd][0] }

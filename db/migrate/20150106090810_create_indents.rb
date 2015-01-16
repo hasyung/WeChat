@@ -3,6 +3,7 @@ class CreateIndents < ActiveRecord::Migration
     create_table :indents do |t|
       t.references  :customer,    null: false
       t.references  :kit,         null: false
+      t.references  :directory,         null: false
       t.string      :code,        null: false
       t.integer     :item_count,  default: 1
       t.string      :logistics

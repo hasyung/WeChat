@@ -109,6 +109,7 @@ Namespace 'com.onetrip.admin.dataTable',
         { mData: 'code', sClass: 'date' }
         { mData: 'customer.name', sClass: 'date' }
         { mData: 'kit.title', sClass: 'date' }
+        { mData: 'directory.title', sClass: 'date' }
         { mData: 'item_count', sClass: 'date', bSortable: false }
         { mData: 'price_count', sClass: 'date', bSortable: false }
         { mData: 'type_cd', sClass: 'msg-type' }
@@ -122,6 +123,7 @@ Namespace 'com.onetrip.admin.dataTable',
     .columnFilter
       sPlaceHolder: 'head:after'
       aoColumns: [
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }

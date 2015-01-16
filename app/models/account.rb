@@ -63,6 +63,18 @@ class Account < ActiveRecord::Base
     end
   end
 
+  def get_oauth_code path
+    RestClient.get "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{path}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
+  end
+
+  def get_oauth_openid code
+    RestClient.get Setting.we_chat.oauth2_access_url,
+    params: { grant_type: :authorization_code, appid: self.app_id, secret: self.app_secret , code: code} do |response, request|
+      result = JSON.parse(response.body).symbolize_keys
+      return result[:openid]
+    end
+  end
+
   def menus_json
     ms = []
     menus.roots.non_deleted.each do |menu|

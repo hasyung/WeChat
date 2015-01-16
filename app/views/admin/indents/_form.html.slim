@@ -10,7 +10,7 @@
   .row-fluid
     .span3
       = f.association :kit, collection: current_account.kits.collect{ |c| [c.title, c.id] }, \
-      include_blank: t("messages.place_chose"), input_html: { data: { width: '100%' } }
+      include_blank: t("messages.place_chose"), input_html: { data: { width: '100%' }, id: 'select-indent-kit' }
     .span3
       = f.input :item_count
   .row-fluid

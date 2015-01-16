@@ -1,4 +1,5 @@
 Namespace 'com.onetrip.admin.common',
+
   # 初始化Bootstrap Select插件
   initSelectpicker: ()->
     $('select').selectpicker
