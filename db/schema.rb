@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150112080452) do
+ActiveRecord::Schema.define(:version => 20150117085922) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                                   :null => false
@@ -90,12 +90,13 @@ ActiveRecord::Schema.define(:version => 20150112080452) do
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
   create_table "customers", :force => true do |t|
-    t.string   "name",       :null => false
-    t.string   "identity",   :null => false
-    t.string   "phone",      :null => false
+    t.string   "name",                      :null => false
+    t.string   "identity",                  :null => false
+    t.string   "phone",                     :null => false
     t.string   "department"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "type_cd",    :default => 0
   end
 
   add_index "customers", ["identity"], :name => "index_customers_on_identity", :unique => true

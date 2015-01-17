@@ -12,8 +12,9 @@ OneTripWeChat::Application.routes.draw do
       resources :kits, only: [:index, :show]
     end
 
-    resources :indents, only: [:index, :show, :create] do
+    resources :indents, only: [:index, :show] do
       put :unpass, on: :member
+      get :change, on: :collection
     end
 
     resources :customers, only: [] do

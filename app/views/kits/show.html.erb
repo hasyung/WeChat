@@ -14,7 +14,7 @@
 </div>
 <div class="pro-contrl">
 	<a href="<%= indents_path(customer_id: params[:customer_id]) %>" class="btn">申请列表</a>
-	<a href="<%= indents_path(customer_id: params[:customer_id] , kit_id: @model.id, directory_id: params[:directory_id]) %>" class="btn btn-yellow">申请更换</a>
+	<a href="<%= change_indents_path(customer_id: params[:customer_id] , kit_id: @model.id, directory_id: params[:directory_id]) %>" class="btn btn-yellow">申请更换</a>
 </div>
 </body>
 </html>

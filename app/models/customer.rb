@@ -2,7 +2,7 @@ class Customer < ActiveRecord::Base
   require 'spreadsheet'
   include Extension::DataTable
 
-  attr_accessible :name, :identity, :phone, :department, :address_attributes
+  attr_accessible :name, :identity, :phone, :department, :address_attributes, :type_cd
   attr_accessor   :import_file
 
   # Relations
@@ -12,6 +12,8 @@ class Customer < ActiveRecord::Base
   has_many    :indents
 
   audited
+
+  as_enum :type, Setting.enums.customer_type.dup.symbolize_keys, prefix: true
 
   # Validates
   validates :name, :identity, :phone, presence: true

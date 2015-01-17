@@ -153,6 +153,9 @@ defaults: &defaults
       shipment: 3
       receipt:  4
       unpassed: 5
+    customer:
+      general: 0
+      admin: 1
 
   system_messages:
     subscribe: -1000

@@ -521,6 +521,7 @@
         department: '部门'
         created_at: '创建时间'
         import_file: '导入文件'
+        type_cd: '客户类型'
       address:
         name: '收货人'
         phone: '收货电话'
@@ -634,6 +635,10 @@
           shipment: '已发货'
           receipt: '已收货'
           unpassed: '已取消'
+      customer:
+        types:
+          general: '普通'
+          admin: '管理'
 
       member:
         sexes:
