@@ -1,7 +1,6 @@
 class Account < ActiveRecord::Base
 
   include Extension::DataTable
-  require 'httpclient'
 
   audited
 
@@ -64,10 +63,6 @@ class Account < ActiveRecord::Base
     end
   end
 
-  def get_oauth_code path
-    HTTPClient.new.get "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{path}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
-  end
-
   def get_oauth_openid code
     RestClient.get Setting.we_chat.oauth2_access_url,
     params: { grant_type: :authorization_code, appid: self.app_id, secret: self.app_secret , code: code} do |response, request|
@@ -83,14 +78,20 @@ class Account < ActiveRecord::Base
       if menu.subs.count.zero?
         js.merge!("type" => %(text resource).include?(menu.category.to_s) ? 'click' : 'view')
         js.merge!("key" => menu.id) if %(text resource).include?(menu.category.to_s)
-        js.merge!("url" => menu.body) if %(view).include?(menu.category.to_s)
+        if %(view).include?(menu.category.to_s)
+          url = "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{CGI.escape(menu.body)}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
+          js.merge!("url" => url)
+        end
       else
         sub_ms = []
         menu.subs.non_deleted.each do |sub_menu|
           sub_js = {"name" => sub_menu.name}
           sub_js.merge!("type" => %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view')
           sub_js.merge!("key" => sub_menu.id) if %(text resource).include?(sub_menu.category.to_s)
-          sub_js.merge!("url" => sub_menu.body) if %(view).include?(sub_menu.category.to_s)
+         if %(view).include?(sub_menu.category.to_s)
+            url = "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{CGI.escape(sub_menu.body)}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
+            sub_js.merge!("url" => url)
+          end
           sub_ms.push sub_js
         end
         js.merge!("sub_button" => sub_ms)
@@ -98,24 +99,6 @@ class Account < ActiveRecord::Base
       ms.push js
     end
     {"button" => ms}.to_json
-
-    # Jbuilder.encode do |json|
-    #   json.button json.array(menus.roots.non_deleted) do |menu|
-    #     json.name menu.name
-    #     if menu.subs.count.zero?
-    #       json.type %(text resource).include?(menu.category.to_s) ? 'click' : 'view'
-    #       json.key menu.id if %(text resource).include?(menu.category.to_s)
-    #       json.url menu.body if %(view).include?(menu.category.to_s)
-    #     else
-    #       json.sub_button json.array(menu.subs.non_deleted) do |sub_menu|
-    #         json.name sub_menu.name
-    #         json.type %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view'
-    #         json.key sub_menu.id if %(text resource).include?(sub_menu.category.to_s)
-    #         json.url sub_menu.body if %(view).include?(sub_menu.category.to_s)
-    #       end
-    #     end
-    #   end
-    # end
   end
 
   def create_menus

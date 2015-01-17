@@ -55,10 +55,7 @@ class Api::V1::AccountsController < Api::ApplicationController
 
   def request_event
     @object = Menu.where(id: weixin_request.body[:event_key]).first
-    @oauth = Menu.where(body: weixin_request.body[:event_key]).first
-    if @object.blank? && @oauth.present?
-      redirect_to @oauth.body(openid: @member.open_id)
-    end
+    return if @object.blank?
     @member.action = @object.action
     render xml: @object.to_weixin_xml(@member.open_id)
   end

@@ -171,6 +171,7 @@
         destroy: '删除客户失败！'
         import: '导入客户失败，请重新上传！'
         unbound: '继续访问前请按下方提示绑定用户！'
+        uncheck: '非法访问！'
       kits:
         create: '创建急救用品失败！'
         update: '修改急救用品失败！'
