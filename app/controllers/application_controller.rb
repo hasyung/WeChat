@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
       account = Account.first
       path = Setting.domain + request.env["REQUEST_PATH"]
       if params[:code].present?
+        openid = account.get_oauth_openid params[:code]
         member = Member.find_by_open_id openid
         if member.customer.blank?
           redirect_to bound_customers_path(openid: openid, path: path), alert: t('errors.messages.customer.unbound')
