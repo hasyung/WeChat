@@ -20,7 +20,7 @@
 				<% elsif(indent.type_cd == 2) %>
 					<div class="contrl no">
 						<span><%= Indent.types_for_select[indent.type_cd][0] %></span>
-						<a href="<%= indents_path(customer_id: params[:customer_id] , kit_id: indent.kit_id, directory_id: indent.directory_id) %>">重新申请</a>
+						<a href="<%= change_indents_path(customer_id: params[:customer_id] , kit_id: indent.kit_id, directory_id: indent.directory_id) %>">重新申请</a>
 				<% else %>
 					<div class="contrl">
 						<span><%= Indent.types_for_select[indent.type_cd][0] %></span>

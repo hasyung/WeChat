@@ -32,6 +32,7 @@ Namespace 'com.onetrip.admin.dataTable',
         { mData: 'name' }
         { mData: 'identity', sClass: 'date' }
         { mData: 'phone', sClass: 'date' }
+        { mData: 'type_cd', sClass: 'date' }
         { mData: 'created_at', sClass: 'date' }
         { mData: 'actions.html', sClass: 'actions', bSortable: false }
       ]
@@ -45,6 +46,7 @@ Namespace 'com.onetrip.admin.dataTable',
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 2 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 2 }
+        null
         null
         null
       ]
