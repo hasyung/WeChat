@@ -3,7 +3,7 @@ defaults: &defaults
   app_name: 'OneTrip Weixin'
   app_name_locale: '新方舟公众号管理平台'
   # domain: 'http://127.0.0.1:3000'
-  domain: 'http://114.215.142.122'
+  domain: '114.215.142.122'
 
   map_key: 'baaaac304561811303175c820920071e'
   app_id: 'wx06237246bc6b1de1'
