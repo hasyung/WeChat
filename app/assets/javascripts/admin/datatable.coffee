@@ -52,9 +52,6 @@ Namespace 'com.onetrip.admin.dataTable',
       ]
     .fnSetFilteringDelay()
 
-
-  # 初始化文章的DataTable
-
   # 初始化帐号的DataTable
   initAccountsDataTable: ()->
     $('#accounts-datatables').dataTable
@@ -109,13 +106,13 @@ Namespace 'com.onetrip.admin.dataTable',
       bSortCellsTop: true
       aoColumns: [
         { mData: 'code', sClass: 'date' }
-        { mData: 'customer.name', sClass: 'date' }
         { mData: 'kit.title', sClass: 'date' }
         { mData: 'directory.title', sClass: 'date' }
         { mData: 'item_count', sClass: 'date', bSortable: false }
-        { mData: 'price_count', sClass: 'date', bSortable: false }
+        { mData: 'customer.name', sClass: 'date' }
         { mData: 'type_cd', sClass: 'msg-type' }
         { mData: 'created_at', sClass: 'date' }
+        { mData: 'price_count', sClass: 'date', bSortable: false }
         { mData: 'actions.html', sClass: 'actions', bSortable: false }
       ]
       fnCreatedRow: (nRow, aData, iDataIndex)->
@@ -127,9 +124,9 @@ Namespace 'com.onetrip.admin.dataTable',
       aoColumns: [
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
-        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         null
+        null
+        { type: 'text', bRegex: true, bSmart: true, iFilterLength: 1 }
         null
         null
         null

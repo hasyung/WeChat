@@ -5,17 +5,31 @@
         = f.input :code, disabled: true
   .row-fluid
     .span3
-      = f.association :customer, collection: Customer.all.collect{ |c| [c.name, c.id] }, \
-      include_blank: t("messages.place_chose"), input_html: { data: { width: '100%' } }
+      - unless @indent.new_record?
+        = f.association :customer, collection: Customer.all.collect{ |c| [c.name, c.id] }, \
+        include_blank: false, disabled: true, input_html: { data: { width: '100%' } }
+      - else
+        = f.association :customer, collection: Customer.all.collect{ |c| [c.name, c.id] }, \
+        include_blank: false, input_html: { data: { width: '100%' } }
   .row-fluid
     .span3
-      = f.association :kit, collection: current_account.kits.collect{ |c| [c.title, c.id] }, \
-      include_blank: t("messages.place_chose"), input_html: { data: { width: '100%' }, id: 'select-indent-kit' }
+      - unless @indent.new_record?
+        = f.association :kit, collection: current_account.kits.collect{ |c| [c.title, c.id] }, \
+        include_blank: false, disabled: true, input_html: { data: { width: '100%' }, id: 'select-indent-kit' }
+      - else
+        = f.association :kit, collection: current_account.kits.collect{ |c| [c.title, c.id] }, \
+        include_blank: false, input_html: { data: { width: '100%' }, id: 'select-indent-kit' }
+      - unless @indent.new_record?
+        = f.association :directory, collection: current_account.directories.collect{ |c| [c.title, c.id] }, \
+        include_blank: false, disabled: true, input_html: { data: { width: '100%' }, id: 'select-indent-kit' }
     .span3
-      = f.input :item_count
+      - unless @indent.new_record?
+        = f.input :item_count, disabled: true
+      - else
+        = f.input :item_count
   .row-fluid
     .span4
-      = f.input :type_cd, collection: Indent.types_for_select(:value), include_blank: t("messages.place_chose"), input_html: { data: { width: '100%' } }
+      = f.input :type_cd, collection: Indent.types_for_select(:value), include_blank: false, input_html: { data: { width: '100%' } }
   .row-fluid
     .span3
       = f.input :logistics
@@ -25,7 +39,10 @@
       = f.input :freight
   .row-fluid
     .span3
-      = f.input :price_count
+      - unless @indent.new_record?
+        = f.input :price_count, disabled: true
+      - else
+        = f.input :price_count
 
   /! buttons
   .form-actions

@@ -1,7 +1,7 @@
 class Indent < ActiveRecord::Base
   include Extension::DataTable
 
-  attr_accessible :customer_id, :kit_id, :directory_id, :item_count, :logistics, :logistics_code, :freight, :type_cd
+  attr_accessible :customer_id, :kit_id, :directory_id, :item_count, :logistics, :logistics_code, :freight, :type_cd, :price_count
 
   attr_accessor   :start_date, :end_date
 
@@ -94,7 +94,7 @@ class Indent < ActiveRecord::Base
   end
 
   def set_price_count
-    self.price_count = self.kit.price * self.item_count - self.freight
+    self.price_count = self.kit.price * self.item_count - self.freight if self.price_count.blank? || !self.new_record?
     self.type_cd = 0 if self.type_cd.blank?
   end
   

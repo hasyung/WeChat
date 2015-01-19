@@ -153,7 +153,7 @@ defaults: &defaults
       shipment: 3
       receipt:  4
       unpassed: 5
-    customer:
+    customer_type:
       general: 0
       admin: 1
 

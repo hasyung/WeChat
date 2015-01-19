@@ -11,7 +11,7 @@ class Admin::IndentsController < Admin::ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        @data_tables = Indent.includes([:customer, :kit]).to_datatable(self)
+        @data_tables = Indent.includes([:customer, :kit, :directory]).to_datatable(self)
         render layout: false
       end
     end
@@ -80,7 +80,7 @@ class Admin::IndentsController < Admin::ApplicationController
       @start_date = params[:indent][:start_date].to_date
       @end_date = params[:indent][:end_date].to_date
 
-      filename = (@start_date.to_s + @end_date.to_s).gsub("-","").strip
+      filename = (@start_date.to_s + "_" + @end_date.to_s).gsub("-","").strip
       filename = @type_cd.blank? ? filename + "X" : filename + @type_cd
       FileUtils.mkdir_p("export/indents/") unless File.directory?("export/indents/")
       path = "export/indents/#{filename}.xls"
