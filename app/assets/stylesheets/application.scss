@@ -2,3 +2,25 @@
  * = require bootstrap3
  * = require style
  */
+ .login-container {
+ 	text-align: center;
+ }
+.alert-success {
+	color: green;
+}
+.alert-error {
+	color: red;
+}
+#flash-alert {
+	margin-left: 30%;
+	width:140px;
+	margin-bottom:15px;
+	button {
+		position: relative;
+		boder: 0;
+		height: 25px;
+		width: 25px;
+		padding-left: 10px;
+		top: -3px;
+	}
+}

@@ -5,7 +5,7 @@ class Admin::ResourcesController < Admin::ApplicationController
   respond_to :js
   
   def index
-    @data_tables = current_account.resources.to_datatable(self)
+    @data_tables = current_account.resources.where("type != 'Kit'").to_datatable(self)
     render layout: false
   end
   

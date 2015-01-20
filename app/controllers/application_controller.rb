@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   after_filter :reset_last_captcha_code!
-  # before_filter :authenticate_customer!
+  before_filter :authenticate_customer!
   
   def after_sign_in_path_for(resource)
     case resource.class.name.underscore.to_sym

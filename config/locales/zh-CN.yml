@@ -157,6 +157,7 @@
       no_attribute: '暂无'
       system_error: '出错啦！'
       some_row_errors: '第【%{index}】行数据有误！'
+      params_not_null: '参数不能为空!'
       weixin:
         request_argument: '参数错误'
         request_invalid: '不是来自微信的访问'
@@ -248,6 +249,7 @@
         update: '修改客户成功！'
         destroy: '删除客户成功！'
         import: '导入客户成功！'
+        bound: '客户绑定成功！'
       kits:
         create: '创建急救用品成功！'
         update: '修改急救用品成功！'
