@@ -30,12 +30,11 @@ class ApplicationController < ActionController::Base
         openid = account.get_oauth_openid params[:code]
         member = Member.find_by_open_id openid
         if member.customer.blank?
-          redirect_to bound_customers_path(openid: openid, path: path), alert: t('errors.messages.customers.unbound')
-        else
-          redirect_to path(customer_id: member.customer.id)
+          redirect_to bound_customers_path(openid: openid), alert: t('errors.messages.customers.unbound')
+          params[:customer_id] = member.customer.id
         end
       else
-        redirect_to bound_customers_path(path: path), alert: t('errors.messages.customers.uncheck')
+        redirect_to bound_customers_path, alert: t('errors.messages.customers.uncheck')
       end
     end
   end
