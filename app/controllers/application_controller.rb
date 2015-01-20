@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
         member = Member.find_by_open_id openid
         if member.customer.blank?
           redirect_to bound_customers_path(openid: openid), alert: t('errors.messages.customers.unbound')
+        else
           params[:customer_id] = member.customer.id
         end
       else
