@@ -12,10 +12,10 @@
 	color: red;
 }
 #flash-alert {
-	margin-left: 30%;
-	width:140px;
 	margin-bottom:15px;
+	text-align: center;
 	button {
+		visibility:hidden;
 		position: relative;
 		boder: 0;
 		height: 25px;
