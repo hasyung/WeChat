@@ -10,17 +10,19 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-list div:nth-child(odd) {border-right:1px solid #e4e4e4; height:calc(100% + 1px);}
 .pro-list img { width:95%; float:left; margin:20px 10px;}
 .pro-list h1 { float:left; padding-left:10px;}
-.pro-list a { color:#666; font-size:16px;}
+.pro-list a { color:#666;}
 .pro-list figcaption { width:auto; padding:1px 5px; float:right; font-size:12px; background-color:#f5a021; text-align:center; color:#fff;}
 .pro-detail { padding:20px;}
 .pro-detail h1 { font-size:18px; height:45px; font-weight:bold;}
 
 .pro-dh { height:35px; line-height:35px; border-bottom:1px solid #e4e4e4; border-top:1px solid #e4e4e4;}
-.pro-contrl {line-height:45px; height:45px; background-color:#f4f4f4;}
-.pro-contrl button { float:right; margin-right:15px; margin-top:8px;}
+.pro-contrl {line-height:60px; height:60px; background-color:#f4f4f4;}
+.pro-contrl a { float:right; margin-right:15px; margin-top:8px;}
+.pro-contrl a.btn { padding:7px 12px;}
 .pro-contrl span { float:right; margin-right:15px;color:#f5a021;}
 .pro-address { height:auto; background-image:url(kits/addre.jpg); background-position:20px center; background-size:15px 24px; background-repeat:no-repeat; color:#fff; background-color:#a5adc0; padding:10px 15px 10px 50px;}
-.pro-address-top { line-height:35px; width:inherit; height:35px;}
+.pro-address a { color:#fff; display:inline-block; padding-right:20px; background-image:url(kits/addre-r.jpg); background-size:12px 20px; background-repeat:no-repeat; background-position:right center;}
+.pro-address-top { line-height:35px; width:inherit; height:35px; padding-right:20px;}
 .pro-address-top span {float:left; font-size:16px;}
 .pro-address-top span:last-child { float:right; text-align:right;}
 .pro-address p { font-size:12px; width:inherit; margin:0px;}
@@ -43,7 +45,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-addlist dl p {margin-top: -10px; color: #999;margin-left: 20%;}
 .pro-addlist input {height: 31px;line-height: 31px;}
 .pro-addlist dl span {display: block;color: red;margin-left: 20%;margin-top:-10px;}
-#customer-change {margin-top: 0; margin-right: 30px;}
+#customer-change {margin-top: 0; margin-right: 50px; float: right;}
 
 .pro-title { border-bottom:1px solid #e4e4e4; color:#555; height:62px; line-height:62px; font-size:18px; padding-left:60px; font-weight:bold; background-image:url(kits/jjx.png); background-size:30px 27px; background-repeat:no-repeat; background-position:15px center;}
 .pro-addlt { line-height:25px; color:#a9a9a9; width:auto; height:140px; margin:15px; border-bottom:1px solid #e4e4e4;}
@@ -63,7 +65,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-kd p:first-child {color:#e6aa38; font-size:16px;}
 
 
-.login { background-color:#1e96d5; padding-top:30px;}
+.login { background-color:#1e96d5; padding-top:10px;}
 .login-container { width:auto; margin:50px 30px 0 30px;}
 .login button { float:right; height:40px; padding-left:20px; padding-right:20px; font-size:16px; background-color:#FFC15C; color:#fff;} 
 .login button:hover { color:#fff;} 
