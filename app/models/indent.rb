@@ -11,6 +11,9 @@ class Indent < ActiveRecord::Base
   belongs_to  :directory
 
   audited
+  
+  # Scopes
+  default_scope order("created_at DESC")
 
   as_enum :type, Setting.enums.indent_type.dup.symbolize_keys, prefix: true
 

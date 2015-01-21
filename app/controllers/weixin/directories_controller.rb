@@ -1,4 +1,4 @@
-class DirectoriesController < ApplicationController
+class Weixin::DirectoriesController < Weixin::ApplicationController
 
 	def index
 		@models = Directory.all

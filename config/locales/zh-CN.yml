@@ -250,6 +250,8 @@
         destroy: '删除客户成功！'
         import: '导入客户成功！'
         bound: '客户绑定成功！'
+        address_new: '新增收货信息成功！'
+        address_update: '修改收货信息成功！'
       kits:
         create: '创建急救用品成功！'
         update: '修改急救用品成功！'

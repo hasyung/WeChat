@@ -1,18 +1,23 @@
-* { font-family:"微软雅黑"}
+* { font-family:"微软雅黑"; background-repeat:no-repeat;}
+a,a:hover { text-decoration:none;}
 h1,h2,h3 { margin:0px; padding:0px; font-weight:normal; font-size:100%;}
 ul,li,p { list-style:none; margin:0px; padding:0px;}
 .clearfix { clear:both;}
-.pro-list div { border-bottom:1px solid #e4e4e4; padding-bottom:10px;}
+.pro-t { margin-top:20px; background-image:url(kits/pro-t.png); background-size:97px 22px; padding-left:10px;}
+.pro-t a { color:#fff;}
+.pro-list { border-top:1px solid #e4e4e4;}
+.pro-list div { border-bottom:1px solid #e4e4e4; padding-bottom:20px;}
 .pro-list div:nth-child(odd) {border-right:1px solid #e4e4e4; height:calc(100% + 1px);}
-.pro-list img { width:95%; float:left;}
+.pro-list img { width:95%; float:left; margin:20px 10px;}
 .pro-list h1 { float:left; padding-left:10px;}
-.pro-list figcaption { width:auto; padding:1px 5px; float:right; margin-right:10px; font-size:12px; background-color:#f5a021; text-align:center; color:#fff;}
+.pro-list a { color:#666; font-size:16px;}
+.pro-list figcaption { width:auto; padding:1px 5px; float:right; font-size:12px; background-color:#f5a021; text-align:center; color:#fff;}
 .pro-detail { padding:20px;}
 .pro-detail h1 { font-size:18px; height:45px; font-weight:bold;}
 
 .pro-dh { height:35px; line-height:35px; border-bottom:1px solid #e4e4e4; border-top:1px solid #e4e4e4;}
 .pro-contrl {line-height:45px; height:45px; background-color:#f4f4f4;}
-.pro-contrl a { float:right; margin-right:15px; margin-top:8px;}
+.pro-contrl button { float:right; margin-right:15px; margin-top:8px;}
 .pro-contrl span { float:right; margin-right:15px;color:#f5a021;}
 .pro-address { height:auto; background-image:url(kits/addre.jpg); background-position:20px center; background-size:15px 24px; background-repeat:no-repeat; color:#fff; background-color:#a5adc0; padding:10px 15px 10px 50px;}
 .pro-address-top { line-height:35px; width:inherit; height:35px;}
@@ -23,12 +28,22 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-add a { color:#555555;}
 .pro-add img { width:80px; height:80px; border:1px solid #ddd;}
 .pro-add-num { width:auto; height:60px; border-top:1px solid #e4e4e4; border-bottom:1px solid #e4e4e4;}
+.pro-add-num .pro-l { float:left; line-height:60px; padding-left:15px;}
+.pro-add-num .pro-r { float:right; padding:15px 15px 0 0;}
+.pro-add-num .pro-r a{float:left;display:block;overflow:hidden; border:1px solid #ddd; width:22px; height:29px; text-align:center; line-height:26px; color:#a9a9a9; font-weight:bold;}
+.pro-add-num .pro-r a.reduce{background-position:0 0;}
+.pro-add-num .pro-r a.reduce:hover{background-position:0 -16px;}
+.pro-add-num .pro-r a.add{background-position:-16px 0;}
+.pro-add-num .pro-r a.add:hover{background-position:-16px -16px;}
+.pro-add-num .pro-r .text{float:left;display:inline;border:solid 1px #ccc;padding:4px; text-align:center;width:40px;line-height:18px;font-size:14px;color:#a9a9a9;border-left:none; border-right:none;}
 
-.pro-addlist { height:300px; line-height:46px; width:100%;}
+.pro-addlist { height:300px; line-height:46px; width:100%;margin-top: 30px;}
+.pro-addlist dl {margin: 8px 0px 0px 15px;}
+.pro-addlist dl label {width: 20%; float: left;}
+.pro-addlist dl p {margin-top: -10px; color: #999;margin-left: 20%;}
 .pro-addlist input {height: 31px;line-height: 31px;}
-.pro-addlist dd { display:block; float:left; margin:0px;}
-.pro-addlist dd:first-child { width:25%; padding-left:15px; color:#666;}
-.pro-addlist dd { width:65%;}
+.pro-addlist dl span {display: block;color: red;margin-left: 20%;margin-top:-10px;}
+#customer-change {margin-top: 0; margin-right: 30px;}
 
 .pro-title { border-bottom:1px solid #e4e4e4; color:#555; height:62px; line-height:62px; font-size:18px; padding-left:60px; font-weight:bold; background-image:url(kits/jjx.png); background-size:30px 27px; background-repeat:no-repeat; background-position:15px center;}
 .pro-addlt { line-height:25px; color:#a9a9a9; width:auto; height:140px; margin:15px; border-bottom:1px solid #e4e4e4;}
@@ -53,7 +68,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .login button { float:right; height:40px; padding-left:20px; padding-right:20px; font-size:16px; background-color:#FFC15C; color:#fff;} 
 .login button:hover { color:#fff;} 
 .login button.btn-confirm { background-color:#50E3C2; padding-left:30px; padding-right:30px; margin-right:20px;} 
-.login .form-control {
-  padding: 8px 12px;
-}
+.login .form-control { padding: 8px 12px;}
 
+.service { background-color:#164a96; padding-top:30px;}
+.contact { background-color:#1e96d5; padding-top:50px;}

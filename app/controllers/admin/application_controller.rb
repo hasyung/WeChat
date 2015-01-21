@@ -1,5 +1,4 @@
 class Admin::ApplicationController < ActionController::Base
-  
   # add_breadcrumb :index, :admin_root_path
   
   before_filter :authenticate_admin_user!

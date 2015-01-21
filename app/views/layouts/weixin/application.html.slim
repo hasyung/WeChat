@@ -1,0 +1,21 @@
+doctype html
+html lang="zh-cn"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"
+    = yield :meta
+    meta name="description" content="#{Setting.app_name_locale}"
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: :all
+    = yield :styles
+
+    /! Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      javascript src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"
+
+  body
+    = yield
+    = javascript_include_tag 'application'
+    = yield :scripts

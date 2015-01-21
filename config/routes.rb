@@ -7,18 +7,19 @@ OneTripWeChat::Application.routes.draw do
     path_names: { sign_in: :login, sign_out: :logout, password: :secret },
     controllers: { sessions: 'admin/admin_users/sessions', passwords: 'admin/admin_users/passwords' }
 
-  scope path: 'weixin' do
+  namespace :weixin do
     resources :directories, only: [:index, :show] do
       resources :kits, only: [:index, :show]
     end
 
     resources :indents, only: [:index, :show] do
-      put :unpass, on: :member
-      get :change, on: :collection
+      get :unpass, on: :member
+      match :change, on: :collection, via: [:get, :post]
     end
 
     resources :customers, only: [] do
       match :bound, on: :collection, via: [:get, :post]
+      match :address, on: :member, via: [:get, :post]
     end
   end
 

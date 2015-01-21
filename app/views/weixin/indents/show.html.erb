@@ -17,7 +17,7 @@
 </div>
 <div class="pro-addlt pro-addsg">
 	<img src="<%= @model.kit.cover.middle1x.url %>">	<div class="info">
-		<a href="<%= directory_kit_path(@model.directory, @model.kit, customer_id: params[:customer_id]) %>"><%= @model.kit.title %></a><br>
+		<a href="<%= weixin_directory_kit_path(@model.directory, @model.kit, customer_id: params[:customer_id]) %>"><%= @model.kit.title %></a><br>
 		申请时间：<%= I18n.l @model.created_at.to_date, format: :long %><br>
 		数量 * <%= @model.item_count %>		
 	</div>

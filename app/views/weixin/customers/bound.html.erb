@@ -6,7 +6,7 @@
   <img src="/assets/kits/login.jpg" class="img-responsive">
   <div class="login-container">
    <%= bootstrap_flash %>
-  <%= simple_form_for :customer, url: bound_customers_path(openid: params[:openid], path: params[:path]) do |f| %>
+  <%= simple_form_for :customer, url: bound_weixin_customers_path(openid: params[:openid]) do |f| %>
       <div class="form-group">
         <input name="name" class="form-control" id="exampleInputEmail1" placeholder="员工姓名">
       </div>

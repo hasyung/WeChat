@@ -1,0 +1,34 @@
+<head>
+<title><%= @customer.address.blank? ? '新增' : '修改' %>收货信息</title>
+</head>
+
+<body>
+<%= simple_form_for :customer, url: address_weixin_customer_path(@customer, directory_id: params[:directory_id], kit_id: params[:kit_id]) do |f| %>
+   <%= f.simple_fields_for :address, @customer.address.blank? ? @customer.build_address : @customer.address do |profile| %>
+      <div class="pro-addlist">
+      <dl>
+         <%= profile.input :name, input_html: {  style: "width: 30%" } %>
+      </dl>
+      <dl>
+         <%= profile.input :phone, input_html: {  style: "width: 40%" } %>
+      </dl>
+      <dl>
+         <%= profile.input :postcode, input_html: {  style: "width: 20%" } %>
+      </dl>
+      <dl>
+         <%= profile.input :address, input_html: {  style: "width: 70%" } %>
+      </dl>
+      <dl class="pro-contrl" id="customer-change">
+         <button type="submit" class="btn btn-yellow">提交保存</button>
+      </dl>
+      </div>
+
+
+      
+   <% end %>
+<% end %>
+
+
+</body>
+</html>
+

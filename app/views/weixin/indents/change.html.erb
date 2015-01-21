@@ -1,0 +1,78 @@
+<head>
+<title>申请用品</title>
+</head>
+
+<body>
+<%= bootstrap_flash %>
+<div class="pro-address">
+	<div class="pro-address-top">
+		<span><%= t('activerecord.attributes.address.name') %>：<%= @customer.address.blank? ? "无" : @customer.address.name %></span>
+		<span><%= @customer.address.blank? ? "无" : @customer.address.phone %></span>
+	</div>
+	<p><%= t('activerecord.attributes.address.address') %>：<%= @customer.address.blank? ? "无" : @customer.address.address %></p>
+</div>
+<div class="pro-add">
+	<img src="<%= @kit.cover.middle1x.url %>">
+	<a href="#"><%= @kit.title %></a>
+</div>
+<%= simple_form_for :indent, url: change_weixin_indents_path(customer_id: @customer, directory_id: params[:directory_id], kit_id: params[:kit_id]) do |f| %>
+    <div class="pro-add-num">
+    	<div class="pro-l">更换数量</div>
+    	<div class="pro-r">
+    	<a class="reduce" onClick="setAmount.reduce('#qty_item_1')" href="javascript:void(0)">-</a>
+    	<input type="text" name="item_count" value="1" id="qty_item_1" onKeyUp="setAmount.modify('#qty_item_1')" class="text" />
+    	<a class="add" onClick="setAmount.add('#qty_item_1')" href="javascript:void(0)">+</a>
+    	</div>
+    </div>
+    <div class="pro-contrl">
+    	<button type="submit" class="btn btn-yellow">提交申请</button>
+    </div>
+<% end %>
+<script>
+var setAmount = {
+    min:1,
+    max:999,
+    reg:function(x) {
+        return new RegExp("^[1-9]\\d*$").test(x);
+    },
+    amount:function(obj, mode) {
+        var x = $(obj).val();
+        if (this.reg(x)) {
+            if (mode) {
+                x++;
+            } else {
+                x--;
+            }
+        } else {
+            alert("请输入正确的数量！");
+            $(obj).val(1);
+            $(obj).focus();
+        }
+        return x;
+    },
+    reduce:function(obj) {
+        var x = this.amount(obj, false);
+        if (x >= this.min) {
+            $(obj).val(x);
+        } else {
+            alert("商品数量最少为" + this.min);
+            $(obj).val(1);
+            $(obj).focus();
+        }
+    },
+    add:function(obj) {
+        var x = this.amount(obj, true);
+        if (x <= this.max) {
+            $(obj).val(x);
+        } else {
+            alert("商品数量最多为" + this.max);
+            $(obj).val(999);
+            $(obj).focus();
+        }
+    }
+}
+
+</script>
+</body>
+</html>
+
