@@ -5,13 +5,13 @@ class Weixin::CustomersController < Weixin::ApplicationController
 		if request.post?
 			redirect_to bound_weixin_customers_path, alert: t('errors.messages.customers.uncheck') and return if params[:openid].blank?
 			if params[:name].blank? || params[:identity].blank? || params[:phone].blank?
-				redirect_to bound_weixin_customers_path(openid: params[:openid]), alert: t('errors.messages.params_not_null') and return
+				redirect_to bound_weixin_customers_path(openid: params[:openid], path: params[:path]), alert: t('errors.messages.params_not_null') and return
 			end
 			customer = Customer.where(name: params[:name], identity: params[:identity], phone: params[:phone]).first
 			if customer.present?
 				member = Member.find_by_open_id params[:openid]
 				customer.member = member
-				redirect_to bound_weixin_customers_path(customer_id: customer.id), notice: t('successes.messages.customers.bound')
+				redirect_to params[:path] + "?customer_id=#{customer.id}", notice: t('successes.messages.customers.bound')
 			end
 		end
 	end

@@ -9,9 +9,9 @@ class Weixin::ApplicationController < ActionController::Base
       if params[:code].present?
         openid = account.get_oauth_openid params[:code]
         member = Member.find_by_open_id openid
-        Member.create(account_id: account, open_id: openid) if member.blank?
+        member = Member.create(account_id: account, open_id: openid) if member.blank?
         if member.customer.blank?
-          redirect_to bound_weixin_customers_path(openid: openid), alert: t('errors.messages.customers.unbound')
+          redirect_to bound_weixin_customers_path(openid: openid, path: request.path), alert: t('errors.messages.customers.unbound')
         else
           params[:customer_id] = member.customer.id
         end

@@ -8,6 +8,11 @@ OneTripWeChat::Application.routes.draw do
     controllers: { sessions: 'admin/admin_users/sessions', passwords: 'admin/admin_users/passwords' }
 
   namespace :weixin do
+    resources :home, only: [] do
+      get :contact, on: :collection
+      get :service, on: :collection
+    end
+
     resources :directories, only: [:index, :show] do
       resources :kits, only: [:index, :show]
     end
