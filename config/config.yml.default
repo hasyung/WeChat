@@ -46,7 +46,7 @@ defaults: &defaults
   # 上传大小
   audio_upload_size: 20
   image_upload_size: 5
-  video_upload_size: 100
+  video_upload_size: 300
   excel_upload_size: 10
 
   #发货到收货时间
@@ -146,6 +146,13 @@ defaults: &defaults
       two:   2
       three: 3
       four:  4
+      five: 5
+      sex: 6
+      seven: 7
+      eight: 8
+      nine: 9
+      ten: 10
+      eleven: 11
     indent_type:
       submit:  0
       pass:   1

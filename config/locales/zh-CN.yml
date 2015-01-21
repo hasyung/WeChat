@@ -626,11 +626,18 @@
 
       kit_profile:
         categories:
-          zero: '文本'
-          one: '图文'
-          two: '资源'
-          three: '资源'
-          four: '资源'
+          zero:  '清创消毒'
+          one:   '止血用品'
+          two:   '包扎用品'
+          three: '心肺急救'
+          four:  '应急逃生'
+          five: '紧急自卫'
+          sex: '烧伤急救'
+          seven: '药品'
+          eight: '止血敷料'
+          nine: '止血包扎固定'
+          ten: '辅助用品'
+          eleven: '其它'
       indent:
         types:
           submit: '审核中'
