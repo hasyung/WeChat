@@ -21,7 +21,7 @@
 					<% elsif(indent.type_cd == 2) %>
 						<div class="contrl no">
 							<span><%= Indent.types_for_select[indent.type_cd][0] %></span>
-							<a href="<%= @customer.address.present? ? change_weixin_indents_path(customer_id: params[:customer_id] , kit_id: indent.kit_id, directory_id: indent.directory_id) : address_weixin_customer_path(@customer, directory_id: indent.directory_id, kit_id: indent.kit_id) %>">重新申请</a>
+							<a href="<%= @customer.address.present? ? change_weixin_indents_path(customer_id: params[:customer_id] , kit_id: indent.kit_id, directory_id: indent.directory_id) : address_weixin_customers_path(customer_id: @customer, directory_id: indent.directory_id, kit_id: indent.kit_id) %>">重新申请</a>
 					<% else %>
 						<div class="contrl">
 							<span><%= Indent.types_for_select[indent.type_cd][0] %></span>

@@ -21,7 +21,7 @@ videojs.options.flash.swf = "video-js/video-js.swf";
 </div>
 <div class="pro-contrl">
 	<a href="<%= weixin_indents_path(customer_id: params[:customer_id]) %>" class="btn">申请列表</a>
-	<a href="<%= @customer.address.present? ? change_weixin_indents_path(customer_id: @customer , kit_id: @model.id, directory_id: params[:directory_id]) : address_weixin_customer_path(@customer, directory_id: params[:directory_id], kit_id: @model.id) %>" class="btn btn-yellow">申请更换</a>
+	<a href="<%= @customer.address.present? ? change_weixin_indents_path(customer_id: @customer , kit_id: @model.id, directory_id: params[:directory_id]) : address_weixin_customers_path(customer_id: @customer, directory_id: params[:directory_id], kit_id: @model.id) %>" class="btn btn-yellow">申请更换</a>
 </div>
 </body>
 </html>

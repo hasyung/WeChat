@@ -17,7 +17,7 @@ class Weixin::CustomersController < Weixin::ApplicationController
 	end
 
 	def address
-		@customer = Customer.find params[:id]
+		@customer = Customer.find params[:customer_id]
 		if request.post?
 			if @customer.address.blank?
 				@address = @customer.build_address params[:customer][:address]

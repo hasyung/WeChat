@@ -24,7 +24,7 @@ OneTripWeChat::Application.routes.draw do
 
     resources :customers, only: [] do
       match :bound, on: :collection, via: [:get, :post]
-      match :address, on: :member, via: [:get, :post]
+      match :address, on: :collection, via: [:get, :post]
     end
   end
 

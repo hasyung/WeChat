@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
   require 'spreadsheet'
   include Extension::DataTable
+  include ActiveModel::Validations
 
   attr_accessible :name, :identity, :phone, :department, :address_attributes, :type_cd
   attr_accessor   :import_file
@@ -16,13 +17,16 @@ class Customer < ActiveRecord::Base
   as_enum :type, Setting.enums.customer_type.dup.symbolize_keys, prefix: true
 
   # Validates
+  validate do
+    errors.add(:identity, "长度为15或18") if self.identity.length != 15 && self.identity.length != 18
+  end
+
   validates :name, :identity, :phone, presence: true
   with_options if: :name? do |customer|
     customer.validates :name, length: { in: 2..10 }
   end
   with_options if: :identity? do |customer|
     customer.validates :identity, uniqueness: true
-    customer.validates :identity, length: { in: 15..18 }
     customer.validates :identity, format: { with: /^[a-zA-Z\d]+$/ }
   end
   with_options if: :phone? do |customer|

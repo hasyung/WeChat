@@ -3,7 +3,7 @@
 </head>
 
 <body>
-<%= simple_form_for :customer, url: address_weixin_customer_path(@customer, directory_id: params[:directory_id], kit_id: params[:kit_id]) do |f| %>
+<%= simple_form_for :customer, url: address_weixin_customers_path(customer_id: @customer, directory_id: params[:directory_id], kit_id: params[:kit_id]) do |f| %>
    <%= f.simple_fields_for :address, @customer.address.blank? ? @customer.build_address : @customer.address do |profile| %>
       <div class="pro-addlist">
       <dl>

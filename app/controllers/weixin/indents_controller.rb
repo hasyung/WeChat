@@ -2,7 +2,7 @@ class Weixin::IndentsController < Weixin::ApplicationController
 
 	def index
 		indents = Indent.includes(:kit, :directory).all
-		@models = indents.group_by{|m| m.directory.title}
+		@models = indents.group_by{|m| m.directory.blank? ? '' : m.directory.title}
 		change_models = indents.select{|m| m.type_cd == 3 && m.logistics_code.present? && (DateTime.now.to_i - m.created_at.to_i) >= Setting.kit_exprise_in}
 		change_models.each do |model|
 			model.update_attributes(type_cd: 4)
