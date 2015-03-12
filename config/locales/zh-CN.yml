@@ -222,6 +222,8 @@
         date_null: '开始时间和结束时间不能为空！'
         nil_data: '所选时间导出数据为空！'
         unpass: '取消订单失败！'
+        check: '审核操作失败！'
+        check_authority: '您没有权限做订单审核操作！'
       guides:
         destroy: '删除导游失败！'
       resources:
@@ -295,6 +297,7 @@
         update: '更新订单成功！'
         destroy: '删除订单成功！'
         unpass: '取消订单成功！'
+        check: '审核操作成功！'
       guides:
         create: '创建导游成功！'
         update: '更新导游成功！'

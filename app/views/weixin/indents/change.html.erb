@@ -8,7 +8,7 @@
     <div class="pro-address">
     	<div class="pro-address-top">
     		<span><%= t('activerecord.attributes.address.name') %>：<%= @customer.address.blank? ? "无" : @customer.address.name %></span>
-    		<span><%= @customer.address.blank? ? "无" : @customer.address.phone %></span>
+    		<span><%= t('activerecord.attributes.address.phone') %>：<%= @customer.address.blank? ? "无" : @customer.address.phone %></span>
     	</div>
     	<p><%= t('activerecord.attributes.address.address') %>：<%= @customer.address.blank? ? "无" : @customer.address.address %></p>
     </div>

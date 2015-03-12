@@ -1,0 +1,27 @@
+<head>
+<title>待审核</title>
+</head>
+
+<body>
+
+<div class="pro-address">
+	<div class="pro-address-top">
+		<span><%= t('activerecord.attributes.address.name') %>：<%= @customer.address.blank? ? "无" : @customer.address.name %></span>
+		<span><%= @customer.address.blank? ? "无" : @customer.address.phone %></span>
+	</div>
+	<p><%= t('activerecord.attributes.address.address') %>：<%= @customer.address.blank? ? "无" : @customer.address.address %></p>
+</div>
+<div class="pro-addlt pro-addsg">
+	<img src="<%= @model.kit.cover.middle1x.url %>">	<div class="info">
+		<a href="#"><%= @model.kit.title %></a><br>
+		申请时间：<%= I18n.l @model.created_at.to_date, format: :long %><br>
+		数量 * <%= @model.item_count %>		
+	</div>
+</div>
+<div class="pro-contrl lastone-contrl">
+	<a href="<%= check_weixin_indent_path(@model, customer_id: params[:customer_id], type: 1) %>" class="btn">同 意</a>
+	<a href="<%= check_weixin_indent_path(@model, customer_id: params[:customer_id], type: 2) %>" class="btn btn-yellow">拒 绝</a>
+</div>
+
+</body>
+

@@ -74,3 +74,12 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 
 .service { background-color:#164a96; padding-top:30px;}
 .contact { background-color:#1e96d5; padding-top:50px;}
+
+.lastone-contrl { text-align:center;}
+.lastone-contrl a { float:none; margin-top:0px;}
+.lastone-contrl a.btn:first-child { background-color:#1d98d4; color:#fff;}     
+.last-contrl {text-align:center;}
+.last-contrl a { margin-top:0px; background-color:#fff; color:#1d98d4; border:1px solid #1d98d4; margin-right:-5px; border-radius:0px; border-top-right-radius:5px; border-bottom-right-radius:5px; float:none;}
+.last-contrl a:first-child {background-color:#fff; color:#1d98d4; border-radius:0px; border-top-left-radius:5px; border-bottom-left-radius:5px;}
+.last-contrl a.active { background-color:#1d98d4; color:#fff;}
+

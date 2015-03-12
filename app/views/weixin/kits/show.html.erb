@@ -6,22 +6,25 @@ videojs.options.flash.swf = "video-js/video-js.swf";
 </head>
 
 <body>
-<div class="row pro-detail">	
-	<div class="pro-contant">
-		<img src="<%= @model.cover.middle1x.url %>" class="img-responsive">
-	</div>
-	<div class="pro-dh">[<%= KitProfile.categories_for_select[@model.kit_profile.category_cd][0] %>]<%= @model.title %></div>
-	<div class="pro-video">
-		<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
-		      poster="<%= @model.cover.url %>"
-		      data-setup="{}">
-		    <source src="<%= @model.kit_profile.file.url %>" type='video/mp4' />
-		  </video>
-	</div>
+<div class="row pro-detail">  
+  <div class="pro-contant">
+    <img src="<%= @model.cover.middle1x.url %>" class="img-responsive">
+  </div>
+  <div class="pro-dh">[<%= KitProfile.categories_for_select[@model.kit_profile.category_cd][0] %>]<%= @model.title %></div>
+  <div class="pro-video">
+    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+          poster="<%= @model.cover.url %>"
+          data-setup="{}">
+        <source src="<%= @model.kit_profile.file.url %>" type='video/mp4' />
+      </video>
+  </div>
 </div>
 <div class="pro-contrl">
-	<a href="<%= weixin_indents_path(customer_id: params[:customer_id]) %>" class="btn">申请列表</a>
-	<a href="<%= @customer.address.present? ? change_weixin_indents_path(customer_id: @customer , kit_id: @model.id, directory_id: params[:directory_id]) : address_weixin_customers_path(customer_id: @customer, directory_id: params[:directory_id], kit_id: @model.id) %>" class="btn btn-yellow">申请更换</a>
+  <% if(@customer.type_cd == 1) %>
+    <a href="<%= checks_weixin_indents_path(customer_id: params[:customer_id]) %>" class="btn">审核列表</a>
+  <% end %>
+  <a href="<%= weixin_indents_path(customer_id: params[:customer_id]) %>" class="btn">申请列表</a>
+  <a href="<%= @customer.address.present? ? change_weixin_indents_path(customer_id: @customer , kit_id: @model.id, directory_id: params[:directory_id]) : address_weixin_customers_path(customer_id: @customer, directory_id: params[:directory_id], kit_id: @model.id) %>" class="btn btn-yellow">申请更换</a>
 </div>
 </body>
 </html>

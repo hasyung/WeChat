@@ -1,0 +1,32 @@
+<head>
+<title>已通过</title>
+</head>
+
+<body>
+<div class="pro-contrl last-contrl">
+  <a href="<%= checks_weixin_indents_path(customer_id: params[:customer_id]) %>" class="btn">待审核</a>
+  <a href="#" class="btn active">已通过</a>
+</div>
+
+<% if @models.present? %>
+    <% @models.each do |key, value| %>
+      <div class="pro-title"><%= key %></div>
+      <% value.each do |indent|%>
+        <div class="pro-addlt">
+          <div class="pro-num"><%= t('activerecord.attributes.indent.code') %>：<%= indent.code %></div>
+          <img src="<%= indent.kit.cover.middle1x.url %>"> <div class="info">
+            <a href="#"><%= indent.kit.title %></a><br>
+            申请时间：<%= I18n.l indent.created_at.to_date, format: :long %><br>
+            数量 * <%= indent.item_count %>
+          </div>
+          <div class="contrl">
+            <span><%= Indent.types_for_select[indent.type_cd][0] %></span>
+          </div>
+        </div>
+      <% end %>
+      <div class="pro-jg"></div>
+    <% end %>
+  <% end %>
+
+</body>
+
