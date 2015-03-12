@@ -52,7 +52,7 @@ class Weixin::IndentsController < Weixin::ApplicationController
     redirect_to weixin_indents_path(customer_id: @customer), alert: t('errors.messages.indent.check_authority') and return if @customer.type_cd == 0
     @model = Indent.find params[:id]
     if params[:type].present?
-      @model.type_cd = params[:type] == 0 ? 1 : 2
+      @model.type_cd = params[:type] == 1 ? 1 : 2
       if @model.save
         redirect_to checks_weixin_indents_path(customer_id: params[:customer_id]), notice: t('successes.messages.indent.check')
       else
