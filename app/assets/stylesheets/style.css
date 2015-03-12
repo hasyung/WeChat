@@ -17,7 +17,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 
 .pro-dh { height:35px; line-height:35px; border-bottom:1px solid #e4e4e4; border-top:1px solid #e4e4e4;}
 .pro-contrl {line-height:60px; height:60px; background-color:#f4f4f4;}
-.pro-contrl a { float:right; margin-right:15px; margin-top:8px;}
+.pro-contrl a, .pro-contrl button { float:right; margin-right:15px; margin-top:8px;}
 .pro-contrl a.btn { padding:7px 12px;}
 .pro-contrl span { float:right; margin-right:15px;color:#f5a021;}
 .pro-address { height:auto; background-image:url(kits/addre.jpg); background-position:20px center; background-size:15px 24px; background-repeat:no-repeat; color:#fff; background-color:#a5adc0; padding:10px 15px 10px 50px;}

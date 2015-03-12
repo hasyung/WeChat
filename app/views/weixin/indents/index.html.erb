@@ -3,6 +3,7 @@
 </head>
 
 <body>
+  <%= bootstrap_flash %>
   <% if @models.present? %>
     <% @models.each do |key, value| %>
       <div class="pro-title"><%= key %></div>
