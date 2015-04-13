@@ -5,7 +5,7 @@
 <body>
 <header>
 	<a href="<%= weixin_directory_path(@parent, customer_id: params[:customer_id]) %>">
-		<img src="<%= @parent.cover.middle1x.url %>" width="100%">
+		<img src="<%= @parent.cover.url %>" width="100%">
 	</a>
 </header>
 <% if @models.present? %>

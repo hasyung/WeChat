@@ -11,7 +11,7 @@ class WeiXinCoverUploader < ImageUploader
   end
 
   version :middle1x do
-    process resize_to_fill: [200, 280]
+    process resize_to_fit: [375, 400]
   end
 
   version :middle do
