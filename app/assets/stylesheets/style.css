@@ -1,6 +1,6 @@
 * { font-family:"微软雅黑"; background-repeat:no-repeat;}
 a,a:hover { text-decoration:none;}
-h1,h2,h3 { margin:0px; padding:0px; font-weight:normal; font-size:100%;}
+h1,h2,h3 { margin:0px; padding:0px; font-weight:normal; font-size:110%;}
 ul,li,p { list-style:none; margin:0px; padding:0px;}
 .clearfix { clear:both;}
 .pro-t { margin-top:20px; background-image:url(kits/pro-t.png); background-size:97px 22px; padding-left:10px;float: left;min-width: 320px;}
@@ -15,7 +15,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-detail { padding:20px;}
 .pro-detail h1 { font-size:18px; height:45px; font-weight:bold;}
 
-.pro-dh { height:35px; line-height:35px; border-bottom:1px solid #e4e4e4; border-top:1px solid #e4e4e4;}
+.pro-dh { height:35px; line-height:35px; border-bottom:1px solid #e4e4e4; border-top:1px solid #e4e4e4; font-size: 110%;}
 .pro-contrl {line-height:60px; height:60px; background-color:#f4f4f4;}
 .pro-contrl a, .pro-contrl button { float:right; margin-right:15px; margin-top:8px;}
 .pro-contrl a.btn { padding:7px 12px;}
@@ -83,3 +83,6 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .last-contrl a:first-child {background-color:#fff; color:#1d98d4; border-radius:0px; border-top-left-radius:5px; border-bottom-left-radius:5px;}
 .last-contrl a.active { background-color:#1d98d4; color:#fff;}
 
+.pro-video { margin-bottom:30px;}
+.pro-wz { line-height:23px;}
+.pro-wz span { color:#1e96d5;}
