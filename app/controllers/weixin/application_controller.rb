@@ -10,7 +10,8 @@ class Weixin::ApplicationController < ActionController::Base
         openid = account.get_oauth_openid params[:code]
         if openid
           member = Member.find_by_open_id(openid)
-          member.update_attributes(code: params[:code])
+          member.code = params[:code]
+          member.save
         else
           member = Member.find_by_code(params[:code])
         end
