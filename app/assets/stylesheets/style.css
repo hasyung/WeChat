@@ -3,9 +3,9 @@ a,a:hover { text-decoration:none;}
 h1,h2,h3 { margin:0px; padding:0px; font-weight:normal; font-size:100%;}
 ul,li,p { list-style:none; margin:0px; padding:0px;}
 .clearfix { clear:both;}
-.pro-t { margin-top:20px; background-image:url(kits/pro-t.png); background-size:97px 22px; padding-left:10px;}
+.pro-t { margin-top:20px; background-image:url(../images/pro-t.png); background-size:97px 22px; padding-left:10px;float: left;min-width: 320px;}
 .pro-t a { color:#fff;}
-.pro-list { border-top:1px solid #e4e4e4;}
+.pro-list { border-top:1px solid #e4e4e4;float: left;}
 .pro-list div { border-bottom:1px solid #e4e4e4; padding-bottom:20px;}
 .pro-list div:nth-child(odd) {border-right:1px solid #e4e4e4; height:calc(100% + 1px);}
 .pro-list img { width:95%; float:left; margin:20px 10px;}
