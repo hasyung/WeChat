@@ -14,7 +14,7 @@
     </div>
 </a>
 <div class="pro-add">
-	<img src="<%= @kit.cover.middle1x.url %>">
+	<img src="<%= @kit.cover.middle.url %>">
 	<a href="#"><%= @kit.title %></a>
 </div>
 <%= simple_form_for :indent, url: change_weixin_indents_path(customer_id: @customer, directory_id: params[:directory_id], kit_id: params[:kit_id]) do |f| %>

@@ -14,7 +14,7 @@
       <% value.each do |indent|%>
         <div class="pro-addlt">
           <div class="pro-num"><%= t('activerecord.attributes.indent.code') %>：<%= indent.code %></div>
-          <img src="<%= indent.kit.cover.middle1x.url %>"> <div class="info">
+          <img src="<%= indent.kit.cover.middle.url %>"> <div class="info">
             <a href="#"><%= indent.kit.title %></a><br>
             申请时间：<%= I18n.l indent.created_at.to_date, format: :long %><br>
             数量 * <%= indent.item_count %>
