@@ -16,7 +16,6 @@
 				<div class="col-xs-12 col-sm-6"> 
 					<a href="<%= weixin_directory_kit_path(@parent, kit, customer_id: params[:customer_id]) %>"><img src="<%= kit.cover.middle1x.url %>"></a>
 					<h1><a href="<%= weixin_directory_kit_path(@parent, kit, customer_id: params[:customer_id]) %>"><%= kit.title %></a></h1>
-					<figcaption>标配 <%= kit.directory_kits.where(directory_id: @parent.id).first.items_count %></figcaption>
 				</div>
 			<% end %>
 		</div>

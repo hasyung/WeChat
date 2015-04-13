@@ -12,7 +12,7 @@ videojs.options.flash.swf = "video-js/video-js.swf";
   </div>
   <div class="pro-dh">[<%= KitProfile.categories_for_select[@model.kit_profile.category_cd][0] %>]<%= @model.title %></div>
   <div class="pro-video">
-    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="100%" height="264"
           poster="<%= @model.cover.url %>"
           data-setup="{}">
         <source src="<%= @model.kit_profile.file.url %>" type='video/mp4' />
