@@ -18,7 +18,7 @@ videojs.options.flash.swf = "video-js/video-js.swf";
         <source src="<%= @model.kit_profile.file.url %>" type='video/mp4' />
       </video>
   </div>
-  <div class="pro-wz"><%= @model.description %></div>
+  <div class="pro-wz"><p><%= @model.description %></p></div>
 </div>
 <div class="pro-contrl">
   <% if(@customer.type_cd == 1) %>
