@@ -76,7 +76,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 
 .service { background-color:#014da1; padding-top:30px;}
 .contact { background-color:#00a0e9; padding-top:50px;}
-.noright { height:40px; width:65%; background-image:url(kits/warning.png); background-size:26px 26px; background-position:10px center; line-height:40px; padding-left:40px; margin:0 auto; background-color:#1E5F7F; border-radius:4px; color:#FFA512;}
+.login-container .noright { height:40px; width:65%; background-image:url(kits/warning.png); background-size:26px 26px; background-position:10px center; line-height:40px; padding-left:40px; margin:0 auto; background-color:#1E5F7F; border-radius:4px; color:#FFA512;}
 
 .lastone-contrl { text-align:center;}
 .lastone-contrl a { float:none; margin-top:0px;}
