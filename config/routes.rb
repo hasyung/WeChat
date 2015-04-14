@@ -11,6 +11,7 @@ OneTripWeChat::Application.routes.draw do
     resources :home, only: [] do
       get :contact, on: :collection
       get :service, on: :collection
+      get :check_authority, on: :collection
     end
 
     resources :directories, only: [:index, :show] do

@@ -6,4 +6,7 @@ end
 def service
 end
 
+def check_authority
+end
+
 end
