@@ -1400,24 +1400,24 @@ hr {
       -ms-user-select: none;
           user-select: none;
   background-image: none;
-  border: 1px solid #1d98d4;
-  color:#1d98d4;
+  border: 1px solid #00A0E9;
+  color:#00A0E9;
   border-radius: 4px;
   background-color:#fff;
 }
 .btn:hover {
-  	color:#1d98d4;
+  	color:#00A0E9;
 	text-decoration:none;
 }
 .btn-yellow {
 	color:#fff;
-	border-color:#f5a021;
-	background-color:#f5a021;
+	border-color:#FFA512;
+	background-color:#FFA512;
 }
 .btn-yellow:hover {
 	text-decoration:none;
 	color:#fff;
-	background-color:#f5a021;
+	background-color:#FFA512;
 }
 .form-control {
   display: block;

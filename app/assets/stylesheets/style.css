@@ -11,7 +11,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-list img { width:95%; float:left; margin:20px 10px;}
 .pro-list h1 { float:left; padding-left:10px;}
 .pro-list a { color:#666;}
-.pro-list figcaption { width:auto; padding:1px 5px; float:right; font-size:12px; background-color:#f5a021; text-align:center; color:#fff;}
+.pro-list figcaption { width:auto; padding:1px 5px; float:right; font-size:12px; background-color:#FFA512; text-align:center; color:#fff;}
 .pro-detail { padding:20px;}
 .pro-detail h1 { font-size:18px; height:45px; font-weight:bold;}
 
@@ -19,7 +19,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-contrl {line-height:60px; height:60px; background-color:#f4f4f4;}
 .pro-contrl a, .pro-contrl button { float:right; margin-right:15px; margin-top:8px;}
 .pro-contrl a.btn { padding:7px 12px;}
-.pro-contrl span { float:right; margin-right:15px;color:#f5a021;}
+.pro-contrl span { float:right; margin-right:15px;color:#FFA512;}
 .pro-address { height:auto; background-image:url(kits/addre.jpg); background-position:20px center; background-size:15px 24px; background-repeat:no-repeat; color:#fff; background-color:#a5adc0; padding:10px 15px 10px 50px;}
 .pro-address a { color:#fff; display:inline-block; padding-right:20px; background-image:url(kits/addre-r.jpg); background-size:12px 20px; background-repeat:no-repeat; background-position:right center;}
 .pro-address-top { line-height:35px; width:inherit; height:35px; padding-right:20px;}
@@ -55,9 +55,9 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .pro-addlt .info a { font-size:16px; line-height:30px; font-size:16px;}
 .pro-addlt .contrl {height:80px; float:right; width:60px;}
 .pro-addlt .contrl span,.pro-addlt .contrl a { font-size:12px;height:30px; float:right; width:60px; text-align:right;}
-.pro-addlt .contrl a { border:1px solid #1f96d8; color:#1f96d8; border-radius:4px; height:25px; line-height:23px; text-align:center; padding:0 5px; width:70px;}
+.pro-addlt .contrl a { border:1px solid #00A0E9; color:#00A0E9; border-radius:4px; height:25px; line-height:23px; text-align:center; padding:0 5px; width:70px;}
 .pro-addlt .contrl.no span { color:#cd2228;}
-.pro-addlt .contrl.no a { border:1px solid #f49f1e; color:#f49f1e;}
+.pro-addlt .contrl.no a { border:1px solid #FFA512; color:#FFA512;}
 .pro-jg { width:100%; height:20px; background-color:#f1f1f1;}
 .pro-num { height:30px; color:#e6aa38;}
 .pro-addsg { height:100px;}
@@ -67,7 +67,7 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 
 .login { background-color:#1e96d5; padding-top:10px;}
 .login-container { width:auto; margin:50px 30px 0 30px;}
-.login button { float:right; height:40px; padding-left:20px; padding-right:20px; font-size:16px; background-color:#FFC15C; color:#fff;} 
+.login button { float:right; height:40px; padding-left:20px; padding-right:20px; font-size:16px; background-color:#FFA512; color:#fff;} 
 .login button:hover { color:#fff;} 
 .login button.btn-confirm { background-color:#50E3C2; padding-left:30px; padding-right:30px; margin-right:20px;} 
 .login .form-control { padding: 8px 12px;}
@@ -79,9 +79,9 @@ ul,li,p { list-style:none; margin:0px; padding:0px;}
 .lastone-contrl a { float:none; margin-top:0px;}
 .lastone-contrl a.btn:first-child { background-color:#1d98d4; color:#fff;}     
 .last-contrl {text-align:center;}
-.last-contrl a { margin-top:0px; background-color:#fff; color:#1d98d4; border:1px solid #1d98d4; margin-right:-5px; border-radius:0px; border-top-right-radius:5px; border-bottom-right-radius:5px; float:none;}
-.last-contrl a:first-child {background-color:#fff; color:#1d98d4; border-radius:0px; border-top-left-radius:5px; border-bottom-left-radius:5px;}
-.last-contrl a.active { background-color:#1d98d4; color:#fff;}
+.last-contrl a { margin-top:0px; background-color:#fff; color:#00A0E9; border:1px solid #00A0E9; margin-right:-5px; border-radius:0px; border-top-right-radius:5px; border-bottom-right-radius:5px; float:none;}
+.last-contrl a:first-child {background-color:#fff; color:#00A0E9; border-radius:0px; border-top-left-radius:5px; border-bottom-left-radius:5px;}
+.last-contrl a.active { background-color:#00A0E9; color:#fff;}
 
 .pro-video { margin-bottom:30px;}
 .pro-wz { line-height:23px;}
