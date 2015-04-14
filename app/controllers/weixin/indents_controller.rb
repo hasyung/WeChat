@@ -63,7 +63,7 @@ class Weixin::IndentsController < Weixin::ApplicationController
 
   def records
     @customer = Customer.find params[:customer_id]
-    redirect_to weixin_indents_path(customer_id: @customer), alert: t('errors.messages.indent.check_authority') and return if @customer.type_cd == 0
+    redirect_to check_authority_weixin_home_index_path(customer_id: @customer), alert: t('errors.messages.indent.check_authority') and return if @customer.type_cd == 0
     @models = Indent.includes(:kit, :directory).where("type_cd in (?)", [1, 3, 4]).group_by{|m| m.directory.blank? ? '' : m.directory.title}
   end
 end
