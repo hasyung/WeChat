@@ -79,7 +79,7 @@ class Account < ActiveRecord::Base
         js.merge!("type" => %(text resource).include?(menu.category.to_s) ? 'click' : 'view')
         js.merge!("key" => menu.id) if %(text resource).include?(menu.category.to_s)
         if %(view).include?(menu.category.to_s)
-          url = "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{CGI.escape(menu.body)}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
+          url = "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{CGI.escape(menu.body)}&response_type=code&scope=snsapi_userinfo&state=200#wechat_redirect"
           js.merge!("url" => url)
         end
       else
@@ -89,7 +89,7 @@ class Account < ActiveRecord::Base
           sub_js.merge!("type" => %(text resource).include?(sub_menu.category.to_s) ? 'click' : 'view')
           sub_js.merge!("key" => sub_menu.id) if %(text resource).include?(sub_menu.category.to_s)
          if %(view).include?(sub_menu.category.to_s)
-            url = "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{CGI.escape(sub_menu.body)}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
+            url = "#{Setting.we_chat.oauth2_get_code_url}?appid=#{self.app_id}&redirect_uri=#{CGI.escape(sub_menu.body)}&response_type=code&scope=snsapi_userinfo&state=200#wechat_redirect"
             sub_js.merge!("url" => url)
           end
           sub_ms.push sub_js

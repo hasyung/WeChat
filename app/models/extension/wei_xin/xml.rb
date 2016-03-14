@@ -62,7 +62,7 @@ module Extension
                   elsif resource.type == 'Merchant' and resource.merchant_profile.url.present?
                     xml.text resource.merchant_profile.url
                   else
-                    xml.text "#{Setting.we_chat.oauth2_get_code_url}?appid=#{account.app_id}&redirect_uri=#{CGI.escape(polymorphic_url([:weixin, resource, Kit]))}&response_type=code&scope=snsapi_base&state=200#wechat_redirect"
+                    xml.text "#{Setting.we_chat.oauth2_get_code_url}?appid=#{account.app_id}&redirect_uri=#{CGI.escape(polymorphic_url([:weixin, resource, Kit]))}&response_type=code&scope=snsapi_userinfo&state=200#wechat_redirect"
                   end
                 end
               }
