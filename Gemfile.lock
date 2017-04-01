@@ -1,19 +1,19 @@
 GIT
-  remote: git@code.jd.com:yh8102326/ace-theme-rails.git
-  revision: 51d6b48dc0fee92219c5c37a11021175b3cd437e
-  specs:
-    ace-theme-rails (0.0.2)
-      slim-rails (~> 1.1.1)
-
-GIT
   remote: https://github.com/fnando/i18n-js.git
   revision: 363270c0f343af205a980c3bd6897e8d52ed1a1c
   specs:
     i18n-js (3.0.0.rc8)
       i18n (~> 0.6)
 
+GIT
+  remote: https://github.com/hasyung/ace-theme-rails.git
+  revision: c0d2ff735a85ae586d80f8cb1482e021b6b2d928
+  specs:
+    ace-theme-rails (0.0.2)
+      slim-rails (~> 1.1.1)
+
 GEM
-  remote: http://ruby.taobao.org/
+  remote: https://gems.ruby-china.org/
   specs:
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
